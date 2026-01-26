@@ -4,3 +4,16 @@ body{
     font-family: var(--font-luxury), sans-serif;
     
 }
+@keyframes gold-pulse {
+    0%, 100% { 
+        box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+        transform: scale(1) 
+    }
+    50% { 
+        box-shadow: 0 0 80px rgba(212, 175, 55, 0.5);
+        transform: scale(1.02) 
+    }
+}
+animate-gold-pulse {
+    animation: gold-pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

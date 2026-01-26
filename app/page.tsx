@@ -104,21 +104,22 @@ export default function HomePage() {
               transition={{ duration: 1.5, delay: 0.6 }}
               className="mt-20"
             >
-        <motion.div
+       <motion.div
   initial={{ opacity: 0 }}
   whileInView={{ opacity: 1 }}
   viewport={{ once: true }}
   transition={{ duration: 1.5, delay: 0.6 }}
-  className="mt-20"
+  className="mt-20  flex justify-center"
 >
   <Link 
     href="/matchmake"
-    className="group relative inline-block overflow-hidden  px-50 py-20 text-xs font-bold uppercase tracking-[0.5em] text-black transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(212,175,55,0.25)]"
+    /* Increased py-32 to py-48 for massive height */
+    className="group relative inline-block overflow-hidden rounded-sm px-50 py-40 md:px-90 md:py-60 text-sm font-bold uppercase tracking-[0.8em] text-black transition-all hover:scale-105 active:scale-95 animate-gold-pulse shadow-[0_0_50px_rgba(212,175,55,0.2)]"
     style={{
       background: 'linear-gradient(180deg, #AF8A3F 0%, #D4AF37 30%, #F9E498 50%, #D4AF37 70%, #AF8A3F 100%)',
     }}
   >
-    {/* 1. The Text Label - Ensured it stays centered with wide tracking */}
+    {/* 1. The Text Label */}
     <span className="relative z-10 block whitespace-nowrap">
       Enter The Lounge
     </span>
@@ -128,13 +129,13 @@ export default function HomePage() {
        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/90 to-transparent -translate-x-full group-hover:animate-shimmer" />
     </div>
 
-    {/* 3. Luxury Bevel - Top Edge Highlight */}
-    <div className="absolute inset-0 border-t-2 border-white/40 rounded-full z-15 pointer-events-none" />
-    
-    {/* 4. Soft Bottom Shadow (Inner) for 3D depth */}
-    <div className="absolute inset-0 border-b-2 border-black/20 rounded-full z-15 pointer-events-none" />
+    {/* 3. Beveling & Depth */}
+    <div className="absolute inset-0 border-t-4 border-white/40 z-15 pointer-events-none" />
+    <div className="absolute inset-0 border-b-4 border-black/40 z-15 pointer-events-none" />
+    <div className="absolute inset-0 border-x-2 border-white/10 z-15 pointer-events-none" />
   </Link>
 </motion.div>
+
 
 
             </motion.div>
