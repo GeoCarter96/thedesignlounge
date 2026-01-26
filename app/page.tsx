@@ -105,7 +105,7 @@ export default function HomePage() {
               className="mt-20"
             >
               <Link 
-                href="/capture"
+                href="/matchmake"
                 className="rounded-full bg-white px-16 py-5 text-xs font-bold uppercase tracking-[0.3em] text-black hover:bg-neutral-200 transition-all hover:scale-105 active:scale-95"
               >
                 Enter The Lounge

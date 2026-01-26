@@ -1,0 +1,109 @@
+
+
+"use client";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import './privatelounge.css';
+const COLLECTION = [
+  { id: "01", category: "Stationery", title: "The Obsidian Planner", price: "$65", link: "/products/planner" },
+  { id: "02", category: "Assets", title: "The Atelier Flyer", price: "$45", link: "/products/flyer" },
+  { id: "03", category: "Digital", title: "The Masterclass", price: "$250", link: "/course" },
+];
+
+export default function PrivateloungePage() {
+  return (
+    <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-32 pb-40">
+      
+      {/* 1. EDITORIAL HEADER */}
+      <section className="px-10 max-w-7xl mx-auto pb-24 border-b border-white/5">
+        <motion.p 
+          initial={{ opacity: 0, letterSpacing: "0.2em" }}
+          animate={{ opacity: 0.4, letterSpacing: "0.6em" }}
+          transition={{ duration: 1.5 }}
+          className="uppercase text-[10px] mb-6 font-light"
+        >
+          Curated Excellence // Volume I
+        </motion.p>
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="font-serif-display text-5xl md:text-8xl font-extralight tracking-tighter"
+        >
+          The <span className="italic text-[#D4AF37]">Private Lounge</span> Experience
+        </motion.h1>
+      </section>
+
+      {/* 2. THE TRIPTYCH GRID */}
+      <section className="px-10 max-w-7xl mx-auto py-32">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
+          {COLLECTION.map((item, i) => (
+            <motion.div 
+              key={item.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: i * 0.2 }}
+              className="group flex flex-col"
+            >
+              {/* IMAGE PLACEHOLDER: The 4:5 Monolith */}
+              <div className="relative aspect-[4/5] w-full bg-neutral-950 border border-white/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-1000 group-hover:border-[#D4AF37]/40">
+                
+                {/* Minimalist Visual Anchor */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-30 transition-opacity duration-1000">
+                   <div className="flex flex-col items-center gap-6">
+                      <div className="w-[1px] h-12 bg-gradient-to-b from-transparent via-[#D4AF37] to-transparent" />
+                      <p className="text-[8px] uppercase tracking-[0.6em] text-white">Visual Refinement</p>
+                   </div>
+                </div>
+
+                {/* Actual Product Image */}
+                <img 
+                  src={`/product-${item.id}.jpg`} 
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 group-hover:scale-105"
+                  onLoad={(e) => (e.currentTarget.style.opacity = "0.8")}
+                  onError={(e) => (e.currentTarget.style.display = "none")}
+                />
+
+                {/* The Signature Gold Shine Overlay */}
+                <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
+                   <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
+                </div>
+              </div>
+
+              {/* PRODUCT METADATA */}
+              <div className="mt-10 flex flex-col items-start">
+                <div className="flex justify-between w-full items-baseline">
+                  <span className="text-[9px] text-[#D4AF37] tracking-[0.5em] uppercase font-medium">{item.category}</span>
+                  <span className="text-sm font-extralight opacity-40">{item.price}</span>
+                </div>
+                
+                <h3 className="text-2xl font-serif-display mt-3 italic group-hover:text-[#D4AF37] transition-colors duration-500">
+                  {item.title}
+                </h3>
+                
+                <Link 
+                  href={item.link}
+                  className="mt-8 text-[10px] uppercase tracking-[0.4em] text-white/30 border-b border-white/5 pb-1 hover:text-white hover:border-white transition-all duration-500"
+                >
+                  View Details —
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. VIGNETTE CLOSURE */}
+      <section className="py-40 border-t border-white/5 text-center">
+         <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 0.2 }}
+            className="text-[10px] uppercase tracking-[1em]"
+         >
+            Exclusivity is a Dialogue
+         </motion.p>
+      </section>
+    </div>
+  );
+}

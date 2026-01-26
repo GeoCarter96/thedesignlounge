@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import './sidebar.css';
 
 
 export default function Sidebar() {
@@ -44,39 +45,41 @@ export default function Sidebar() {
           X
         </button>
 
-    <nav className="flex flex-col gap-10">
-  {['Home', 'Freebies', 'Testimonials', 'Contact'].map((item, i) => (
-    <motion.div
-      key={item}
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: 0.1 * i }}
-    >
-      <Link 
-        href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-        className="relative block text-4xl font-extralight tracking-tighter group overflow-hidden"
-        onClick={() => setIsOpen(false)}
+   {/* Scrollable Container Wrapper */}
+<div className="flex-1 overflow-y-auto pr-4 custom-scrollbar">
+  <nav className="flex flex-col gap-10">
+    {['Home', 'Freebies', 'Testimonials',  'Courses', 'Ebooks','Flyers','Planners','PrivateLounge','Owner', 'Contact'].map((item, i) => (
+      <motion.div
+        key={item}
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.1 * i }}
       >
-        {/* The Base Gold Text */}
-        <span className="bg-gradient-to-b from-[#D4AF37] via-[#F9E498] to-[#AF8A3F] bg-clip-text text-transparent drop-shadow-[0_0_5px_rgba(212,175,55,0.3)]">
-          {item}
-        </span>
+        <Link 
+          href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(/\s+/g, '-')}`}
+          className="relative block text-4xl font-extralight tracking-tighter group overflow-hidden"
+          onClick={() => setIsOpen(false)}
+        >
+          {/* The Base Gold Text */}
+          <span className="bg-gradient-to-b from-[#D4AF37] via-[#F9E498] to-[#AF8A3F] bg-clip-text text-transparent drop-shadow-[0_0_5px_rgba(212,175,55,0.3)]">
+            {item}
+          </span>
 
-        {/* The Animated "Glistening" Layer */}
-        <span 
-          className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-shimmer pointer-events-none"
-          style={{
-            WebkitMaskImage: 'linear-gradient(black, black)', // Fallback mask
-            maskImage: 'linear-gradient(black, black)',
-            WebkitBackgroundClip: 'text',
-            backgroundClip: 'text',
-          }}
-        />
-      </Link>
-    </motion.div>
-  ))}
-</nav>
-
+          {/* The Animated "Glistening" Layer */}
+          <span 
+            className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-shimmer pointer-events-none"
+            style={{
+              WebkitMaskImage: 'linear-gradient(black, black)',
+              maskImage: 'linear-gradient(black, black)',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+            }}
+          />
+        </Link>
+      </motion.div>
+    ))}
+  </nav>
+</div>
 
         
       </motion.div>

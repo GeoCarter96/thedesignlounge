@@ -23,30 +23,33 @@ export default function Navbar() {
   hover:bg-gradient-to-b 
   hover:from-[#D4AF37] hover:via-[#F9E498] hover:to-[#AF8A3F]
   hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">Home</Link>
-          <Link href="/analysis" className="transition-all duration-500 cursor-pointer
+          <Link href="/freebies" className="transition-all duration-500 cursor-pointer
   text-white/80 
   hover:text-transparent 
   hover:bg-clip-text 
   hover:bg-gradient-to-b 
   hover:from-[#D4AF37] hover:via-[#F9E498] hover:to-[#AF8A3F]
   hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">Freebies</Link>
-          <Link href="/summary"className="transition-all duration-500 cursor-pointer
+          <Link href="/testimonials"className="transition-all duration-500 cursor-pointer
   text-white/80 
   hover:text-transparent 
   hover:bg-clip-text 
   hover:bg-gradient-to-b 
   hover:from-[#D4AF37] hover:via-[#F9E498] hover:to-[#AF8A3F]
   hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">Testimonials</Link>
-        </div>
-    <button className="hidden md:block transition-all duration-500 cursor-pointer
+   <Link href="/owner" className="transition-all duration-500 cursor-pointer
   text-white/80 
   hover:text-transparent 
   hover:bg-clip-text 
   hover:bg-gradient-to-b 
   hover:from-[#D4AF37] hover:via-[#F9E498] hover:to-[#AF8A3F]
-  hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">
-  Need Something? The Lounge Listens.
-</button>
+  hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">About The Owner</Link>
+        </div>
+    <Link href="/contact">
+  <button className="hidden md:block transition-all duration-500 cursor-pointer text-white/80 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-b hover:from-[#D4AF37] hover:via-[#F9E498] hover:to-[#AF8A3F] hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">
+    Need Something? The Lounge Listens.
+  </button>
+</Link>
 
 
       </nav>
