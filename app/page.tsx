@@ -1,65 +1,156 @@
-import Image from "next/image";
+'use client'
+import './homepage.css';
+import Link from 'next/link';
+import { motion } from "framer-motion";
+import { useEffect } from 'react';
 
-export default function Home() {
+
+
+
+// 1. Move data outside to keep the component clean
+const SOCIAL_LINKS = [
+  { name: 'Instagram', href: 'https://instagram.com' },
+  { name: 'LinkedIn', href: 'https://linkedin.com' },
+  { name: 'Behance', href: 'https://behance.net' },
+  { name: 'Twitter', href: 'https://twitter.com' },
+];
+
+export default function HomePage() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div>
+      <div className="relative h-full w-full bg-black">
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster="/placeholder.png"
+          className="absolute z-0 h-full w-full object-cover opacity-60"
+        >
+          <source src="/video.mp4" type="video/mp4" />
+        </video>
+
+        {/* Hero Content Wrapper */}
+        <div className="relative z-10 flex flex-col items-center w-full">
+          
+          {/* CONTAINER 1: THE VISUAL (Logo) */}
+          <div className="flex h-screen w-full items-center justify-center px-4">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="relative w-full max-w-4xl aspect-[16/9] md:aspect-[21/9] group"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <img 
+                src="/logo3.png" 
+                alt="The Design Lounge Logo"
+                className="absolute inset-0 w-full h-full object-contain p-12 z-10 transition-transform duration-1000 group-hover:scale-[1.02]" 
+              />
+              <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
+                <div 
+                  className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/60 to-transparent -translate-x-full group-hover:animate-shimmer" 
+                  style={{
+                    WebkitMaskImage: 'url(/logo3.png)',
+                    maskImage: 'url(/logo3.png)',
+                    WebkitMaskSize: 'contain',
+                    maskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    maskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskPosition: 'center',
+                  }}
+                />
+              </div>
+            </motion.div>
+          </div>
+
+          {/* CONTAINER 2: THE EDITORIAL */}
+          <div className="flex min-h-screen w-full flex-col items-center justify-center bg-black backdrop-blur-sm text-center text-white px-4 py-32">
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="max-w-3xl text-3xl md:text-5xl font-extralight tracking-tight leading-relaxed"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              Welcome To <span className="font-normal italic">The Design Lounge</span> – Where Luxury Meets Creativity. 
+      Where Bold Ideas Are Curated, Not Rushed, And Your Brand Is Treated Like An Experience, Not A Task.
+            </motion.p>
+
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="mt-12 max-w-md text-sm uppercase tracking-[0.5em] opacity-40 font-light"
+            >
+              Your Seat Is Reserved ✨
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, delay: 0.6 }}
+              className="mt-20"
+            >
+              <Link 
+                href="/capture"
+                className="rounded-full bg-white px-16 py-5 text-xs font-bold uppercase tracking-[0.3em] text-black hover:bg-neutral-200 transition-all hover:scale-105 active:scale-95"
+              >
+                Enter The Lounge
+              </Link>
+            </motion.div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div>
+
+      {/* FOOTER SECTION */}
+      <footer className="w-full bg-black border-t border-white/10 pt-24 pb-12 px-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
+          <div className="flex flex-col gap-6">
+            <h3 className="text-xs uppercase tracking-[0.4em] text-white/40">Inquiries</h3>
+            <Link 
+              href="/contact" 
+              className="text-2xl md:text-3xl font-extralight text-white tracking-tight hover:text-[#D4AF37] transition-colors duration-500"
+            >
+              Visit Concierge's Desk
+            </Link>
+            <p className="text-sm font-light text-white/60 tracking-wide">Based in Indiana // Globally Available</p>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <h3 className="text-xs uppercase tracking-[0.4em] text-white/40">Connect</h3>
+            <div className="flex flex-wrap gap-x-12 text-white gap-y-4">
+              {/* 2. Using the map function here */}
+              {SOCIAL_LINKS.map((link) => (
+                <Link 
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm uppercase tracking-[0.2em] hover:text-white transition-all duration-300 group relative"
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#D4AF37] transition-all duration-500 group-hover:w-full" />
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
-      </main>
+
+        <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-white/5 flex justify-between items-center text-[10px] uppercase tracking-[0.3em] text-white/20">
+          <p>© 2026 The Design Lounge</p>
+          <p>All Rights Reserved</p>
+        </div>
+      </footer>
     </div>
   );
 }
