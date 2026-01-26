@@ -94,7 +94,7 @@ export default function HomePage() {
               transition={{ duration: 1, delay: 0.4 }}
               className="mt-12 max-w-md text-sm uppercase tracking-[0.5em] opacity-40 font-light"
             >
-              Your Seat Is Reserved ✨
+              Your Seat Is Reserved 
             </motion.p>
 
             <motion.div
