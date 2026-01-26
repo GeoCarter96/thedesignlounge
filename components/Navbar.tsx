@@ -28,7 +28,7 @@ export default function Navbar() {
   hover:from-[#D4AF37] hover:via-[#F9E498] hover:to-[#AF8A3F]
   hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">Testimonials</Link>
         </div>
-       <button className="transition-all duration-500 cursor-pointer
+    <button className="hidden md:block transition-all duration-500 cursor-pointer
   text-white/80 
   hover:text-transparent 
   hover:bg-clip-text 
@@ -37,6 +37,7 @@ export default function Navbar() {
   hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">
   Need Something? The Lounge Listens.
 </button>
+
 
       </nav>
     </div>

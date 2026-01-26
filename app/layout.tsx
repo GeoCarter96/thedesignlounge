@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bodoni_Moda, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/sidebar";
 
 const luxurySerif = Bodoni_Moda({
   subsets: ['latin'],
@@ -32,6 +33,7 @@ export default function RootLayout({
   <div className="fixed top-0 left-0 w-full z-[100]">
     <Navbar />
   </div>
+  <Sidebar />
   
   {/* The rest of the content */}
   <main>{children}</main>

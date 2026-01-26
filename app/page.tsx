@@ -1,7 +1,7 @@
 'use client'
 import './homepage.css';
 import Link from 'next/link';
-import { motion } from "framer-motion";
+import { motion} from "framer-motion";
 import { useEffect } from 'react';
 
 
@@ -9,13 +9,14 @@ import { useEffect } from 'react';
 
 // 1. Move data outside to keep the component clean
 const SOCIAL_LINKS = [
-  { name: 'Instagram', href: 'https://instagram.com' },
-  { name: 'LinkedIn', href: 'https://linkedin.com' },
-  { name: 'Behance', href: 'https://behance.net' },
-  { name: 'Twitter', href: 'https://twitter.com' },
+  { name: 'Instagram', href: 'https://instagram.com/theedesignlounge?igsh=MXVvYjlpNWl4bDFngw==' },
+  { name: 'TikTok', href: 'https://tiktok.com/@maaiirr1?r=1&_t=ZP-93NpubeBvoM' },
+  { name: 'Youtube', href: 'https://youtube.com/@shesmair?si=O_Kvq7fTNno26vF6' },
+ 
 ];
 
 export default function HomePage() {
+   
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
@@ -23,7 +24,9 @@ export default function HomePage() {
   return (
     <div>
       <div className="relative h-full w-full bg-black">
-        {/* Background Video */}
+         
+
+
         <video
           autoPlay
           loop
