@@ -24,7 +24,7 @@ export default function ConciergeOrb() {
     { name: "FLYERS", href: "/flyers" },
     { name: "EBOOKS", href: "/ebooks" },
     { name: "PRIVATE LOUNGE", href: "/privatelounge" },
-     { name: "THE LOUNGE MENU", href: "/theloungemenu" },
+     { name: "FREEBIES", href: "/freebies" },
     
   ];
 
@@ -44,10 +44,10 @@ export default function ConciergeOrb() {
           initial={{ opacity: 0, scale: 0.9, y: 20, filter: "blur(10px)" }}
           animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
           exit={{ opacity: 0, scale: 0.9, y: 20, filter: "blur(10px)" }}
-          className="mb-8 flex flex-col items-end gap-4 bg-black/40 backdrop-blur-2xl border border-white/10 p-8 rounded-3xl shadow-[0_30px_100px_rgba(0,0,0,0.8)] min-w-[240px]"
+          className="mb-8 flex flex-col items-end gap-4 bg-black/40 backdrop-blur-2xl border border-white/10 p-8  shadow-[0_30px_100px_rgba(0,0,0,0.8)] min-w-[240px]"
         >
           <p className="text-[10px] uppercase tracking-[0.6em] text-[#D4AF37] mb-2 border-b border-[#D4AF37]/20 w-full pb-3 font-light">
-            Concierge
+           The Lounge Menu
           </p>
           {links.map((link) => (
             <Link
