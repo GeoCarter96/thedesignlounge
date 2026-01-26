@@ -1,8 +1,18 @@
+"use client";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function Navbar() {
   return (
+    <motion.nav 
+      // 1. Fade and slide in from the top
+      initial={{ opacity: 0, y: -20 }} 
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+     
+    >
     <div>
+         
       <nav className="relative z-20 flex items-center justify-between px-10 py-8 text-white">
         <div className="text-2xl font-bold tracking-widest uppercase">The Design Lounge</div>
         <div className="hidden space-x-8 gap-12 md:flex">
@@ -40,6 +50,8 @@ export default function Navbar() {
 
 
       </nav>
+         
     </div>
+     </motion.nav>
   )
 }
