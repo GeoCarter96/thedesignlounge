@@ -24,6 +24,7 @@ export default function ConciergeOrb() {
     { name: "FLYERS", href: "/flyers" },
     { name: "EBOOKS", href: "/ebooks" },
     { name: "PRIVATE LOUNGE", href: "/privatelounge" },
+     { name: "THE LOUNGE MENU", href: "/theloungemenu" },
     
   ];
 

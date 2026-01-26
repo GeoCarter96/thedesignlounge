@@ -48,7 +48,7 @@ export default function Sidebar() {
    {/* Scrollable Container Wrapper */}
 <div className="flex-1 overflow-y-auto pr-4 custom-scrollbar">
   <nav className="flex flex-col gap-10">
-    {['The Lobby', 'Freebies', 'Testimonials',  'Courses', 'Ebooks','Flyers','Planners','PrivateLounge','Owner', 'Contact'].map((item, i) => (
+    {['The Lobby', 'Freebies', 'Testimonials',  'Courses', 'Ebooks','Flyers','Planners','PrivateLounge', 'TheLoungeMenu','Owner', 'Contact'].map((item, i) => (
       <motion.div
         key={item}
         initial={{ opacity: 0, x: 20 }}

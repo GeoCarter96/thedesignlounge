@@ -86,6 +86,7 @@ export default function HomePage() {
   >
     Welcome To <span className="font-normal italic">The Design Lounge</span> – Where Luxury Meets Creativity. 
     Where Bold Ideas Are Curated, Not Rushed, And Your Brand Is Treated Like An Experience, Not A Task.
+    Inside The Lounge, You'll Find Done For You Designs, Planners, Templates, And Brand Assets, That Help You Show Up Polished, Powerful, And Unmistakably You Without Shrinking Your Vision.
   </motion.p>
 </div>
 
