@@ -74,73 +74,68 @@ export default function HomePage() {
             </motion.div>
           </div>
 
-          {/* CONTAINER 2: THE EDITORIAL */}
-          <div className="flex min-h-screen w-full flex-col items-center justify-center bg-black backdrop-blur-sm text-center text-white px-4 py-32">
-            <motion.p 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="max-w-3xl text-xl md:text-3xl font-extralight tracking-tight leading-relaxed"
-            >
-              Welcome To <span className="font-normal italic">The Design Lounge</span> – Where Luxury Meets Creativity. 
-      Where Bold Ideas Are Curated, Not Rushed, And Your Brand Is Treated Like An Experience, Not A Task.
-            </motion.p>
-
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="mt-12 max-w-md text-sm uppercase tracking-[0.5em] opacity-40 font-light"
-            >
-              Your Seat Is Reserved 
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5, delay: 0.6 }}
-              className="mt-20"
-            >
-       <motion.div
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  viewport={{ once: true }}
-  transition={{ duration: 1.5, delay: 0.6 }}
-  className="mt-20  flex justify-center"
->
-  <Link 
-    href="/matchmake"
-    /* Increased py-32 to py-48 for massive height */
-    className="group relative inline-block overflow-hidden rounded-sm px-50 py-40 md:px-90 md:py-60 text-sm font-bold uppercase tracking-[0.8em] text-black transition-all hover:scale-105 active:scale-95 animate-gold-pulse shadow-[0_0_50px_rgba(212,175,55,0.2)]"
-    style={{
-      background: 'linear-gradient(180deg, #AF8A3F 0%, #D4AF37 30%, #F9E498 50%, #D4AF37 70%, #AF8A3F 100%)',
-    }}
+        
+         {/* CONTAINER 1: THE EDITORIAL TEXT */}
+<div className="flex h-screen w-full flex-col items-center justify-center bg-black text-center text-white px-4">
+  <motion.p 
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 1, delay: 0.2 }}
+    className="max-w-3xl text-xl md:text-3xl font-extralight tracking-tight leading-relaxed"
   >
-    {/* 1. The Text Label */}
-    <span className="relative z-10 block whitespace-nowrap">
-      Enter The Lounge
-    </span>
+    Welcome To <span className="font-normal italic">The Design Lounge</span> – Where Luxury Meets Creativity. 
+    Where Bold Ideas Are Curated, Not Rushed, And Your Brand Is Treated Like An Experience, Not A Task.
+  </motion.p>
+</div>
 
-    {/* 2. The High-Contrast Shine Ray */}
-    <div className="absolute inset-0 z-20 pointer-events-none">
-       <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/90 to-transparent -translate-x-full group-hover:animate-shimmer" />
-    </div>
+{/* CONTAINER 2: THE GOLD MONOLITH (Separate Section) */}
+<div className="flex h-screen w-full flex-col items-center justify-center bg-black px-4">
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1.5 }}
+    className="flex justify-center w-full"
+  >
+    <Link 
+      href="/matchmake"
+      /* Using massive arbitrary padding: py-[120px] and px-[200px] */
+      className="group relative inline-block overflow-hidden rounded-sm px-20 py-40 md:px-[200px] md:py-[120px] text-xl md:text-3xl font-bold uppercase tracking-[1em] text-black transition-all hover:scale-105 active:scale-95 animate-gold-pulse shadow-[0_0_100px_rgba(212,175,55,0.4)]"
+      style={{
+        background: 'linear-gradient(180deg, #AF8A3F 0%, #D4AF37 30%, #F9E498 50%, #D4AF37 70%, #AF8A3F 100%)',
+      }}
+    >
+      <span className="relative z-10 block whitespace-nowrap drop-shadow-md">
+        Enter The Lounge
+      </span>
 
-    {/* 3. Beveling & Depth */}
-    <div className="absolute inset-0 border-t-4 border-white/40 z-15 pointer-events-none" />
-    <div className="absolute inset-0 border-b-4 border-black/40 z-15 pointer-events-none" />
-    <div className="absolute inset-0 border-x-2 border-white/10 z-15 pointer-events-none" />
-  </Link>
-</motion.div>
+      {/* Shine Ray - Increased brightness for the larger surface */}
+      <div className="absolute inset-0 z-20 pointer-events-none">
+         <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/95 to-transparent -translate-x-full group-hover:animate-shimmer" />
+      </div>
 
+      {/* Heavier Beveling to match the new scale */}
+      <div className="absolute inset-0 border-t-[8px] border-white/40 z-15 pointer-events-none" />
+      <div className="absolute inset-0 border-b-[8px] border-black/50 z-15 pointer-events-none" />
+      <div className="absolute inset-0 border-x-[4px] border-white/10 z-15 pointer-events-none" />
+    </Link>
+  </motion.div>
+  
+  <motion.p 
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 0.4 }}
+    transition={{ delay: 1 }}
+    /* Increased margin to keep the gap luxury */
+    className="mt-32 text-[12px] uppercase tracking-[0.6em] text-white font-light"
+  >
+    Your Seat Is Reserved
+  </motion.p>
+</div>
 
+</div>
 
-            </motion.div>
-          </div>
-        </div>
+        
       </div>
 
       {/* FOOTER SECTION */}
