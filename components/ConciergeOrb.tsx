@@ -19,11 +19,11 @@ export default function ConciergeOrb() {
   }, [isOpen]);
 
   const links = [
-    { name: "Planners", href: "/planners" },
-    { name: "Courses", href: "/courses" },
-    { name: "Flyers", href: "/flyers" },
-    { name: "Ebooks", href: "/ebooks" },
-    { name: "Private Lounge", href: "/privatelounge" },
+    { name: "PLANNERS", href: "/planners" },
+    { name: "COURSES", href: "/courses" },
+    { name: "FLYERS", href: "/flyers" },
+    { name: "EBOOKS", href: "/ebooks" },
+    { name: "PRIVATE LOUNGE", href: "/privatelounge" },
     
   ];
 

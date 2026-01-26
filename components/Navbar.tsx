@@ -14,7 +14,10 @@ export default function Navbar() {
     <div>
          
       <nav className="relative z-20 flex items-center justify-between px-10 py-8 text-white">
-        <div className="text-2xl font-bold tracking-widest uppercase">The Design Lounge</div>
+        <div className="hidden md:block text-2xl font-bold tracking-widest uppercase">
+  The Design Lounge
+</div>
+
         <div className="hidden space-x-8 gap-12 md:flex">
           <Link href="/"className="transition-all duration-500 cursor-pointer
   text-white/80 
@@ -22,7 +25,7 @@ export default function Navbar() {
   hover:bg-clip-text 
   hover:bg-gradient-to-b 
   hover:from-[#D4AF37] hover:via-[#F9E498] hover:to-[#AF8A3F]
-  hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">Home</Link>
+  hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">The Lobby</Link>
           <Link href="/freebies" className="transition-all duration-500 cursor-pointer
   text-white/80 
   hover:text-transparent 

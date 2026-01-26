@@ -35,9 +35,9 @@ const [formData, setFormData] = useState({
           transition={{ duration: 1.2 }}
           className="font-serif-display italic text-6xl md:text-9xl font-extralight tracking-tighter leading-tight"
         >
-         Begin Your <br />
+         Need Something? <br />
   <span className="italic font-light text-[#D4AF37] font-serif tracking-normal">
-    Legacy
+    The Lounge Listens
   </span>
         </motion.h1>
       </section>
@@ -52,7 +52,7 @@ const [formData, setFormData] = useState({
       transition={{ duration: 1, delay: 0.2 }}
       className="flex flex-col gap-12"
     >
-      <p className="text-xs uppercase tracking-[0.5em] text-white">The Inquiry</p>
+      <p className="text-xs uppercase tracking-[0.5em] text-white">Whether It's A Question, Or Feedback, The Lounge Is Always Open</p>
       <form className="flex flex-col gap-10">
         <div className="group border-b border-white/10 focus-within:border-[#D4AF37] transition-colors duration-500 pb-4">
           <label className="text-[10px] uppercase tracking-[0.3em] text-white">Full Name</label>

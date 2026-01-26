@@ -61,7 +61,7 @@ export default function Testimonials() {
             </div>
             
             <div className="max-w-3xl">
-              <p className="text-2xl md:text-4xl font-extralight leading-relaxed tracking-tight text-white/90">
+              <p className="text-1xl md:text-3xl italic font-extralight leading-relaxed tracking-tight text-white/90">
                 {t.quote}
               </p>
               
@@ -69,9 +69,7 @@ export default function Testimonials() {
                 <span className="text-xl font-normal uppercase tracking-[0.2em] text-[#D4AF37]">
                   {t.author}
                 </span>
-                <span className="text-xs uppercase tracking-[0.4em] opacity-40">
-                  {t.title} // {t.year}
-                </span>
+                
               </div>
             </div>
           </motion.div>

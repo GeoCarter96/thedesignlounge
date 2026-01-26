@@ -81,7 +81,7 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="max-w-3xl text-3xl md:text-5xl font-extralight tracking-tight leading-relaxed"
+              className="max-w-3xl text-xl md:text-3xl font-extralight tracking-tight leading-relaxed"
             >
               Welcome To <span className="font-normal italic">The Design Lounge</span> – Where Luxury Meets Creativity. 
       Where Bold Ideas Are Curated, Not Rushed, And Your Brand Is Treated Like An Experience, Not A Task.
@@ -104,12 +104,39 @@ export default function HomePage() {
               transition={{ duration: 1.5, delay: 0.6 }}
               className="mt-20"
             >
-              <Link 
-                href="/matchmake"
-                className="rounded-full bg-white px-16 py-5 text-xs font-bold uppercase tracking-[0.3em] text-black hover:bg-neutral-200 transition-all hover:scale-105 active:scale-95"
-              >
-                Enter The Lounge
-              </Link>
+        <motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  viewport={{ once: true }}
+  transition={{ duration: 1.5, delay: 0.6 }}
+  className="mt-20"
+>
+  <Link 
+    href="/matchmake"
+    className="group relative inline-block overflow-hidden  px-50 py-20 text-xs font-bold uppercase tracking-[0.5em] text-black transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(212,175,55,0.25)]"
+    style={{
+      background: 'linear-gradient(180deg, #AF8A3F 0%, #D4AF37 30%, #F9E498 50%, #D4AF37 70%, #AF8A3F 100%)',
+    }}
+  >
+    {/* 1. The Text Label - Ensured it stays centered with wide tracking */}
+    <span className="relative z-10 block whitespace-nowrap">
+      Enter The Lounge
+    </span>
+
+    {/* 2. The High-Contrast Shine Ray */}
+    <div className="absolute inset-0 z-20 pointer-events-none">
+       <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/90 to-transparent -translate-x-full group-hover:animate-shimmer" />
+    </div>
+
+    {/* 3. Luxury Bevel - Top Edge Highlight */}
+    <div className="absolute inset-0 border-t-2 border-white/40 rounded-full z-15 pointer-events-none" />
+    
+    {/* 4. Soft Bottom Shadow (Inner) for 3D depth */}
+    <div className="absolute inset-0 border-b-2 border-black/20 rounded-full z-15 pointer-events-none" />
+  </Link>
+</motion.div>
+
+
             </motion.div>
           </div>
         </div>
