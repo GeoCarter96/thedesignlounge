@@ -8,7 +8,7 @@ const SECTIONS = [
   { id: "ebooks", title: "Ebooks", sub: "Curated Digital Knowledge", img: "/ebook-hero.jpg" },
   { id: "courses", title: "Courses", sub: "Mastery of Restraint", img: "/course-hero.jpg" },
   { id: "flyers", title: "Flyers", sub: "Digital Couture Assets", img: "/flyer-hero.jpg" },
-  { id: "private-lounge", title: "Private Lounge", sub: "Exclusivity Redefined", img: "/lounge-hero.jpg" },
+  { id: "privatelounge", title: "Private Lounge", sub: "Exclusivity Redefined", img: "/lounge-hero.jpg" },
 ];
 
 export default function LuxuryExperience() {

@@ -75,12 +75,12 @@ export default function PlannerProductPage() {
               <span className="text-[9px] uppercase tracking-[0.2em] text-white/20">Limited Batch Release</span>
             </div>
             
-            <Link 
+          {/* <Link 
               href="/checkout" 
               className="rounded-full cursor-not-allowed bg-white px-10 py-4 text-[10px] font-bold uppercase tracking-[0.3em] text-black hover:bg-[#D4AF37] hover:text-white transition-all duration-500"
             >
               Acquire Item
-            </Link>
+            </Link>*/}
           </div>
         </div>
       </section>

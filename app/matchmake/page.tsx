@@ -4,25 +4,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import './matchmake.css';
 
+
 const QUESTIONS = [
   {
     id: 1,
-    text: "Define your brand's core essence.",
+    text: " Lounge Matchmaker",
     options: [
-      { text: "Timeless Heritage", points: { luxury: 3, bold: 1 } },
-      { text: "Modern Disruptor", points: { bold: 3, minimal: 1 } },
-      { text: "Understated Elegance", points: { minimal: 3, luxury: 1 } },
+      { text: "Live In Luxury", points: { luxury: 1 } },
+      { text: "Plan Ahead", points: { goalsetter: 1 } },
+      { text: "Event Promotion", points: { leader: 1 } },
+       { text: "Brand Expansion", points: { ebooks: 1} },
+        { text: "No Limits", points: { curiosity: 1} },
     ],
   },
-  {
-    id: 2,
-    text: "What is your primary digital goal?",
-    options: [
-      { text: "Prestige & Storytelling", points: { luxury: 3, minimal: 1 } },
-      { text: "Aggressive Growth", points: { bold: 3 } },
-      { text: "Pure Functionality", points: { minimal: 3 } }, // add points
-    ],
-  },
+ 
 ];
 
 const PRODUCTS = {
@@ -31,31 +26,31 @@ const PRODUCTS = {
     desc: "For brands that require a digital masterpiece.",
     path: "/privatelounge" // Specific page
   },
-  bold: { 
+  goalsetter: { 
     name: "Planners", 
     desc: "For brands ready to lead the conversation.",
     path: "/planners" 
   },
-  minimal: { 
+  leader: { 
     name: "Flyers", 
-    desc: "For brands that speak through silence.",
+    desc: "For brands that speak through advertisement.",
     path: "/flyers" 
   },
    ebooks: { 
     name: "EBooks", 
-    desc: "For brands that speak through silence.",
+    desc: "For brands that center the love of knowledge.",
     path: "/ebooks" 
   },
    curiosity: { 
     name: "Courses", 
-    desc: "For brands that speak through silence.",
+    desc: "For brands that thrive on continuous learning.",
     path: "/courses" 
   },
   
 };
 
 // 1. Define the shape of your scores
-type ScoreCategory = 'luxury' | 'bold' | 'minimal';
+type ScoreCategory = 'luxury' | 'goalsetter' | 'leader'  | 'ebooks' | 'curiosity';
 type ScoreState = Record<ScoreCategory, number>;
 
 export default function DiscoveryPage() {
@@ -64,8 +59,11 @@ export default function DiscoveryPage() {
   // 2. Explicitly type the state
   const [scores, setScores] = useState<ScoreState>({ 
     luxury: 0, 
-    bold: 0, 
-    minimal: 0 
+    goalsetter: 0, 
+    leader: 0, 
+   
+    ebooks: 0,
+    curiosity: 0
   });
 
   const [showResult, setShowResult] = useState(false);

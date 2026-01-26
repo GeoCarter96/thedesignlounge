@@ -74,9 +74,9 @@ export default function Ebooks() {
       </div>
 
       {/* Action Button */}
-      <button className="mt-8 text-[10px] cursor-not-allowed uppercase tracking-[0.4em] text-white/40 group-hover:text-white border-b border-white/10 pb-2 transition-all">
+     {/* <button className="mt-8 text-[10px] cursor-not-allowed uppercase tracking-[0.4em] text-white/40 group-hover:text-white border-b border-white/10 pb-2 transition-all">
         Acquire Access —
-      </button>
+      </button> */}
     </motion.div>
   ))}
 </section>

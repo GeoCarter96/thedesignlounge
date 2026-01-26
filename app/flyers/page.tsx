@@ -72,12 +72,12 @@ export default function FlyerProductPage() {
               <span className="text-[9px] uppercase tracking-[0.2em] text-white/20">Instant Secure Download</span>
             </div>
             
-            <Link 
+           {/* <Link 
               href="/checkout" 
               className="rounded-full bg-white cursor-not-allowed px-10 py-4 text-[10px] font-bold uppercase tracking-[0.3em] text-black hover:bg-[#D4AF37] hover:text-white transition-all duration-500"
             >
               Acquire Now
-            </Link>
+            </Link>*/}
           </div>
         </div>
       </section>

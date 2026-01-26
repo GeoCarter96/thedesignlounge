@@ -88,7 +88,7 @@ export default function Testimonials() {
             href="/"
             className="rounded-full border border-white/20 bg-transparent px-16 py-6 text-sm font-bold uppercase tracking-[0.3em] text-white hover:bg-white hover:text-black transition-all duration-700 hover:scale-105"
           >
-            Return to The Lounge
+            Return to The Lobby
           </Link>
         </motion.div>
       </section>
