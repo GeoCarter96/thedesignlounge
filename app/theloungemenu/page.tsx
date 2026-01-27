@@ -7,10 +7,10 @@ import './theloungemenu.css';
 const SECTIONS = [
   { id: "planners", title: "Planners", sub: "Architectural Time Management", img: "/planner.png" },
   { id: "freebies", title: "Freebies", sub: "Gifts from the Atelier", img: "/freebie.jpg" },
-  { id: "ebooks", title: "Ebooks", sub: "Curated Digital Knowledge", img: "/ebooks.png" },
-  { id: "courses", title: "Courses", sub: "Mastery of Restraint", img: "/course.png" },
-  { id: "flyers", title: "Flyers", sub: "Digital Couture Assets", img: "/flyer.png" },
-  { id: "privatelounge", title: "Private Lounge", sub: "Exclusivity Redefined", img: "/ple1.png" },
+  { id: "ebooks", title: "Ebooks", sub: "Curated Digital Knowledge", img: "/ebooks.PNG" },
+  { id: "courses", title: "Courses", sub: "Mastery of Restraint", img: "/course.PNG" },
+  { id: "flyers", title: "Flyers", sub: "Digital Couture Assets", img: "/flyer.PNG" },
+  { id: "privatelounge", title: "Private Lounge", sub: "Exclusivity Redefined", img: "/ple1.PNG" },
 ];
 
 export default function LuxuryExperience() {
