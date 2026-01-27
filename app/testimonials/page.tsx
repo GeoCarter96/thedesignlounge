@@ -1,28 +1,35 @@
 "use client";
+import { useState, useEffect } from "react"; // 1. Added hooks
 import { motion } from "framer-motion";
 import Link from "next/link";
 import './testimonials.css';
-
-
 
 const TESTIMONIALS = [
   {
     quote: "Quick and convenient luxury designs for marketing my business. The instructions were so easy to follow and I love that I can customize the design to my own personal brand kit. This saved me so much time!",
     author: "Teaira",
-   
   },
   {
-    quote:    "The seller was 100% responsive and quick to help when I needed help locating the pdf file. The quality of the E book covers is TOP TEIR SIS!!! I’ve been looking for luxury and cute E book covers and I found the perfect one!!! Don’t hesitate buy this!!!!!!",
+    quote: "The seller was 100% responsive and quick to help when I needed help locating the pdf file. The quality of the E book covers is TOP TEIR SIS!!! I’ve been looking for luxury and cute E book covers and I found the perfect one!!! Don’t hesitate buy this!!!!!!",
     author: "Tasia",
-   
   },
-  
 ];
 
 export default function Testimonials() {
+  // 2. Hydration Guard
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // 3. Prevent rendering motion elements until mounted
+  if (!mounted) {
+    return <div className="min-h-screen bg-black" />;
+  }
+
   return (
-    // Added pt-20 for global Navbar clearance
-    <div className="min-h-screen  bg-black text-white selection:bg-[#D4AF37] selection:text-black pt-20">
+    <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] selection:text-black pt-20">
       
       {/* 1. Header Section */}
       <section className="pt-20 pb-20 px-10 border-b border-white/5">
@@ -48,13 +55,13 @@ export default function Testimonials() {
             transition={{ duration: 1.5, ease: "easeOut" }}
             className="py-32 border-b border-white/5 flex flex-col md:flex-row justify-between items-start gap-12 group"
           >
-            {/* Massive Gold Quote Mark with Hover Shine */}
+            {/* Massive Gold Quote Mark */}
             <div className="text-8xl font-serif text-[#D4AF37] opacity-20 select-none group-hover:opacity-100 transition-opacity duration-1000">
               “
             </div>
             
             <div className="max-w-3xl">
-              <p className="text-1xl md:text-3xl italic font-extralight leading-relaxed tracking-tight text-white/90">
+              <p className="text-xl md:text-3xl italic font-extralight leading-relaxed tracking-tight text-white/90">
                 {t.quote}
               </p>
               
@@ -62,7 +69,6 @@ export default function Testimonials() {
                 <span className="text-xl font-normal uppercase tracking-[0.2em] text-[#D4AF37]">
                   {t.author}
                 </span>
-                
               </div>
             </div>
           </motion.div>
@@ -88,4 +94,3 @@ export default function Testimonials() {
     </div>
   );
 }
-

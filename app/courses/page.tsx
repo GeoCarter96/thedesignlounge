@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react"; // 1. Import hooks
 import { motion } from "framer-motion";
 import Link from "next/link";
 import './courses.css';
@@ -10,6 +11,18 @@ const CURRICULUM = [
 ];
 
 export default function Courses() {
+  // 2. Add hydration guard
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  // 3. Prevent rendering until the client is ready
+  if (!hasMounted) {
+    return <div className="min-h-screen bg-black" />; // Return a matching background placeholder
+  }
+
   return (
     <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] selection:text-black">
       
@@ -35,45 +48,37 @@ export default function Courses() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5 }}
-            className="font-serif-display text-6xl md:text-9xl font-extralight tracking-tighter italic"
+            className="font-serif text-6xl md:text-9xl font-extralight tracking-tighter italic"
           >
-            The Canva<span className="text-[#D4AF37] non-italic"> Crash Course</span>
+            The Canva<span className="text-[#D4AF37] not-italic"> Crash Course</span>
           </motion.h1>
 
-          {/* LUXURY PHOTO PLACEHOLDER */}
           <motion.div 
-    initial={{ opacity: 0, y: 40 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1.8, delay: 0.5 }}
-    className="mt-16 relative w-full max-w-2xl aspect-[16/10] overflow-hidden rounded-xl bg-white/5 border border-white/10 shadow-2xl group"
-  >
-    {/* 1. THE ACTUAL IMAGE */}
-    <img 
-      src="/course.png" // Replace with your image path
-      alt="Course Preview"
-      className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-      onError={(e) => e.currentTarget.src = "https://placehold.co"} // Fallback
-    />
-     {/* 2. THE GOLDEN SHINE (Masked to the container) */}
-    <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-       <div 
-         className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer" 
-         style={{
-           // This ensures the shine feels like it's hitting the glass of the photo
-           WebkitMaskImage: 'linear-gradient(black, black)', 
-           maskImage: 'linear-gradient(black, black)',
-         }}
-       />
-    </div>
-
-    {/* 3. SUBTLE OVERLAY VIGNETTE */}
-    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 opacity-60 pointer-events-none" />
-  </motion.div>
-</div>
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.8, delay: 0.5 }}
+            className="mt-16 relative w-full max-w-2xl aspect-[16/10] overflow-hidden rounded-xl bg-white/5 border border-white/10 shadow-2xl group"
+          >
+            <img 
+              src="/course.png" 
+              alt="Course Preview"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
+               <div 
+                 className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer" 
+                 style={{
+                   WebkitMaskImage: 'linear-gradient(black, black)', 
+                   maskImage: 'linear-gradient(black, black)',
+                 }}
+               />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 opacity-60 pointer-events-none" />
+          </motion.div>
+        </div>
       </section>
-      
 
-      {/* 2. THE PHILOSOPHY: Editorial Text */}
+      {/* 2. THE PHILOSOPHY */}
       <section className="py-40 px-10 max-w-5xl mx-auto text-center">
         <h2 className="text-xs uppercase tracking-[0.5em] text-white/30 mb-16">The Philosophy</h2>
         <p className="text-2xl md:text-4xl font-extralight leading-relaxed tracking-tight">
@@ -81,11 +86,11 @@ export default function Courses() {
         </p>
       </section>
 
-      {/* 3. CURRICULUM: Minimalist List */}
+      {/* 3. CURRICULUM */}
       <section className="py-40 px-10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-start">
           <div className="sticky top-40">
-            <h3 className="font-serif-display text-5xl italic">The Syllabus</h3>
+            <h3 className="font-serif text-5xl italic">The Syllabus</h3>
             <p className="mt-6 text-white/40 max-w-xs font-light">A self-paced immersive journey into the anatomy of premium design.</p>
           </div>
           
@@ -107,7 +112,7 @@ export default function Courses() {
         </div>
       </section>
 
-      {/* 4. ENROLLMENT: Luxury CTA */}
+      {/* 4. ENROLLMENT */}
       <section className="py-60 bg-[#080808] border-y border-white/5 text-center">
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 2 }}>
           <h2 className="text-4xl md:text-6xl font-extralight mb-12">Secure Your Seat</h2>
@@ -116,7 +121,7 @@ export default function Courses() {
             href="/checkout"
             className="group relative inline-block px-20 py-6 rounded-full border border-[#D4AF37] text-white overflow-hidden"
           >
-            <span className="relative z-10 text-xs font-bold uppercase tracking-[0.4em] group-hover:text-black transition-colors duration-500">Aquire Crash course</span>
+            <span className="relative z-10 text-xs font-bold uppercase tracking-[0.4em] group-hover:text-black transition-colors duration-500">Acquire Crash course</span>
             <div className="absolute inset-0 bg-[#D4AF37] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
           </Link>
         </motion.div>

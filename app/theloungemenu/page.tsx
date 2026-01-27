@@ -1,7 +1,9 @@
 "use client";
+import { useState, useEffect } from "react"; // 1. Added hooks
 import { motion } from "framer-motion";
 import Link from "next/link";
 import './theloungemenu.css';
+
 const SECTIONS = [
   { id: "planners", title: "Planners", sub: "Architectural Time Management", img: "/planner.png" },
   { id: "freebies", title: "Freebies", sub: "Gifts from the Atelier", img: "/freebie.jpg" },
@@ -9,10 +11,21 @@ const SECTIONS = [
   { id: "courses", title: "Courses", sub: "Mastery of Restraint", img: "/course.png" },
   { id: "flyers", title: "Flyers", sub: "Digital Couture Assets", img: "/flyer.png" },
   { id: "privatelounge", title: "Private Lounge", sub: "Exclusivity Redefined", img: "/ple1.png" },
-
 ];
 
 export default function LuxuryExperience() {
+  // 2. Added hydration guard
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // 3. Prevent rendering motion elements until mounted
+  if (!mounted) {
+    return <div className="min-h-screen bg-black" />;
+  }
+
   return (
     <div className="bg-black text-white selection:bg-[#D4AF37] selection:text-black">
       
@@ -26,7 +39,7 @@ export default function LuxuryExperience() {
             <motion.p 
               initial={{ opacity: 0, letterSpacing: "0.2em" }}
               whileInView={{ opacity: 0.4, letterSpacing: "0.5em" }}
-              className="uppercase text-[10px] mb-4"
+              className="uppercase text-[10px] mb-4 font-light"
             >
               Volume 0{i + 1} // {section.sub}
             </motion.p>
@@ -34,7 +47,7 @@ export default function LuxuryExperience() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2 }}
-              className="font-serif-display text-5xl md:text-8xl font-extralight tracking-tighter italic"
+              className="font-serif text-5xl md:text-8xl font-extralight tracking-tighter italic"
             >
               {section.title}
             </motion.h2>
@@ -44,7 +57,7 @@ export default function LuxuryExperience() {
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1.5, delay: 0.3 }}
             className="relative w-full max-w-4xl aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-sm bg-white/5 border border-white/10 shadow-2xl group"
           >
@@ -53,13 +66,10 @@ export default function LuxuryExperience() {
               src={section.img} 
               alt={section.title}
               className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-1000 grayscale group-hover:grayscale-0"
-              onError={(e) => (e.currentTarget.style.opacity = "0.1")}
             />
 
-         
-            
-            {/* Action Overlay */}
-            <Link href={`/${section.id}`} className="absolute inset-0 z-30 cursor-pointer" />
+            {/* Link Wrapper */}
+            <Link href={`/${section.id}`} className="absolute inset-0 z-30 cursor-pointer" aria-label={`View ${section.title}`} />
           </motion.div>
 
           {/* CTA Link */}

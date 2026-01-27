@@ -1,10 +1,21 @@
-
-
 "use client";
+import { useState, useEffect } from "react"; // Added hooks
 import { motion } from "framer-motion";
 import './owner.css';
 
 export default function Owner() {
+  // Hydration Guard
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  // Prevent rendering interactive motion elements until mounted
+  if (!hasMounted) {
+    return <div className="min-h-screen bg-black" />;
+  }
+
   return (
     <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-32 pb-40">
       
@@ -22,7 +33,7 @@ export default function Owner() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2 }}
-            className="font-serif-display text-6xl md:text-9xl font-extralight tracking-tighter leading-none"
+            className="font-serif text-6xl md:text-9xl font-extralight tracking-tighter leading-none"
           >
             Defining <br />
             <span className="italic text-[#D4AF37]">The Aesthetic</span>
@@ -45,15 +56,12 @@ export default function Owner() {
             transition={{ duration: 1.8 }}
             className="md:col-span-5 relative aspect-[3/4] bg-neutral-900 border border-white/5 rounded-sm overflow-hidden shadow-2xl group"
           >
-            {/* Owner Portrait Placeholder */}
             <img 
               src="/owner-portrait.jpg" 
               alt="The Curator"
               className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-1000 grayscale group-hover:grayscale-0"
-              onError={(e) => (e.currentTarget.style.opacity = "0.2")}
             />
             
-            {/* Signature Shine Effect */}
             <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
             </div>
@@ -63,7 +71,7 @@ export default function Owner() {
             </div>
           </motion.div>
 
-          {/* 3. THE NARRATIVE: Multi-column Text */}
+          {/* 3. THE NARRATIVE */}
           <div className="md:col-span-7 flex flex-col justify-center md:pl-20">
             <motion.div 
               initial={{ opacity: 0, x: 20 }}
@@ -99,7 +107,7 @@ export default function Owner() {
         <motion.p 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="font-serif-display text-4xl md:text-6xl italic opacity-80"
+          className="font-serif text-4xl md:text-6xl italic opacity-80"
         >
           Curated with <span className="text-[#D4AF37]">Intent.</span>
         </motion.p>

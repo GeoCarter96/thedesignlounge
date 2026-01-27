@@ -1,9 +1,23 @@
 "use client";
+import { useState, useEffect } from "react"; // 1. Import useState and useEffect
 import { motion } from "framer-motion";
 import Link from "next/link";
 import './flyers.css';   
 
 export default function FlyerProductPage() {
+  // 2. Add hydration guard state
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // 3. Set to true once component is mounted on the client
+    setMounted(true);
+  }, []);
+
+  // 4. If not mounted yet, return a simple placeholder matching the background
+  if (!mounted) {
+    return <div className="min-h-screen bg-black" />;
+  }
+
   return (
     <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-32">
       
@@ -16,8 +30,8 @@ export default function FlyerProductPage() {
           className="text-center mb-16"
         >
           <p className="text-[10px] uppercase tracking-[0.6em] text-[#D4AF37] mb-4">The Digital Flyer</p>
-          <h1 className="font-serif-display text-6xl md:text-8xl font-extralight tracking-tighter italic">
-            Will You Be My <span className="italic font-normal">Clientine ?</span>
+          <h1 className="font-serif text-6xl md:text-8xl font-extralight tracking-tighter italic">
+            Will You Be My <span className="not-italic font-normal">Clientine ?</span>
           </h1>
         </motion.div>
 
@@ -28,14 +42,11 @@ export default function FlyerProductPage() {
           transition={{ duration: 1.8, ease: "easeOut" }}
           className="relative w-full max-w-lg aspect-[4/5] bg-neutral-900 border border-white/5 rounded-sm shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] group overflow-hidden"
         >
-         
-
           {/* Actual Image Holder */}
           <img 
-            src="/flyer.PNG" // Replace with your file
+            src="/flyer.PNG" // Ensure casing is correct on server (lowercase is best practice)
             alt="Luxury Flyer Mockup"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-            onError={(e) => (e.currentTarget.style.opacity = "0")}
           />
 
           {/* Signature Shine Effect */}
@@ -65,20 +76,13 @@ export default function FlyerProductPage() {
               <span className="text-2xl font-extralight tracking-widest">$45.00</span>
               <span className="text-[9px] uppercase tracking-[0.2em] text-white/20">Instant Secure Download</span>
             </div>
-            
-           {/* <Link 
-              href="/checkout" 
-              className="rounded-full bg-white cursor-not-allowed px-10 py-4 text-[10px] font-bold uppercase tracking-[0.3em] text-black hover:bg-[#D4AF37] hover:text-white transition-all duration-500"
-            >
-              Acquire Now
-            </Link>*/}
           </div>
         </div>
       </section>
 
       {/* 3. VIGNETTE BOTTOM */}
       <section className="h-[40vh] flex items-center justify-center border-t border-white/5 opacity-20">
-         <p className="font-serif-display text-4xl italic">Elegance is the only beauty that never fades.</p>
+         <p className="font-serif text-4xl italic">Elegance is the only beauty that never fades.</p>
       </section>
     </div>
   );

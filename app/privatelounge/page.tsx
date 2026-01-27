@@ -1,16 +1,28 @@
-
-
 "use client";
+import { useState, useEffect } from "react"; // 1. Added hooks
 import { motion } from "framer-motion";
 import Link from "next/link";
 import './privatelounge.css';
+
 const COLLECTION = [
   { id: "ple1", category: "Digital", title: "The Private Lounge Experience", price: "$65", link: "/products/planner" },
-  { id: "ple2", category: "Digital", title: "Lounge Legacy Table", price: "$45", link: "/products/flyer" },
-  { id: "ple3", category: "Digital", title: "Suite Of Self Leadership", price: "$250", link: "/course" },
+  { id: "ple2", category: "Digital", title: "The Lounge Legacy Table", price: "$45", link: "/products/flyer" },
+  { id: "ple3", category: "Digital", title: "The Suite Of Self Leadership", price: "$250", link: "/course" },
 ];
 
 export default function PrivateloungePage() {
+  // 2. Hydration Guard
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  // 3. Prevent rendering motion elements until mounted
+  if (!hasMounted) {
+    return <div className="min-h-screen bg-black" />;
+  }
+
   return (
     <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-32 pb-40">
       
@@ -27,7 +39,7 @@ export default function PrivateloungePage() {
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="font-serif-display text-5xl md:text-8xl font-extralight tracking-tighter"
+          className="font-serif text-5xl md:text-8xl font-extralight tracking-tighter"
         >
           The <span className="italic text-[#D4AF37]">Private Lounge</span> Experience
         </motion.h1>
@@ -45,21 +57,17 @@ export default function PrivateloungePage() {
               transition={{ duration: 1, delay: i * 0.2 }}
               className="group flex flex-col"
             >
-              {/* IMAGE PLACEHOLDER: The 4:5 Monolith */}
+              {/* IMAGE CONTAINER */}
               <div className="relative aspect-[4/5] w-full bg-neutral-950 border border-white/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-1000 group-hover:border-[#D4AF37]/40">
                 
-              
-
-                {/* Actual Product Image */}
+                {/* Product Image - Removed onLoad/onError for Hydration safety */}
                 <img 
                   src={`/${item.id}.png`} 
                   alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 group-hover:scale-105"
-                  onLoad={(e) => (e.currentTarget.style.opacity = "0.8")}
-                  onError={(e) => (e.currentTarget.style.display = "none")}
+                  className="absolute inset-0 w-full h-full object-cover opacity-80 transition-all duration-1000 group-hover:opacity-100 group-hover:scale-105"
                 />
 
-                {/* The Signature Gold Shine Overlay */}
+                {/* Signature Gold Shine Overlay */}
                 <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
                    <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
                 </div>
@@ -72,7 +80,7 @@ export default function PrivateloungePage() {
                   <span className="text-sm font-extralight opacity-40">{item.price}</span>
                 </div>
                 
-                <h3 className="text-2xl font-serif-display mt-3 italic group-hover:text-[#D4AF37] transition-colors duration-500">
+                <h3 className="text-2xl font-serif mt-3 italic group-hover:text-[#D4AF37] transition-colors duration-500">
                   {item.title}
                 </h3>
                 

@@ -1,9 +1,22 @@
 "use client";
+import { useState, useEffect } from "react"; // [1] Add hooks
 import { motion } from "framer-motion";
 import Link from "next/link";
 import './customwork.css';
 
 export default function BespokePage() {
+  // [2] Add hydration guard
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  // [3] Wait until mounted to render interactive motion elements
+  if (!hasMounted) {
+    return <div className="min-h-screen bg-black" />;
+  }
+
   return (
     <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-40 pb-32 px-6">
       
@@ -20,9 +33,9 @@ export default function BespokePage() {
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="font-serif-display text-6xl md:text-9xl font-extralight tracking-tighter italic"
+          className="font-serif text-6xl md:text-9xl font-extralight tracking-tighter italic"
         >
-          The <span className="non-italic text-[#D4AF37]">Personal</span> Touch
+          The <span className="not-italic text-[#D4AF37]">Personal</span> Touch
         </motion.h1>
       </section>
 
@@ -31,7 +44,7 @@ export default function BespokePage() {
         <div className="flex flex-col gap-8">
           <h2 className="text-xs uppercase tracking-[0.5em] text-[#D4AF37]">The Dialogue</h2>
           <p className="text-2xl font-extralight leading-relaxed tracking-tight">
-            Custom work at The Lounge is a collaborative journey. You deal directly with the <span className="italic">Founder</span> to ensure every pixel aligns with your legacy.
+            Custom work at The Lounge is a collaborative journey. You deal directly with the <span className="italic font-normal">Founder</span> to ensure every pixel aligns with your legacy.
           </p>
         </div>
 
@@ -59,10 +72,11 @@ export default function BespokePage() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.5 }}
+          className="w-full flex justify-center px-4"
         >
           <Link 
             href="/contact"
-            className="group relative inline-flex items-center justify-center overflow-hidden rounded-sm w-full max-w-3xl px-40 py-24 md:px-50 md:py-[100px] text-sm md:text-base font-bold uppercase tracking-[1em] text-black transition-all hover:scale-[1.02] active:scale-95 animate-gold-pulse shadow-[0_40px_100px_-20px_rgba(212,175,55,0.4)]"
+            className="group relative inline-flex items-center justify-center overflow-hidden rounded-sm w-full max-w-3xl px-12 py-24 md:px-50 md:py-[100px] text-sm md:text-base font-bold uppercase tracking-[1em] text-black transition-all hover:scale-[1.02] active:scale-95 animate-gold-pulse shadow-[0_40px_100px_-20px_rgba(212,175,55,0.4)]"
             style={{
               background: 'linear-gradient(180deg, #AF8A3F 0%, #D4AF37 30%, #F9E498 50%, #D4AF37 70%, #AF8A3F 100%)',
             }}
@@ -77,12 +91,12 @@ export default function BespokePage() {
             </div>
 
             {/* Bevels */}
-            <div className="absolute inset-0 border-t-[8px] border-white/40 z-15 pointer-events-none" />
-            <div className="absolute inset-0 border-b-[8px] border-black/50 z-15 pointer-events-none" />
+            <div className="absolute inset-0 border-t-[8px] border-white/40 z-[15] pointer-events-none" />
+            <div className="absolute inset-0 border-b-[8px] border-black/50 z-[15] pointer-events-none" />
           </Link>
         </motion.div>
 
-        <p className="mt-16 text-[10px] uppercase tracking-[0.8em] text-white/20">
+        <p className="mt-16 text-[10px] uppercase tracking-[0.8em] text-white/20 text-center">
           Response time: 24 — 48 Hours
         </p>
       </section>

@@ -1,30 +1,28 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react"; // Added useEffect
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import './matchmake.css';
 
-
 const QUESTIONS = [
   {
     id: 1,
-    text: " Lounge Matchmaker",
+    text: "Lounge Matchmaker",
     options: [
       { text: "Live In Luxury", points: { luxury: 1 } },
       { text: "Plan Ahead", points: { goalsetter: 1 } },
       { text: "Event Promotion", points: { leader: 1 } },
-       { text: "Brand Expansion", points: { ebooks: 1} },
-        { text: "No Limits", points: { curiosity: 1} },
+      { text: "Brand Expansion", points: { ebooks: 1} },
+      { text: "No Limits", points: { curiosity: 1} },
     ],
   },
- 
 ];
 
 const PRODUCTS = {
   luxury: { 
     name: "The Private Lounge Experience", 
     desc: "For brands that require a digital masterpiece.",
-    path: "/privatelounge" // Specific page
+    path: "/privatelounge" 
   },
   goalsetter: { 
     name: "Planners", 
@@ -36,50 +34,47 @@ const PRODUCTS = {
     desc: "For brands that speak through advertisement.",
     path: "/flyers" 
   },
-   ebooks: { 
+  ebooks: { 
     name: "EBooks", 
     desc: "For brands that center the love of knowledge.",
     path: "/ebooks" 
   },
-   curiosity: { 
+  curiosity: { 
     name: "Courses", 
     desc: "For brands that thrive on continuous learning.",
     path: "/courses" 
   },
-  
 };
 
-// 1. Define the shape of your scores
 type ScoreCategory = 'luxury' | 'goalsetter' | 'leader'  | 'ebooks' | 'curiosity';
 type ScoreState = Record<ScoreCategory, number>;
 
 export default function DiscoveryPage() {
+  // Guard against hydration mismatch
+  const [mounted, setMounted] = useState(false);
   const [step, setStep] = useState(0);
-  
-  // 2. Explicitly type the state
   const [scores, setScores] = useState<ScoreState>({ 
     luxury: 0, 
     goalsetter: 0, 
     leader: 0, 
-   
     ebooks: 0,
     curiosity: 0
   });
-
   const [showResult, setShowResult] = useState(false);
-    const getResult = () => {
-    // Find which key has the highest value
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const getResult = () => {
     const winner = (Object.keys(scores) as ScoreCategory[]).reduce((a, b) => 
       scores[a] > scores[b] ? a : b
     );
     return PRODUCTS[winner];
   };
 
-  // 3. Type the points parameter
   const handleAnswer = (points: Partial<ScoreState>) => {
     const newScores = { ...scores };
-    
-    // 4. Tell TS that 'key' is one of our specific categories
     (Object.keys(points) as ScoreCategory[]).forEach((key) => {
       const pointValue = points[key];
       if (pointValue !== undefined) {
@@ -96,6 +91,8 @@ export default function DiscoveryPage() {
     }
   };
 
+  // Only render the component logic after mounting
+  if (!mounted) return <div className="min-h-screen bg-black" />;
 
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center px-6 pt-20">
@@ -137,13 +134,13 @@ export default function DiscoveryPage() {
             className="text-center max-w-3xl"
           >
             <p className="text-[10px] uppercase tracking-[0.5em] text-[#D4AF37] mb-6">Your Curated Recommendation</p>
-            <h1 className="text-5xl md:text-7xl font-serif-display mb-8 italic">{getResult().name}</h1>
+            <h1 className="text-5xl md:text-7xl font-serif mb-8 italic">{getResult().name}</h1>
             <p className="text-xl opacity-60 font-extralight mb-16">{getResult().desc}</p>
-           <Link href={getResult().path}>
-  <button className="rounded-full bg-white px-16 py-5 text-xs font-bold uppercase cursor-pointer tracking-[0.3em] text-black hover:bg-[#D4AF37] transition-all">
-    Secure Your Placement
-  </button>
-</Link>
+            <Link href={getResult().path}>
+              <button className="rounded-full bg-white px-16 py-5 text-xs font-bold uppercase cursor-pointer tracking-[0.3em] text-black hover:bg-[#D4AF37] transition-all">
+                Secure Your Placement
+              </button>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

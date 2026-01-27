@@ -1,6 +1,5 @@
-
-
 "use client";
+import { useState, useEffect } from "react"; // [1] Added hooks
 import { motion } from "framer-motion";
 import Link from "next/link";
 import './freebies.css';
@@ -12,6 +11,18 @@ const FREEBIES = [
 ];
 
 export default function FreebiesPage() {
+  // [2] Hydration Guard State
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // [3] Prevent rendering until client-side mount
+  if (!mounted) {
+    return <div className="min-h-screen bg-black" />;
+  }
+
   return (
     <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-32 pb-40">
       
@@ -28,7 +39,7 @@ export default function FreebiesPage() {
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="font-serif-display text-6xl md:text-8xl font-extralight tracking-tighter"
+          className="font-serif text-6xl md:text-8xl font-extralight tracking-tighter"
         >
           Gifted <span className="italic text-[#D4AF37]">Essentials</span>
         </motion.h1>
@@ -46,35 +57,28 @@ export default function FreebiesPage() {
               transition={{ duration: 1, delay: i * 0.2 }}
               className="group flex flex-col"
             >
-              {/* IMAGE PLACEHOLDER: Vertical Monolith */}
               <div className="relative aspect-[4/5] w-full bg-neutral-900 border border-white/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-1000 group-hover:border-[#D4AF37]/30">
                 
-                {/* Visual Placeholder Content */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-30 transition-opacity">
                    <div className="w-12 h-12 border border-white/50 rounded-full animate-pulse flex items-center justify-center">
                       <span className="text-[8px] uppercase tracking-widest">{item.id}</span>
                    </div>
                 </div>
 
-                {/* Actual Image Tag */}
                 <img 
                   src={`/freebie${item.id}.jpg`} 
                   alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
-                  onLoad={(e) => (e.currentTarget.style.opacity = "0.7")}
-                  onError={(e) => (e.currentTarget.style.display = "none")}
+                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-70 group-hover:opacity-100"
                 />
 
-                {/* Luxury Shine Overlay */}
                 <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
                    <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
                 </div>
               </div>
 
-              {/* PRODUCT METADATA */}
               <div className="mt-8 flex flex-col items-start">
                 <span className="text-[10px] text-[#D4AF37] tracking-[0.4em] uppercase">{item.desc}</span>
-                <h3 className="text-xl font-serif-display mt-2 italic group-hover:text-white transition-colors">
+                <h3 className="text-xl font-serif mt-2 italic group-hover:text-white transition-colors">
                   {item.title}
                 </h3>
                 

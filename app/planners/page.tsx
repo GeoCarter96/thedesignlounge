@@ -1,11 +1,22 @@
-
-
 "use client";
+import { useState, useEffect } from "react"; // Added hooks
 import { motion } from "framer-motion";
 import Link from "next/link";
 import './planners.css'
 
 export default function PlannerProductPage() {
+  // 1. Hydration Guard
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  // 2. Return matching background until mounted
+  if (!hasMounted) {
+    return <div className="min-h-screen bg-black" />;
+  }
+
   return (
     <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-32">
       
@@ -18,27 +29,22 @@ export default function PlannerProductPage() {
           className="text-center mb-16"
         >
           <p className="text-[10px] uppercase tracking-[0.6em] text-[#D4AF37] mb-4">Tactile Excellence</p>
-          <h1 className="font-serif-display text-6xl md:text-8xl font-extralight tracking-tighter italic">
-            Balanced By <span className="italic font-normal">Design</span>
+          <h1 className="font-serif text-6xl md:text-8xl font-extralight tracking-tighter italic">
+            Balanced By <span className="not-italic font-normal">Design</span>
           </h1>
         </motion.div>
 
-        {/* HERO IMAGE PLACEHOLDER - Vertical 4:5 Aspect Ratio */}
+        {/* HERO IMAGE */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.8, ease: "easeOut" }}
           className="relative w-full max-w-lg aspect-[4/5] bg-neutral-900 border border-white/5 rounded-sm shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] group overflow-hidden"
         >
-          
-
-          {/* Actual Image Holder */}
           <img 
             src="/planner.png" 
             alt="Luxury Planner Mockup"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-            onLoad={(e) => (e.currentTarget.style.opacity = "1")}
-            style={{ opacity: 0 }}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
           />
 
           {/* Signature Shine Effect */}
@@ -68,13 +74,6 @@ export default function PlannerProductPage() {
               <span className="text-2xl font-extralight tracking-widest">$65.00</span>
               <span className="text-[9px] uppercase tracking-[0.2em] text-white/20">Limited Batch Release</span>
             </div>
-            
-          {/* <Link 
-              href="/checkout" 
-              className="rounded-full cursor-not-allowed bg-white px-10 py-4 text-[10px] font-bold uppercase tracking-[0.3em] text-black hover:bg-[#D4AF37] hover:text-white transition-all duration-500"
-            >
-              Acquire Item
-            </Link>*/}
           </div>
         </div>
       </section>
@@ -84,7 +83,7 @@ export default function PlannerProductPage() {
          <motion.p 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="font-serif-display text-3xl md:text-5xl italic text-white/80 px-6 text-center max-w-4xl"
+          className="font-serif text-3xl md:text-5xl italic text-white/80 px-6 text-center max-w-4xl"
          >
           "Organize the chaos, curate the legacy."
          </motion.p>
@@ -92,4 +91,3 @@ export default function PlannerProductPage() {
     </div>
   );
 }
-

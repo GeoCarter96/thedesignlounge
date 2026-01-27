@@ -1,32 +1,32 @@
 'use client'
 import './homepage.css';
 import Link from 'next/link';
-import { motion} from "framer-motion";
-import { useEffect } from 'react';
+import { motion } from "framer-motion";
+import { useEffect, useState } from 'react'; // Added useState
 
-
-
-
-// 1. Move data outside to keep the component clean
 const SOCIAL_LINKS = [
   { name: 'Instagram', href: 'https://instagram.com/theedesignlounge?igsh=MXVvYjlpNWl4bDFngw==' },
   { name: 'TikTok', href: 'https://tiktok.com/@maaiirr1?r=1&_t=ZP-93NpubeBvoM' },
   { name: 'Youtube', href: 'https://youtube.com/@shesmair?si=O_Kvq7fTNno26vF6' },
- 
 ];
 
 export default function HomePage() {
+  // 1. Added hydration guard state
+  const [hasMounted, setHasMounted] = useState(false);
    
   useEffect(() => {
+    setHasMounted(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
+
+  // 2. Prevent rendering until client is ready to match server
+  if (!hasMounted) {
+    return <div className="min-h-screen bg-black" />;
+  }
 
   return (
     <div>
       <div className="relative h-full w-full bg-black">
-         
-
-
         <video
           autoPlay
           loop
@@ -39,7 +39,6 @@ export default function HomePage() {
           <source src="/video.mp4" type="video/mp4" />
         </video>
 
-        {/* Hero Content Wrapper */}
         <div className="relative z-10 flex flex-col items-center w-full">
           
           {/* CONTAINER 1: THE VISUAL (Logo) */}
@@ -74,73 +73,61 @@ export default function HomePage() {
             </motion.div>
           </div>
 
-        
-         {/* CONTAINER 1: THE EDITORIAL TEXT */}
-<div className="flex h-screen w-full flex-col items-center justify-center bg-black text-center text-white px-4">
-  <motion.p 
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-100px" }}
-    transition={{ duration: 1, delay: 0.2 }}
-    className="max-w-3xl text-xl md:text-3xl font-extralight tracking-tight leading-relaxed"
-  >
-    Welcome To <span className="font-normal italic">The Design Lounge</span> – Where Luxury Meets Creativity. 
-    Where Bold Ideas Are Curated, Not Rushed, And Your Brand Is Treated Like An Experience, Not A Task.
-    Inside The Lounge, You'll Find Done For You Designs, Planners, Templates, And Brand Assets, That Help You Show Up Polished, Powerful, And Unmistakably You Without Shrinking Your Vision.
-  </motion.p>
-</div>
+          {/* CONTAINER 1: THE EDITORIAL TEXT */}
+          <div className="flex h-screen w-full flex-col items-center justify-center bg-black text-center text-white px-4">
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="max-w-3xl text-xl md:text-3xl font-extralight tracking-tight leading-relaxed"
+            >
+              Welcome To <span className="font-normal italic">The Design Lounge</span> – Where Luxury Meets Creativity. 
+              Where Bold Ideas Are Curated, Not Rushed, And Your Brand Is Treated Like An Experience, Not A Task.
+              Inside The Lounge, You'll Find Done For You Designs, Planners, Templates, And Brand Assets, That Help You Show Up Polished, Powerful, And Unmistakably You Without Shrinking Your Vision.
+            </motion.p>
+          </div>
 
-{/* CONTAINER 2: THE GOLD MONOLITH (Separate Section) */}
-<div className="flex h-screen w-full flex-col items-center justify-center bg-black px-4">
-  <motion.div
-    initial={{ opacity: 0, scale: 0.9 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    viewport={{ once: true }}
-    transition={{ duration: 1.5 }}
-    className="flex justify-center w-full"
-  >
-    <Link 
-  href="/matchmake"
-  /* Mobile: px-10 py-16 | Desktop: px-[200px] py-[120px] */
-  className="group relative inline-block overflow-hidden rounded-sm px-10 py-16 md:px-[200px] md:py-[120px] text-xs md:text-3xl font-bold uppercase tracking-[0.5em] md:tracking-[1em] text-black transition-all hover:scale-105 active:scale-95 animate-gold-pulse shadow-[0_0_50px_rgba(212,175,55,0.3)] md:shadow-[0_0_100px_rgba(212,175,55,0.4)]"
-  style={{
-    background: 'linear-gradient(180deg, #AF8A3F 0%, #D4AF37 30%, #F9E498 50%, #D4AF37 70%, #AF8A3F 100%)',
-  }}
->
-  <span className="relative z-10 block whitespace-nowrap drop-shadow-md">
-    Enter The Lounge
-  </span>
-
-  {/* Shine Ray */}
-  <div className="absolute inset-0 z-20 pointer-events-none">
-     <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/95 to-transparent -translate-x-full group-hover:animate-shimmer" />
-  </div>
-
-  {/* Responsive Beveling: Thinner on mobile, Thicker on desktop */}
-  <div className="absolute inset-0 border-t-[3px] md:border-t-[8px] border-white/40 z-15 pointer-events-none" />
-  <div className="absolute inset-0 border-b-[3px] md:border-b-[8px] border-black/50 z-15 pointer-events-none" />
-  <div className="absolute inset-0 border-x-[1px] md:border-x-[4px] border-white/10 z-15 pointer-events-none" />
-</Link>
-
-  </motion.div>
-  
-  <motion.p 
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 0.4 }}
-    transition={{ delay: 1 }}
-    /* Increased margin to keep the gap luxury */
-    className="mt-32 text-[12px] uppercase tracking-[0.6em] text-white font-light"
-  >
-    Your Seat Is Reserved
-  </motion.p>
-</div>
-
-</div>
-
-        
+          {/* CONTAINER 2: THE GOLD MONOLITH */}
+          <div className="flex h-screen w-full flex-col items-center justify-center bg-black px-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5 }}
+              className="flex justify-center w-full"
+            >
+              <Link 
+                href="/matchmake"
+                className="group relative inline-block overflow-hidden rounded-sm px-10 py-16 md:px-[200px] md:py-[120px] text-xs md:text-3xl font-bold uppercase tracking-[0.5em] md:tracking-[1em] text-black transition-all hover:scale-105 active:scale-95 animate-gold-pulse shadow-[0_0_50px_rgba(212,175,55,0.3)] md:shadow-[0_0_100px_rgba(212,175,55,0.4)]"
+                style={{
+                  background: 'linear-gradient(180deg, #AF8A3F 0%, #D4AF37 30%, #F9E498 50%, #D4AF37 70%, #AF8A3F 100%)',
+                }}
+              >
+                <span className="relative z-10 block whitespace-nowrap drop-shadow-md">
+                  Enter The Lounge
+                </span>
+                <div className="absolute inset-0 z-20 pointer-events-none">
+                   <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/95 to-transparent -translate-x-full group-hover:animate-shimmer" />
+                </div>
+                <div className="absolute inset-0 border-t-[3px] md:border-t-[8px] border-white/40 z-15 pointer-events-none" />
+                <div className="absolute inset-0 border-b-[3px] md:border-b-[8px] border-black/50 z-15 pointer-events-none" />
+                <div className="absolute inset-0 border-x-[1px] md:border-x-[4px] border-white/10 z-15 pointer-events-none" />
+              </Link>
+            </motion.div>
+            
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 0.4 }}
+              transition={{ delay: 1 }}
+              className="mt-32 text-[12px] uppercase tracking-[0.6em] text-white font-light"
+            >
+              Your Seat Is Reserved
+            </motion.p>
+          </div>
+        </div>
       </div>
 
-      {/* FOOTER SECTION */}
       <footer className="w-full bg-black border-t border-white/10 pt-24 pb-12 px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
           <div className="flex flex-col gap-6">
@@ -157,7 +144,6 @@ export default function HomePage() {
           <div className="flex flex-col gap-6">
             <h3 className="text-xs uppercase tracking-[0.4em] text-white/40">Connect</h3>
             <div className="flex flex-wrap gap-x-12 text-white gap-y-4">
-              {/* 2. Using the map function here */}
               {SOCIAL_LINKS.map((link) => (
                 <Link 
                   key={link.name}
