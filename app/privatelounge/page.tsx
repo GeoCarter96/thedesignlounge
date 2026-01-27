@@ -5,9 +5,9 @@ import Link from "next/link";
 import './privatelounge.css';
 
 const COLLECTION = [
-  { id: "ple1", category: "Digital", title: "The Private Lounge Experience", price: "$65", link: "/products/planner" },
-  { id: "ple2", category: "Digital", title: "The Lounge Legacy Table", price: "$45", link: "/products/flyer" },
-  { id: "ple3", category: "Digital", title: "The Suite Of Self Leadership", price: "$250", link: "/course" },
+  { id: "ple1", category: "Digital", title: "The Private Lounge Experience", price: "$17", link: "https://www.theedesignlounge.co/product/the-private-lounge-experience-night-1-the-brand-identity-bar/2?cp=true&sa=true&sbp=false&q=false" },
+  { id: "ple2", category: "Digital", title: "The Lounge Legacy Table", price: "$17", link: "https://www.theedesignlounge.co/product/the-lounge-legacy-table-night-3/6?cp=true&sa=true&sbp=false&q=false" },
+  { id: "ple3", category: "Digital", title: "The Suite Of Self Leadership", price: "$17", link: "https://www.theedesignlounge.co/product/the-suite-of-self-leadership-night-2/4?cp=true&sa=true&sbp=false&q=false" },
 ];
 
 export default function PrivateloungePage() {
@@ -86,6 +86,8 @@ export default function PrivateloungePage() {
                 
                 <Link 
                   href={item.link}
+                    target="_blank" 
+      rel="noopener noreferrer"
                   className="mt-8 text-[10px] uppercase tracking-[0.4em] text-white/30 border-b border-white/5 pb-1 hover:text-white hover:border-white transition-all duration-500"
                 >
                   View Details —

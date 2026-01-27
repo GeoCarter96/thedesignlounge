@@ -118,7 +118,9 @@ export default function Courses() {
           <h2 className="text-4xl md:text-6xl font-extralight mb-12">Secure Your Seat</h2>
           <p className="mb-16 text-white/40 tracking-widest uppercase text-xs font-light italic">Start Your 2026 With A Bang</p>
           <Link 
-            href="/checkout"
+            href="https://www.theedesignlounge.co/product/the-canva-crash-course/7?cp=true&sa=true&sbp=false&q=false"
+              target="_blank" 
+      rel="noopener noreferrer"
             className="group relative inline-block px-20 py-6 rounded-full border border-[#D4AF37] text-white overflow-hidden"
           >
             <span className="relative z-10 text-xs font-bold uppercase tracking-[0.4em] group-hover:text-black transition-colors duration-500">Acquire Crash course</span>

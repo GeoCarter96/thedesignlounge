@@ -5,9 +5,9 @@ import Link from "next/link";
 import './freebies.css';
 
 const FREEBIES = [
-  { id: "1", title: "Soft Launch Playbook", desc: "4K Digital Couture", link: "/freebies/flyer" },
-  { id: "2", title: "Luxe Launchpad", desc: "4K Digital Couture", link: "/freebies/font" },
-  { id: "3", title: "The Luxe Lounge Pregame", desc: "4K Digital Couture", link: "/freebies/guide" },
+  { id: "1", title: "The Soft Launch Playbook", desc: "4K Digital Couture", link: "https://www.theedesignlounge.co/product/the-soft-launch-playbook/5?cs=true&cst=custom" },
+  { id: "2", title: "The Luxe Launchpad", desc: "4K Digital Couture", link: "https://www.theedesignlounge.co/product/the-luxe-launchpad/3?cp=true&sa=true&sbp=false&q=false" },
+  { id: "3", title: "The Luxe Lounge Pregame", desc: "4K Digital Couture", link: "https://www.theedesignlounge.co/product/the-luxe-lounge-pre-game/1?cp=true&sa=true&sbp=false&q=false" },
 ];
 
 export default function FreebiesPage() {
@@ -84,6 +84,8 @@ export default function FreebiesPage() {
                 
                 <Link 
                   href={item.link}
+                    target="_blank" 
+      rel="noopener noreferrer"
                   className="mt-6 text-[10px] uppercase tracking-[0.4em] text-white/40 border-b border-white/10 pb-1 hover:text-white hover:border-white transition-all"
                 >
                   Download Gift —

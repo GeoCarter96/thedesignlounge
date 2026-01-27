@@ -71,7 +71,7 @@ export default function PlannerProductPage() {
           
           <div className="flex items-center justify-between">
             <div className="flex flex-col">
-              <span className="text-2xl font-extralight tracking-widest">$65.00</span>
+              {/*<span className="text-2xl font-extralight tracking-widest">$65.00</span>*/}
               <span className="text-[9px] uppercase tracking-[0.2em] text-white/20">Limited Batch Release</span>
             </div>
           </div>

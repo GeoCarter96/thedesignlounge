@@ -9,8 +9,9 @@ const PUBLICATIONS = [
     id: "vol-01",
     title: "How To Create And Sell Digital Products",
     subtitle: "(Item Still In Production)",
-    price: "$85",
-    img: "/ebooks.png"
+    img: "/ebooks.png",
+    price: "",
+    
   }
 ];
 
