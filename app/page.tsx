@@ -100,27 +100,28 @@ export default function HomePage() {
     className="flex justify-center w-full"
   >
     <Link 
-      href="/matchmake"
-      /* Using massive arbitrary padding: py-[120px] and px-[200px] */
-      className="group relative inline-block overflow-hidden rounded-sm px-20 py-40 md:px-[200px] md:py-[120px] text-xl md:text-3xl font-bold uppercase tracking-[1em] text-black transition-all hover:scale-105 active:scale-95 animate-gold-pulse shadow-[0_0_100px_rgba(212,175,55,0.4)]"
-      style={{
-        background: 'linear-gradient(180deg, #AF8A3F 0%, #D4AF37 30%, #F9E498 50%, #D4AF37 70%, #AF8A3F 100%)',
-      }}
-    >
-      <span className="relative z-10 block whitespace-nowrap drop-shadow-md">
-        Enter The Lounge
-      </span>
+  href="/matchmake"
+  /* Mobile: px-10 py-16 | Desktop: px-[200px] py-[120px] */
+  className="group relative inline-block overflow-hidden rounded-sm px-10 py-16 md:px-[200px] md:py-[120px] text-xs md:text-3xl font-bold uppercase tracking-[0.5em] md:tracking-[1em] text-black transition-all hover:scale-105 active:scale-95 animate-gold-pulse shadow-[0_0_50px_rgba(212,175,55,0.3)] md:shadow-[0_0_100px_rgba(212,175,55,0.4)]"
+  style={{
+    background: 'linear-gradient(180deg, #AF8A3F 0%, #D4AF37 30%, #F9E498 50%, #D4AF37 70%, #AF8A3F 100%)',
+  }}
+>
+  <span className="relative z-10 block whitespace-nowrap drop-shadow-md">
+    Enter The Lounge
+  </span>
 
-      {/* Shine Ray - Increased brightness for the larger surface */}
-      <div className="absolute inset-0 z-20 pointer-events-none">
-         <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/95 to-transparent -translate-x-full group-hover:animate-shimmer" />
-      </div>
+  {/* Shine Ray */}
+  <div className="absolute inset-0 z-20 pointer-events-none">
+     <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/95 to-transparent -translate-x-full group-hover:animate-shimmer" />
+  </div>
 
-      {/* Heavier Beveling to match the new scale */}
-      <div className="absolute inset-0 border-t-[8px] border-white/40 z-15 pointer-events-none" />
-      <div className="absolute inset-0 border-b-[8px] border-black/50 z-15 pointer-events-none" />
-      <div className="absolute inset-0 border-x-[4px] border-white/10 z-15 pointer-events-none" />
-    </Link>
+  {/* Responsive Beveling: Thinner on mobile, Thicker on desktop */}
+  <div className="absolute inset-0 border-t-[3px] md:border-t-[8px] border-white/40 z-15 pointer-events-none" />
+  <div className="absolute inset-0 border-b-[3px] md:border-b-[8px] border-black/50 z-15 pointer-events-none" />
+  <div className="absolute inset-0 border-x-[1px] md:border-x-[4px] border-white/10 z-15 pointer-events-none" />
+</Link>
+
   </motion.div>
   
   <motion.p 
