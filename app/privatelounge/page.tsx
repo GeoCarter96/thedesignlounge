@@ -45,7 +45,7 @@ export default function PrivateloungePage() {
               style={{ transitionDelay: `${i * 0.2}s` }}
               className="reveal anim-slide-up group flex flex-col opacity-0 translate-y-8"
             >
-              <div className="relative  w-full bg-neutral-950 border border-white/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-1000 group-hover:border-[#D4AF37]/40">
+              <div className="relative w-full max-w-lg bg-neutral-950 border border-white/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-1000 group-hover:border-[#D4AF37]/40">
                 <img 
                   src={`/${item.id}.png`} 
                   alt={item.title}

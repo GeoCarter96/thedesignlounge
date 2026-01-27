@@ -47,7 +47,7 @@ export default function Courses() {
             </h1>
           </div>
 
-          <div className="reveal anim-scale-in relative w-full max-w-4xl  overflow-hidden rounded-xl bg-white/5 border border-white/10 shadow-2xl group mx-auto opacity-0 scale-95 transition-all">
+          <div className="reveal anim-scale-in relative w-full max-w-lg  overflow-hidden rounded-xl bg-white/5 border border-white/10 shadow-2xl group mx-auto opacity-0 scale-95 transition-all">
             <img 
               src="/course.PNG" 
               alt="Course Preview"
