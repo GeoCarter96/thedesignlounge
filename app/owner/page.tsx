@@ -43,11 +43,11 @@ export default function Owner() {
       {/* 2. THE PORTRAIT */}
       <section className="px-10 max-w-7xl mx-auto py-32">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div className="reveal anim-scale-in md:col-span-5 relative aspect-[3/4] bg-neutral-900 border border-white/5 rounded-sm overflow-hidden shadow-2xl group opacity-0 scale-95">
+          <div className="reveal anim-scale-in md:col-span-5 relative  bg-neutral-900 border border-white/5 rounded-sm overflow-hidden shadow-2xl group opacity-0 scale-95">
             <img 
               src="/owner-portrait.jpg" 
               alt="The Curator"
-              className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-opacity duration-1000 grayscale group-hover:grayscale-0"
+              className=" inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-opacity duration-1000 grayscale group-hover:grayscale-0"
             />
             
             <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">

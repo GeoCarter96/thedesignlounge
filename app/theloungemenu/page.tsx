@@ -50,11 +50,11 @@ export default function LuxuryExperience() {
           </div>
 
           {/* PRODUCT MONOLITH */}
-          <div className="reveal-monolith relative w-full max-w-4xl aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-sm bg-white/5 border border-white/10 shadow-2xl group opacity-0 scale-95 transition-all">
+          <div className="reveal-monolith relative w-full max-w-4xl   overflow-hidden rounded-sm bg-white/5 border border-white/10 shadow-2xl group opacity-0 scale-95 transition-all">
             <img 
               src={section.img} 
               alt={section.title}
-              className="absolute inset-0 w-full h-full object-contain opacity-40 group-hover:opacity-100 transition-all duration-1000 grayscale group-hover:grayscale-0"
+              className=" inset-0 w-full h-full object-contain opacity-40 group-hover:opacity-100 transition-all duration-1000 grayscale group-hover:grayscale-0"
             />
             <Link 
               href={section.title === 'The Lobby' ? '/' : section.title === 'Lounge Menu' ? '/theloungemenu' : `/${section.id}`} 
