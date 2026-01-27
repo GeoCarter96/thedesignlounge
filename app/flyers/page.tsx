@@ -40,7 +40,7 @@ export default function FlyerProductPage() {
           <img 
             src="/flyer.PNG" 
             alt="Luxury Flyer Mockup"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            className="absolute inset-0 w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
           />
 
           <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">

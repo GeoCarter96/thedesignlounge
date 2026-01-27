@@ -51,7 +51,7 @@ export default function Courses() {
             <img 
               src="/course.PNG" 
               alt="Course Preview"
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              className="absolute inset-0 w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />

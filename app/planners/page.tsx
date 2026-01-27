@@ -36,7 +36,7 @@ export default function PlannerProductPage() {
           <img 
             src="/planner.png" 
             alt="Luxury Planner Mockup"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+            className="absolute inset-0 w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
           />
 
           {/* Signature Shine Effect */}

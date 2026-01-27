@@ -49,7 +49,7 @@ export default function PrivateloungePage() {
                 <img 
                   src={`/${item.id}.png`} 
                   alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-80 transition-all duration-1000 group-hover:opacity-100 group-hover:scale-105"
+                  className="absolute inset-0 w-full h-full object-contain opacity-80 transition-all duration-1000 group-hover:opacity-100 group-hover:scale-105"
                   onError={(e) => {
                     const target = e.currentTarget;
                     target.src = target.src.endsWith('.png') ? target.src.replace('.png', '.PNG') : target.src.replace('.PNG', '.png');

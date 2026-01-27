@@ -56,7 +56,7 @@ export default function FreebiesPage() {
                 <img 
                   src={`/freebie${item.id}.jpg`} 
                   alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-all duration-1000"
+                  className="absolute inset-0 w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-all duration-1000"
                 />
 
                 <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">

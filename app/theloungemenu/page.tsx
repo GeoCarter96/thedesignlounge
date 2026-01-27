@@ -54,7 +54,7 @@ export default function LuxuryExperience() {
             <img 
               src={section.img} 
               alt={section.title}
-              className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-all duration-1000 grayscale group-hover:grayscale-0"
+              className="absolute inset-0 w-full h-full object-contain opacity-40 group-hover:opacity-100 transition-all duration-1000 grayscale group-hover:grayscale-0"
             />
             <Link 
               href={section.title === 'The Lobby' ? '/' : section.title === 'Lounge Menu' ? '/theloungemenu' : `/${section.id}`} 
