@@ -1,6 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useEffect } from "react";
 import Link from "next/link";
 import './freebies.css';
 
@@ -11,47 +10,41 @@ const FREEBIES = [
 ];
 
 export default function FreebiesPage() {
-  const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
-    setMounted(true);
+    // Native Intersection Observer to trigger reveals
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   return (
-    /* We use 'opacity-0' if not mounted so the height/width of elements 
-       exist in the DOM, preventing the "bunched up" look */
-    <div className={`min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-32 pb-40 transition-opacity duration-700 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
+    <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-32 pb-40">
       
       {/* 1. HEADER SECTION */}
       <section className="px-10 max-w-7xl mx-auto pb-24 border-b border-white/5">
-        <motion.p 
-          initial={{ opacity: 0, letterSpacing: "0.2em" }}
-          animate={mounted ? { opacity: 0.4, letterSpacing: "0.6em" } : {}}
-          transition={{ duration: 1.5 }}
-          className="uppercase text-[10px] mb-6"
-        >
+        <p className="reveal anim-fade-in uppercase text-[10px] mb-6 opacity-0">
           Complimentary Access // The Lounge
-        </motion.p>
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={mounted ? { opacity: 1, y: 0 } : {}}
-          className="font-serif text-6xl md:text-8xl font-extralight tracking-tighter"
-        >
+        </p>
+        <h1 className="reveal anim-slide-up font-serif text-6xl md:text-8xl font-extralight tracking-tighter opacity-0 translate-y-5">
           Gifted <span className="italic text-[#D4AF37]">Essentials</span>
-        </motion.h1>
+        </h1>
       </section>
 
       {/* 2. THREE-COLUMN PRODUCT GRID */}
       <section className="px-10 max-w-7xl mx-auto py-32">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           {FREEBIES.map((item, i) => (
-            <motion.div 
+            <div 
               key={item.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={mounted ? { opacity: 1, y: 0 } : {}}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: i * 0.2 }}
-              className="group flex flex-col"
+              style={{ transitionDelay: `${i * 0.2}s` }}
+              className="reveal anim-slide-up group flex flex-col opacity-0 translate-y-8"
             >
               <div className="relative aspect-[4/5] w-full bg-neutral-900 border border-white/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-1000 group-hover:border-[#D4AF37]/30">
                 <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-30 transition-opacity">
@@ -63,7 +56,7 @@ export default function FreebiesPage() {
                 <img 
                   src={`/freebie${item.id}.jpg`} 
                   alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-100"
+                  className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-all duration-1000"
                 />
 
                 <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
@@ -86,13 +79,13 @@ export default function FreebiesPage() {
                   Download Gift —
                 </Link>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
       {/* 3. FOOTER NOTE */}
-      <section className="mt-20 text-center opacity-20">
+      <section className="mt-20 text-center opacity-20 reveal anim-fade-in">
          <p className="text-[9px] uppercase tracking-[0.8em]">Excellence should be accessible.</p>
       </section>
     </div>

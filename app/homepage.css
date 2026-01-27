@@ -4,23 +4,52 @@ body{
     font-family: var(--font-luxury), sans-serif;
     
 }
-@keyframes gold-pulse {
-    0%, 100% { 
-        box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
-        transform: scale(1) 
-    }
-    50% { 
-        box-shadow: 0 0 80px rgba(212, 175, 55, 0.5);
-        transform: scale(1.02) 
-    }
+/* Base Visibility */
+.reveal-on-scroll {
+  opacity: 0;
+  will-change: transform, opacity;
 }
-animate-gold-pulse {
-    animation: gold-pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+/* 1. Logo Scale (anim-scale-in) */
+.anim-scale-in {
+  transform: scale(0.95);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
+
+/* 2. Text Slide Up (anim-slide-up) */
+.anim-slide-up {
+  transform: translateY(30px);
+  transition: opacity 1s ease-out 0.2s, transform 1s ease-out 0.2s;
+}
+
+/* 3. Monolith Heavy Scale (anim-scale-in-heavy) */
+.anim-scale-in-heavy {
+  transform: scale(0.9);
+  transition: opacity 1.5s ease-out;
+}
+
+/* 4. Slow Fade */
+.anim-fade-slow {
+  transition: opacity 2s ease-out 1s;
+}
+
+/* Active State Triggered by JS */
+.is-visible {
+  opacity: 1 !important;
+  transform: scale(1) translateY(0) !important;
+}
+
+/* Existing Custom Animations */
 @keyframes shimmer {
-          0% { transform: 'translateX(-150%) skewX(-12deg)' }
-          100% { transform: 'translateX(250%) skewX(-12deg)' }
-       }
-.animate-shimmer {
-    animation: shimmer 2s infinite;
+  100% { transform: translateX(100%); }
+}
+
+
+
+@keyframes gold-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(212,175,55,0.2); }
+  50% { box-shadow: 0 0 60px rgba(212,175,55,0.5); }
+}
+.animate-gold-pulse {
+  animation: gold-pulse 5s infinite ease-in-out;
 }

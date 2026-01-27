@@ -4,6 +4,9 @@ export default {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+   safelist: ['is-visible'], 
+  
+
   theme: {
     extend: {
       keyframes: {

@@ -2,3 +2,33 @@ body{
     font-family: var(--font-luxury), sans-serif;
     
 }
+/* Base Transition Logic */
+.reveal {
+  will-change: transform, opacity;
+  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Header Reveal */
+.anim-fade-in.is-visible {
+  opacity: 0.4 !important;
+  letter-spacing: 0.6em !important;
+}
+
+/* Card Reveal */
+.anim-slide-up.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Footer Reveal */
+section .anim-fade-in.is-visible:last-child {
+    opacity: 0.2 !important;
+}
+
+/* Shimmer Keyframes */
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+.group-hover\:animate-shimmer {
+  animation: shimmer 1.5s infinite;
+}

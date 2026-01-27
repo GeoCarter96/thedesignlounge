@@ -2,3 +2,43 @@ body{
     font-family: var(--font-luxury), sans-serif;
     
 }
+/* Base Transition Settings */
+.reveal {
+  will-change: transform, opacity;
+  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Animations */
+.anim-fade-in.is-visible {
+  opacity: 0.4 !important;
+  letter-spacing: 0.6em !important;
+}
+
+.anim-slide-up.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.anim-scale-in.is-visible {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  transition-duration: 1.5s;
+}
+
+/* Signature Shimmer Effect */
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+.group-hover\:animate-shimmer {
+  animation: shimmer 4s ;
+}
+
+/* Optimization for CTA Shimmer */
+.animate-gold-pulse {
+  animation: gold-pulse 4s infinite ease-in-out;
+}
+
+@keyframes gold-pulse {
+  0%, 100% { box-shadow: 0 40px 100px -20px rgba(212,175,55,0.4); }
+  50% { box-shadow: 0 40px 120px -10px rgba(212,175,55,0.6); }
+}

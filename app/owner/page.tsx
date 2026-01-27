@@ -1,43 +1,40 @@
 "use client";
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useEffect } from "react";
 import './owner.css';
 
 export default function Owner() {
-  const [hasMounted, setHasMounted] = useState(false);
-
   useEffect(() => {
-    setHasMounted(true);
+    // Native Intersection Observer to trigger animations
+    const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   return (
-    /* We use a CSS transition for opacity instead of a blank return.
-       This keeps the grid structure (px-10, max-w-7xl, grid-cols-12) active 
-       from the first millisecond, preventing the "bunched up" flash. */
-    <div className={`min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-32 pb-40 transition-opacity duration-1000 ${hasMounted ? 'opacity-100' : 'opacity-0'}`}>
+    <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-32 pb-40">
       
       {/* 1. HERO SECTION */}
       <section className="px-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
         <div className="md:col-span-7">
-          <motion.p 
-            initial={{ opacity: 0, letterSpacing: "0.2em" }}
-            animate={hasMounted ? { opacity: 0.4, letterSpacing: "0.5em" } : {}}
-            className="uppercase text-[10px] mb-8"
-          >
+          <p className="reveal anim-fade-in uppercase text-[10px] mb-8 opacity-0">
             The Architect // Founder
-          </motion.p>
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={hasMounted ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1.2 }}
-            className="font-serif text-6xl md:text-9xl font-extralight tracking-tighter leading-none"
-          >
+          </p>
+          <h1 className="reveal anim-slide-up font-serif text-6xl md:text-9xl font-extralight tracking-tighter leading-none opacity-0 translate-y-8">
             Defining <br />
             <span className="italic text-[#D4AF37]">The Aesthetic</span>
-          </motion.h1>
+          </h1>
         </div>
         <div className="md:col-span-5 md:text-right">
-          <p className="text-xs uppercase tracking-[0.4em] opacity-30 italic">
+          <p className="reveal anim-fade-in text-xs uppercase tracking-[0.4em] opacity-0 italic" style={{ transitionDelay: '0.4s' }}>
             Est. 2026 // Indiana Studio
           </p>
         </div>
@@ -46,17 +43,11 @@ export default function Owner() {
       {/* 2. THE PORTRAIT */}
       <section className="px-10 max-w-7xl mx-auto py-32">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={hasMounted ? { opacity: 1, scale: 1 } : {}}
-            viewport={{ once: true }}
-            transition={{ duration: 1.8 }}
-            className="md:col-span-5 relative aspect-[3/4] bg-neutral-900 border border-white/5 rounded-sm overflow-hidden shadow-2xl group"
-          >
+          <div className="reveal anim-scale-in md:col-span-5 relative aspect-[3/4] bg-neutral-900 border border-white/5 rounded-sm overflow-hidden shadow-2xl group opacity-0 scale-95">
             <img 
               src="/owner-portrait.jpg" 
               alt="The Curator"
-              className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-1000 grayscale group-hover:grayscale-0"
+              className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-opacity duration-1000 grayscale group-hover:grayscale-0"
             />
             
             <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
@@ -66,16 +57,11 @@ export default function Owner() {
             <div className="absolute bottom-10 left-10 opacity-20">
                <p className="text-[9px] uppercase tracking-[0.6em]">The Curator</p>
             </div>
-          </motion.div>
+          </div>
 
           {/* 3. THE NARRATIVE */}
           <div className="md:col-span-7 flex flex-col justify-center md:pl-20">
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={hasMounted ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="max-w-xl"
-            >
+            <div className="reveal anim-slide-right max-w-xl opacity-0 translate-x-5">
               <h2 className="text-xs uppercase tracking-[0.5em] text-[#D4AF37] mb-12">The Philosophy</h2>
               <p className="text-2xl md:text-3xl font-extralight leading-relaxed tracking-tight mb-8">
                 "Design is not a service; it is a <span className="italic">dialogue</span> between history and the future."
@@ -94,20 +80,16 @@ export default function Owner() {
                   <span className="text-xs tracking-widest">10+ Years</span>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* 4. CLOSING */}
       <section className="py-40 text-center border-t border-white/5 mx-10">
-        <motion.p 
-          initial={{ opacity: 0 }}
-          whileInView={hasMounted ? { opacity: 1 } : {}}
-          className="font-serif text-4xl md:text-6xl italic opacity-80"
-        >
+        <p className="reveal anim-fade-in font-serif text-4xl md:text-6xl italic opacity-0">
           Curated with <span className="text-[#D4AF37]">Intent.</span>
-        </motion.p>
+        </p>
       </section>
     </div>
   );

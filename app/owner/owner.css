@@ -2,3 +2,44 @@ body{
     font-family: var(--font-luxury), sans-serif;
     
 }
+/* Base Transition Settings */
+.reveal {
+  will-change: transform, opacity;
+  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Specific Animation States */
+.anim-fade-in.is-visible {
+  opacity: 0.4 !important;
+  letter-spacing: 0.5em !important;
+}
+
+.anim-slide-up.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.anim-slide-right.is-visible {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  transition-delay: 0.3s;
+}
+
+.anim-scale-in.is-visible {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  transition-duration: 1.8s;
+}
+
+/* Signature Shimmer Effect */
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+.group-hover\:animate-shimmer {
+  animation: shimmer 1.5s infinite;
+}
+
+/* Optimization for Portrait */
+img {
+  content-visibility: auto;
+}

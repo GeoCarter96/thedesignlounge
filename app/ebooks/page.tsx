@@ -1,6 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useEffect } from "react";
 import Link from "next/link";
 import './ebooks.css';
 
@@ -15,45 +14,40 @@ const PUBLICATIONS = [
 ];
 
 export default function Ebooks() {
-  const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
-    setMounted(true);
+    // Native Intersection Observer to trigger reveals
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   return (
-    /* Change: Instead of returning a blank div, we use a CSS transition on opacity.
-       This keeps the 'min-h-screen' and 'pt-32' layout active from the start. */
-    <div className={`min-h-screen bg-black text-white selection:bg-[#D4AF37] selection:text-black pt-32 transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
+    <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] selection:text-black pt-32">
       
       {/* 1. Header: Editorial Intro */}
       <section className="px-10 max-w-7xl mx-auto pb-24 border-b border-white/5">
-        <motion.p 
-          initial={{ opacity: 0, letterSpacing: "0.2em" }}
-          animate={mounted ? { opacity: 0.4, letterSpacing: "0.5em" } : {}}
-          className="uppercase text-[10px] mb-6 tracking-[0.5em]"
-        >
+        <p className="reveal anim-fade-in uppercase text-[10px] mb-6 tracking-[0.5em] opacity-0">
           The Digital Atelier // Library
-        </motion.p>
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={mounted ? { opacity: 1, y: 0 } : {}}
-          className="font-serif text-6xl md:text-8xl font-extralight tracking-tighter"
-        >
+        </p>
+        <h1 className="reveal anim-slide-up font-serif text-6xl md:text-8xl font-extralight tracking-tighter opacity-0 translate-y-5">
           Curated <span className="italic text-[#D4AF37]">Knowledge</span>
-        </motion.h1>
+        </h1>
       </section>
 
       {/* 2. The Collection Grid */}
       <section className="px-10 max-w-7xl mx-auto py-32 flex flex-col items-center">
         {PUBLICATIONS.map((book, i) => (
-          <motion.div 
+          <div 
             key={book.id}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={mounted ? { opacity: 1, y: 0 } : {}}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.2 }}
-            className="group cursor-pointer w-full max-w-lg"
+            style={{ transitionDelay: `${i * 0.2}s` }}
+            className="reveal anim-slide-up group cursor-pointer w-full max-w-lg opacity-0 translate-y-10"
           >
             {/* Luxury Book Display */}
             <div className="relative aspect-[3/4] w-full bg-neutral-900 overflow-hidden rounded-sm shadow-2xl transition-transform duration-1000 group-hover:-translate-y-4">
@@ -79,12 +73,12 @@ export default function Ebooks() {
               </div>
               <span className="text-lg font-extralight tracking-widest">{book.price}</span>
             </div>
-          </motion.div>
+          </div>
         ))}
       </section>
 
       {/* 3. Global Shipping/Delivery Note */}
-      <section className="py-40 text-center border-t border-white/5">
+      <section className="py-40 text-center border-t border-white/5 reveal anim-fade-in opacity-0">
         <p className="text-[10px] uppercase tracking-[0.5em] text-white/20">
           Instant Digital Fulfillment // Secure Encryption
         </p>

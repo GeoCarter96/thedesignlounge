@@ -2,3 +2,38 @@ body{
     font-family: var(--font-luxury), sans-serif;
     
 }
+/* Base Transition Settings */
+.reveal {
+  will-change: transform, opacity;
+  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Specific Animation States */
+.anim-slide-up.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.anim-scale-in.is-visible {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  transition-duration: 1.8s;
+}
+
+.anim-fade-in.is-visible {
+  opacity: 1 !important;
+  transition-duration: 2s;
+}
+
+/* Signature Shimmer Effect */
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+.group-hover\:animate-shimmer {
+  animation: shimmer 1.5s infinite;
+}
+
+/* Optimization for Images */
+img {
+  content-visibility: auto;
+}

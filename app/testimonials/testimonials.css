@@ -4,3 +4,29 @@ body{
     font-family: var(--font-luxury), sans-serif;
     
 }
+/* Reveal States */
+.reveal-element {
+  will-change: transform, opacity;
+  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.anim-slide-up.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.anim-fade-up.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition-delay: 0.1s;
+}
+
+.anim-fade-in.is-visible {
+  opacity: 1 !important;
+  transition-duration: 2s;
+}
+
+/* Luxury Font Optimization */
+p {
+  text-wrap: balance; /* Prevents awkward single words on new lines */
+}

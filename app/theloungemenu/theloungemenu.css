@@ -2,3 +2,37 @@ body{
     font-family: var(--font-luxury), sans-serif;
     
 }
+/* Reveal Containers */
+.reveal-sub, .reveal-title, .reveal-monolith, .reveal-link {
+  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+/* Specific Animations when .is-visible is added */
+.is-visible .reveal-sub {
+  opacity: 0.4;
+  letter-spacing: 0.5em;
+}
+
+.is-visible .reveal-title {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.is-visible .reveal-monolith {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.4s;
+  transition-duration: 1.5s;
+}
+
+.is-visible .reveal-link {
+  opacity: 1;
+  transition-delay: 0.8s;
+}
+
+/* Optimize Video/Image Performance */
+img, video {
+  content-visibility: auto; /* Browser optimization for off-screen content */
+}
