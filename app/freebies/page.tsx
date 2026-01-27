@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react"; // [1] Added hooks
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import './freebies.css';
@@ -11,26 +11,22 @@ const FREEBIES = [
 ];
 
 export default function FreebiesPage() {
-  // [2] Hydration Guard State
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // [3] Prevent rendering until client-side mount
-  if (!mounted) {
-    return <div className="min-h-screen bg-black" />;
-  }
-
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-32 pb-40">
+    /* We use 'opacity-0' if not mounted so the height/width of elements 
+       exist in the DOM, preventing the "bunched up" look */
+    <div className={`min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-32 pb-40 transition-opacity duration-700 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
       
       {/* 1. HEADER SECTION */}
       <section className="px-10 max-w-7xl mx-auto pb-24 border-b border-white/5">
         <motion.p 
           initial={{ opacity: 0, letterSpacing: "0.2em" }}
-          animate={{ opacity: 0.4, letterSpacing: "0.6em" }}
+          animate={mounted ? { opacity: 0.4, letterSpacing: "0.6em" } : {}}
           transition={{ duration: 1.5 }}
           className="uppercase text-[10px] mb-6"
         >
@@ -38,7 +34,7 @@ export default function FreebiesPage() {
         </motion.p>
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={mounted ? { opacity: 1, y: 0 } : {}}
           className="font-serif text-6xl md:text-8xl font-extralight tracking-tighter"
         >
           Gifted <span className="italic text-[#D4AF37]">Essentials</span>
@@ -52,13 +48,12 @@ export default function FreebiesPage() {
             <motion.div 
               key={item.id}
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              whileInView={mounted ? { opacity: 1, y: 0 } : {}}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: i * 0.2 }}
               className="group flex flex-col"
             >
               <div className="relative aspect-[4/5] w-full bg-neutral-900 border border-white/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-1000 group-hover:border-[#D4AF37]/30">
-                
                 <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-30 transition-opacity">
                    <div className="w-12 h-12 border border-white/50 rounded-full animate-pulse flex items-center justify-center">
                       <span className="text-[8px] uppercase tracking-widest">{item.id}</span>
@@ -68,7 +63,7 @@ export default function FreebiesPage() {
                 <img 
                   src={`/freebie${item.id}.jpg`} 
                   alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-70 group-hover:opacity-100"
+                  className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-100"
                 />
 
                 <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
@@ -84,8 +79,8 @@ export default function FreebiesPage() {
                 
                 <Link 
                   href={item.link}
-                    target="_blank" 
-      rel="noopener noreferrer"
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="mt-6 text-[10px] uppercase tracking-[0.4em] text-white/40 border-b border-white/10 pb-1 hover:text-white hover:border-white transition-all"
                 >
                   Download Gift —

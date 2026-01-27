@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react"; // 1. Added hooks
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import './testimonials.css';
@@ -16,26 +16,22 @@ const TESTIMONIALS = [
 ];
 
 export default function Testimonials() {
-  // 2. Hydration Guard
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // 3. Prevent rendering motion elements until mounted
-  if (!mounted) {
-    return <div className="min-h-screen bg-black" />;
-  }
-
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] selection:text-black pt-20">
+    /* Instead of returning a blank div, we use a CSS transition on opacity.
+       This keeps the layout containers active from the start, preventing the bunching. */
+    <div className={`min-h-screen bg-black text-white selection:bg-[#D4AF37] selection:text-black pt-20 transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
       
       {/* 1. Header Section */}
       <section className="pt-20 pb-20 px-10 border-b border-white/5">
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={mounted ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="text-5xl md:text-8xl font-extralight tracking-tighter"
         >
@@ -50,7 +46,7 @@ export default function Testimonials() {
           <motion.div 
             key={i}
             initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            whileInView={mounted ? { opacity: 1, y: 0 } : {}}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1.5, ease: "easeOut" }}
             className="py-32 border-b border-white/5 flex flex-col md:flex-row justify-between items-start gap-12 group"
@@ -79,7 +75,7 @@ export default function Testimonials() {
       <section className="py-60 flex flex-col items-center text-center px-6">
         <motion.div
            initial={{ opacity: 0 }}
-           whileInView={{ opacity: 1 }}
+           whileInView={mounted ? { opacity: 1 } : {}}
            transition={{ duration: 2 }}
         >
           <p className="text-xs uppercase tracking-[0.6em] opacity-30 mb-12">Your Seat is Waiting</p>

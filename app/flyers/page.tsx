@@ -1,31 +1,27 @@
 "use client";
-import { useState, useEffect } from "react"; // 1. Import useState and useEffect
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import './flyers.css';   
 
 export default function FlyerProductPage() {
-  // 2. Add hydration guard state
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // 3. Set to true once component is mounted on the client
     setMounted(true);
   }, []);
 
-  // 4. If not mounted yet, return a simple placeholder matching the background
-  if (!mounted) {
-    return <div className="min-h-screen bg-black" />;
-  }
-
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-32">
+    /* We remove the null return and use a CSS transition on opacity.
+       This keeps the layout structure (pt-32, flex, grid) active 
+       from the first millisecond, preventing the "bunched up" flash. */
+    <div className={`min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-32 transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
       
       {/* 1. HERO SECTION */}
       <section className="relative flex flex-col items-center px-6">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={mounted ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2 }}
           className="text-center mb-16"
         >
@@ -35,21 +31,19 @@ export default function FlyerProductPage() {
           </h1>
         </motion.div>
 
-        {/* HERO IMAGE PLACEHOLDER - Vertical 4:5 Aspect Ratio */}
+        {/* HERO IMAGE */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
+          animate={mounted ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 1.8, ease: "easeOut" }}
           className="relative w-full max-w-lg aspect-[4/5] bg-neutral-900 border border-white/5 rounded-sm shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] group overflow-hidden"
         >
-          {/* Actual Image Holder */}
           <img 
-            src="/flyer.PNG" // Ensure casing is correct on server (lowercase is best practice)
+            src="/flyer.PNG" 
             alt="Luxury Flyer Mockup"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
 
-          {/* Signature Shine Effect */}
           <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
             <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
           </div>
@@ -73,7 +67,6 @@ export default function FlyerProductPage() {
           
           <div className="flex items-center justify-between">
             <div className="flex flex-col">
-              {/*<span className="text-2xl font-extralight tracking-widest">$45.00</span>*/}
               <span className="text-[9px] uppercase tracking-[0.2em] text-white/20">Instant Secure Download</span>
             </div>
           </div>

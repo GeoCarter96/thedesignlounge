@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react"; // 1. Added hooks
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import './ebooks.css';
@@ -11,36 +11,33 @@ const PUBLICATIONS = [
     subtitle: "(Item Still In Production)",
     img: "/ebooks.PNG",
     price: "",
-    
   }
 ];
 
 export default function Ebooks() {
-  // 2. Added hydration guard
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // 3. Prevent rendering motion elements until mounted
-  if (!mounted) return <div className="min-h-screen bg-black" />;
-
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] selection:text-black pt-32">
+    /* Change: Instead of returning a blank div, we use a CSS transition on opacity.
+       This keeps the 'min-h-screen' and 'pt-32' layout active from the start. */
+    <div className={`min-h-screen bg-black text-white selection:bg-[#D4AF37] selection:text-black pt-32 transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
       
       {/* 1. Header: Editorial Intro */}
       <section className="px-10 max-w-7xl mx-auto pb-24 border-b border-white/5">
         <motion.p 
           initial={{ opacity: 0, letterSpacing: "0.2em" }}
-          animate={{ opacity: 0.4, letterSpacing: "0.5em" }}
+          animate={mounted ? { opacity: 0.4, letterSpacing: "0.5em" } : {}}
           className="uppercase text-[10px] mb-6 tracking-[0.5em]"
         >
           The Digital Atelier // Library
         </motion.p>
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={mounted ? { opacity: 1, y: 0 } : {}}
           className="font-serif text-6xl md:text-8xl font-extralight tracking-tighter"
         >
           Curated <span className="italic text-[#D4AF37]">Knowledge</span>
@@ -53,7 +50,7 @@ export default function Ebooks() {
           <motion.div 
             key={book.id}
             initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            whileInView={mounted ? { opacity: 1, y: 0 } : {}}
             viewport={{ once: true }}
             transition={{ delay: i * 0.2 }}
             className="group cursor-pointer w-full max-w-lg"
@@ -66,10 +63,8 @@ export default function Ebooks() {
                 className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-1000"
               />
               
-              {/* Spine Detail */}
               <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-[#D4AF37] via-[#F9E498] to-[#AF8A3F] opacity-50" />
               
-              {/* Signature Shine */}
               <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
               </div>

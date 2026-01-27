@@ -1,30 +1,27 @@
 "use client";
-import { useState, useEffect } from "react"; // [1] Add hooks
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import './customwork.css';
 
-export default function BespokePage() {
-  // [2] Add hydration guard
+export default function CustomWork() {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
     setHasMounted(true);
   }, []);
 
-  // [3] Wait until mounted to render interactive motion elements
-  if (!hasMounted) {
-    return <div className="min-h-screen bg-black" />;
-  }
-
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-40 pb-32 px-6">
+    /* We remove the null return and use a CSS transition for opacity.
+       This keeps the layout structure (pt-40, grid, gap-20) active 
+       from the first millisecond, preventing the "bunched up" flash. */
+    <div className={`min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-40 pb-32 px-6 transition-opacity duration-1000 ${hasMounted ? 'opacity-100' : 'opacity-0'}`}>
       
       {/* 1. EDITORIAL HEADER */}
       <section className="max-w-5xl mx-auto text-center mb-32">
         <motion.p 
           initial={{ opacity: 0, letterSpacing: "0.2em" }}
-          animate={{ opacity: 0.4, letterSpacing: "0.6em" }}
+          animate={hasMounted ? { opacity: 0.4, letterSpacing: "0.6em" } : {}}
           transition={{ duration: 1.5 }}
           className="uppercase text-[10px] mb-8 font-light"
         >
@@ -32,7 +29,7 @@ export default function BespokePage() {
         </motion.p>
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={hasMounted ? { opacity: 1, y: 0 } : {}}
           className="font-serif text-6xl md:text-9xl font-extralight tracking-tighter italic"
         >
           The <span className="not-italic text-[#D4AF37]">Personal</span> Touch
@@ -69,7 +66,7 @@ export default function BespokePage() {
       <section className="py-40 flex flex-col items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          whileInView={hasMounted ? { opacity: 1, scale: 1 } : {}}
           viewport={{ once: true }}
           transition={{ duration: 1.5 }}
           className="w-full flex justify-center px-4"

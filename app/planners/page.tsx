@@ -1,30 +1,27 @@
 "use client";
-import { useState, useEffect } from "react"; // Added hooks
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import './planners.css'
 
 export default function PlannerProductPage() {
-  // 1. Hydration Guard
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
     setHasMounted(true);
   }, []);
 
-  // 2. Return matching background until mounted
-  if (!hasMounted) {
-    return <div className="min-h-screen bg-black" />;
-  }
-
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-32">
+    /* We use a CSS transition for opacity instead of a blank return.
+       This keeps the layout structure (pt-32, flex, grid) active 
+       from the first millisecond, preventing the "bunched up" flash. */
+    <div className={`min-h-screen bg-black text-white selection:bg-[#D4AF37] pt-32 transition-opacity duration-1000 ${hasMounted ? 'opacity-100' : 'opacity-0'}`}>
       
       {/* 1. HERO SECTION */}
       <section className="relative flex flex-col items-center px-6">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={hasMounted ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2 }}
           className="text-center mb-16"
         >
@@ -37,7 +34,7 @@ export default function PlannerProductPage() {
         {/* HERO IMAGE */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
+          animate={hasMounted ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 1.8, ease: "easeOut" }}
           className="relative w-full max-w-lg aspect-[4/5] bg-neutral-900 border border-white/5 rounded-sm shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] group overflow-hidden"
         >
@@ -71,7 +68,6 @@ export default function PlannerProductPage() {
           
           <div className="flex items-center justify-between">
             <div className="flex flex-col">
-              {/*<span className="text-2xl font-extralight tracking-widest">$65.00</span>*/}
               <span className="text-[9px] uppercase tracking-[0.2em] text-white/20">Limited Batch Release</span>
             </div>
           </div>
@@ -82,7 +78,7 @@ export default function PlannerProductPage() {
       <section className="py-32 flex flex-col items-center justify-center border-t border-white/5 bg-gradient-to-b from-black to-neutral-950">
          <motion.p 
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          whileInView={hasMounted ? { opacity: 1 } : {}}
           className="font-serif text-3xl md:text-5xl italic text-white/80 px-6 text-center max-w-4xl"
          >
           "Organize the chaos, curate the legacy."

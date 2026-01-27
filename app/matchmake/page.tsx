@@ -49,16 +49,15 @@ const PRODUCTS = {
 type ScoreCategory = 'luxury' | 'goalsetter' | 'leader'  | 'ebooks' | 'curiosity';
 type ScoreState = Record<ScoreCategory, number>;
 
+
+
+// ... (KEEP QUESTIONS and PRODUCTS arrays exactly as they are)
+
 export default function DiscoveryPage() {
-  // Guard against hydration mismatch
   const [mounted, setMounted] = useState(false);
   const [step, setStep] = useState(0);
   const [scores, setScores] = useState<ScoreState>({ 
-    luxury: 0, 
-    goalsetter: 0, 
-    leader: 0, 
-    ebooks: 0,
-    curiosity: 0
+    luxury: 0, goalsetter: 0, leader: 0, ebooks: 0, curiosity: 0
   });
   const [showResult, setShowResult] = useState(false);
 
@@ -77,27 +76,19 @@ export default function DiscoveryPage() {
     const newScores = { ...scores };
     (Object.keys(points) as ScoreCategory[]).forEach((key) => {
       const pointValue = points[key];
-      if (pointValue !== undefined) {
-        newScores[key] += pointValue;
-      }
+      if (pointValue !== undefined) newScores[key] += pointValue;
     });
-    
     setScores(newScores);
-
-    if (step < QUESTIONS.length - 1) {
-      setStep(step + 1);
-    } else {
-      setShowResult(true);
-    }
+    if (step < QUESTIONS.length - 1) setStep(step + 1);
+    else setShowResult(true);
   };
 
-  // Only render the component logic after mounting
-  if (!mounted) return <div className="min-h-screen bg-black" />;
-
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center px-6 pt-20">
+    /* Change: Instead of a null guard, we use a CSS transition on opacity.
+       This keeps the 'flex items-center justify-center' active from the start. */
+    <div className={`min-h-screen bg-black text-white flex items-center justify-center px-6 pt-20 transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
       <AnimatePresence mode="wait">
-        {!showResult ? (
+        {mounted && !showResult ? (
           <motion.div
             key="question"
             initial={{ opacity: 0, x: 20 }}
@@ -126,7 +117,7 @@ export default function DiscoveryPage() {
               ))}
             </div>
           </motion.div>
-        ) : (
+        ) : mounted && showResult ? (
           <motion.div
             key="result"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -142,7 +133,7 @@ export default function DiscoveryPage() {
               </button>
             </Link>
           </motion.div>
-        )}
+        ) : null}
       </AnimatePresence>
     </div>
   );

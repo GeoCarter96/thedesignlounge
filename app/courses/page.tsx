@@ -1,8 +1,7 @@
 "use client";
-import { useState, useEffect } from "react"; // 1. Import hooks
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import './courses.css';
 
 const CURRICULUM = [
   { id: "01", title: "The Visual Narrative", detail: "Decoding the language of high-end aesthetics." },
@@ -11,67 +10,63 @@ const CURRICULUM = [
 ];
 
 export default function Courses() {
-  // 2. Add hydration guard
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
     setHasMounted(true);
   }, []);
 
-  // 3. Prevent rendering until the client is ready
   if (!hasMounted) {
-    return <div className="min-h-screen bg-black" />; // Return a matching background placeholder
+    return <div className="min-h-screen bg-black" />;
   }
 
   return (
     <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] selection:text-black">
       
       {/* 1. HERO: Cinematic Introduction */}
-      <section className="relative h-[120vh] md:h-[140vh] flex items-center justify-center overflow-hidden">
+      {/* Changed h-[120vh] to min-h-screen with vertical padding to prevent bunching */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24 md:py-32">
         <div className="absolute inset-0 z-0 opacity-40">
            <video autoPlay loop muted playsInline className="w-full h-full object-cover">
              <source src="/luxury-ink.mp4" type="video/mp4" />
            </video>
         </div>
         
-        <div className="relative z-10 text-center px-6 flex flex-col items-center">
-          <motion.p 
-            initial={{ opacity: 0, letterSpacing: "0.2em" }}
-            animate={{ opacity: 0.5, letterSpacing: "0.5em" }}
-            transition={{ duration: 2, ease: "easeOut" }}
-            className="uppercase text-[10px] mb-8 font-light"
-          >
-            A Masterclass by The Design Lounge
-          </motion.p>
+        <div className="relative z-10 text-center px-6 flex flex-col items-center gap-8 md:gap-12 w-full max-w-7xl">
+          <div>
+            <motion.p 
+              initial={{ opacity: 0, letterSpacing: "0.2em" }}
+              animate={{ opacity: 0.5, letterSpacing: "0.5em" }}
+              transition={{ duration: 2, ease: "easeOut" }}
+              className="uppercase text-[10px] mb-6 font-light"
+            >
+              A Masterclass by The Design Lounge
+            </motion.p>
 
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5 }}
-            className="font-serif text-6xl md:text-9xl font-extralight tracking-tighter italic"
-          >
-            The Canva<span className="text-[#D4AF37] not-italic"> Crash Course</span>
-          </motion.h1>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5 }}
+              className="font-serif text-5xl md:text-7xl lg:text-8xl font-extralight tracking-tighter italic leading-tight"
+            >
+              The Canva<span className="text-[#D4AF37] not-italic"> Crash Course</span>
+            </motion.h1>
+          </div>
 
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.8, delay: 0.5 }}
-            className="mt-16 relative w-full max-w-2xl aspect-[16/10] overflow-hidden rounded-xl bg-white/5 border border-white/10 shadow-2xl group"
+            className="relative w-full max-w-4xl aspect-[16/9] overflow-hidden rounded-xl bg-white/5 border border-white/10 shadow-2xl group mx-auto"
           >
             <img 
               src="/course.PNG" 
               alt="Course Preview"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
             />
+            {/* Shimmer Effect */}
             <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-               <div 
-                 className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer" 
-                 style={{
-                   WebkitMaskImage: 'linear-gradient(black, black)', 
-                   maskImage: 'linear-gradient(black, black)',
-                 }}
-               />
+               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite]" />
             </div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 opacity-60 pointer-events-none" />
           </motion.div>
@@ -79,32 +74,32 @@ export default function Courses() {
       </section>
 
       {/* 2. THE PHILOSOPHY */}
-      <section className="py-40 px-10 max-w-5xl mx-auto text-center">
-        <h2 className="text-xs uppercase tracking-[0.5em] text-white/30 mb-16">The Philosophy</h2>
-        <p className="text-2xl md:text-4xl font-extralight leading-relaxed tracking-tight">
-          True luxury is not about what is added, but what is <span className="text-[#D4AF37]">carefully removed</span>. Learn to build digital legacies that stand outside of time.
+      <section className="py-32 md:py-48 px-10 max-w-5xl mx-auto text-center">
+        <h2 className="text-xs uppercase tracking-[0.5em] text-white/30 mb-12">The Philosophy</h2>
+        <p className="text-2xl md:text-5xl font-extralight leading-snug tracking-tight">
+          True luxury is not about what is added, but what is <span className="text-[#D4AF37]">carefully removed</span>.
         </p>
       </section>
 
       {/* 3. CURRICULUM */}
-      <section className="py-40 px-10 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-start">
-          <div className="sticky top-40">
-            <h3 className="font-serif text-5xl italic">The Syllabus</h3>
-            <p className="mt-6 text-white/40 max-w-xs font-light">A self-paced immersive journey into the anatomy of premium design.</p>
+      <section className="py-24 md:py-40 px-6 md:px-10 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-start">
+          <div className="lg:sticky lg:top-40">
+            <h3 className="font-serif text-5xl md:text-6xl italic">The Syllabus</h3>
+            <p className="mt-6 text-white/40 max-w-xs font-light text-lg">A self-paced immersive journey into the anatomy of premium design.</p>
           </div>
           
           <div className="flex flex-col border-t border-white/10">
             {CURRICULUM.map((item) => (
               <motion.div 
                 key={item.id}
-                whileHover={{ x: 20 }}
-                className="py-12 border-b border-white/10 flex gap-12 group cursor-pointer"
+                whileHover={{ x: 15 }}
+                className="py-10 md:py-14 border-b border-white/10 flex gap-8 md:gap-12 group cursor-pointer"
               >
-                <span className="text-[#D4AF37] font-serif text-lg opacity-40 group-hover:opacity-100 transition-opacity">{item.id}</span>
+                <span className="text-[#D4AF37] font-serif text-xl opacity-40 group-hover:opacity-100 transition-opacity">{item.id}</span>
                 <div>
-                  <h4 className="text-2xl uppercase tracking-widest mb-2">{item.title}</h4>
-                  <p className="text-white/40 font-light">{item.detail}</p>
+                  <h4 className="text-xl md:text-2xl uppercase tracking-widest mb-3">{item.title}</h4>
+                  <p className="text-white/40 font-light leading-relaxed">{item.detail}</p>
                 </div>
               </motion.div>
             ))}
@@ -113,17 +108,17 @@ export default function Courses() {
       </section>
 
       {/* 4. ENROLLMENT */}
-      <section className="py-60 bg-[#080808] border-y border-white/5 text-center">
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 2 }}>
-          <h2 className="text-4xl md:text-6xl font-extralight mb-12">Secure Your Seat</h2>
-          <p className="mb-16 text-white/40 tracking-widest uppercase text-xs font-light italic">Start Your 2026 With A Bang</p>
+      <section className="py-40 md:py-60 bg-[#080808] border-y border-white/5 text-center px-6">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.5 }}>
+          <h2 className="text-4xl md:text-7xl font-extralight mb-8">Secure Your Seat</h2>
+          <p className="mb-16 text-white/40 tracking-[0.3em] uppercase text-[10px] font-light italic">Start Your 2026 With A Bang</p>
           <Link 
-            href="https://www.theedesignlounge.co/product/the-canva-crash-course/7?cp=true&sa=true&sbp=false&q=false"
-              target="_blank" 
-      rel="noopener noreferrer"
-            className="group relative inline-block px-20 py-6 rounded-full border border-[#D4AF37] text-white overflow-hidden"
+            href="https://www.theedesignlounge.co/product/the-canva-crash-course/7"
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group relative inline-block px-12 md:px-20 py-6 rounded-full border border-[#D4AF37] text-white overflow-hidden transition-all"
           >
-            <span className="relative z-10 text-xs font-bold uppercase tracking-[0.4em] group-hover:text-black transition-colors duration-500">Acquire Crash course</span>
+            <span className="relative z-10 text-[10px] font-bold uppercase tracking-[0.4em] group-hover:text-black transition-colors duration-500">Acquire Crash course</span>
             <div className="absolute inset-0 bg-[#D4AF37] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
           </Link>
         </motion.div>
