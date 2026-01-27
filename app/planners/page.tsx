@@ -32,11 +32,11 @@ export default function PlannerProductPage() {
         </div>
 
         {/* HERO IMAGE */}
-        <div className="reveal anim-scale-in relative w-full max-w-lg aspect-[4/5] bg-neutral-900 border border-white/5 rounded-sm shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] group overflow-hidden opacity-0 scale-95">
+        <div className="reveal anim-scale-in relative w-full max-w-lg  bg-neutral-900 border border-white/5 rounded-sm shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] group overflow-hidden opacity-0 scale-95">
           <img 
             src="/planner.png" 
             alt="Luxury Planner Mockup"
-            className="absolute inset-0 w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+            className="inset-0 w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
           />
 
           {/* Signature Shine Effect */}

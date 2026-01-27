@@ -46,7 +46,7 @@ export default function FreebiesPage() {
               style={{ transitionDelay: `${i * 0.2}s` }}
               className="reveal anim-slide-up group flex flex-col opacity-0 translate-y-8"
             >
-              <div className="relative aspect-[4/5] w-full bg-neutral-900 border border-white/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-1000 group-hover:border-[#D4AF37]/30">
+              <div className="relative  w-full bg-neutral-900 border border-white/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-1000 group-hover:border-[#D4AF37]/30">
                 <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-30 transition-opacity">
                    <div className="w-12 h-12 border border-white/50 rounded-full animate-pulse flex items-center justify-center">
                       <span className="text-[8px] uppercase tracking-widest">{item.id}</span>
@@ -56,7 +56,7 @@ export default function FreebiesPage() {
                 <img 
                   src={`/freebie${item.id}.jpg`} 
                   alt={item.title}
-                  className="absolute inset-0 w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-all duration-1000"
+                  className=" inset-0 w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-all duration-1000"
                 />
 
                 <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">

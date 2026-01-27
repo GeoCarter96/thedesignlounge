@@ -50,11 +50,11 @@ export default function Ebooks() {
             className="reveal anim-slide-up group cursor-pointer w-full max-w-lg opacity-0 translate-y-10"
           >
             {/* Luxury Book Display */}
-            <div className="relative aspect-[3/4] w-full bg-neutral-900 overflow-hidden rounded-sm shadow-2xl transition-transform duration-1000 group-hover:-translate-y-4">
+            <div className="relative  w-full bg-neutral-900 overflow-hidden rounded-sm shadow-2xl transition-transform duration-1000 group-hover:-translate-y-4">
               <img 
                 src={book.img} 
                 alt={book.title}
-                className="absolute inset-0 w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-1000"
+                className=" inset-0 w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-1000"
               />
               
               <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-[#D4AF37] via-[#F9E498] to-[#AF8A3F] opacity-50" />

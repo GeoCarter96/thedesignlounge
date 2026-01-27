@@ -47,11 +47,11 @@ export default function Courses() {
             </h1>
           </div>
 
-          <div className="reveal anim-scale-in relative w-full max-w-4xl aspect-[16/9] overflow-hidden rounded-xl bg-white/5 border border-white/10 shadow-2xl group mx-auto opacity-0 scale-95 transition-all">
+          <div className="reveal anim-scale-in relative w-full max-w-4xl  overflow-hidden rounded-xl bg-white/5 border border-white/10 shadow-2xl group mx-auto opacity-0 scale-95 transition-all">
             <img 
               src="/course.PNG" 
               alt="Course Preview"
-              className="absolute inset-0 w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
+              className=" inset-0 w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
