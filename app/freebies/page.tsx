@@ -6,9 +6,9 @@ import Link from "next/link";
 import './freebies.css';
 
 const FREEBIES = [
-  { id: "1", title: "The Flyer Template", desc: "4K Digital Couture", link: "/freebies/flyer" },
-  { id: "2", title: "Luxury Typeface", desc: "Bespoke Serif Font", link: "/freebies/font" },
-  { id: "3", title: "Brand Guidelines", desc: "Minimalist Authority", link: "/freebies/guide" },
+  { id: "1", title: "Soft Launch Playbook", desc: "4K Digital Couture", link: "/freebies/flyer" },
+  { id: "2", title: "Luxe Launchpad", desc: "4K Digital Couture", link: "/freebies/font" },
+  { id: "3", title: "The Luxe Lounge Pregame", desc: "4K Digital Couture", link: "/freebies/guide" },
 ];
 
 export default function FreebiesPage() {

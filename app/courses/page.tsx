@@ -86,7 +86,7 @@ export default function Courses() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-start">
           <div className="sticky top-40">
             <h3 className="font-serif-display text-5xl italic">The Syllabus</h3>
-            <p className="mt-6 text-white/40 max-w-xs font-light">A 12-week immersive journey into the anatomy of premium design.</p>
+            <p className="mt-6 text-white/40 max-w-xs font-light">A self-paced immersive journey into the anatomy of premium design.</p>
           </div>
           
           <div className="flex flex-col border-t border-white/10">
@@ -111,12 +111,12 @@ export default function Courses() {
       <section className="py-60 bg-[#080808] border-y border-white/5 text-center">
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 2 }}>
           <h2 className="text-4xl md:text-6xl font-extralight mb-12">Secure Your Seat</h2>
-          <p className="mb-16 text-white/40 tracking-widest uppercase text-xs font-light italic">Limited Cohort // Now Enrolling for 2026</p>
+          <p className="mb-16 text-white/40 tracking-widest uppercase text-xs font-light italic">Start Your 2026 With A Bang</p>
           <Link 
             href="/checkout"
             className="group relative inline-block px-20 py-6 rounded-full border border-[#D4AF37] text-white overflow-hidden"
           >
-            <span className="relative z-10 text-xs font-bold uppercase tracking-[0.4em] group-hover:text-black transition-colors duration-500">Apply for Admission</span>
+            <span className="relative z-10 text-xs font-bold uppercase tracking-[0.4em] group-hover:text-black transition-colors duration-500">Aquire Crash course</span>
             <div className="absolute inset-0 bg-[#D4AF37] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
           </Link>
         </motion.div>

@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import './privatelounge.css';
 const COLLECTION = [
-  { id: "ple1", category: "Stationery", title: "The Obsidian Planner", price: "$65", link: "/products/planner" },
-  { id: "ple2", category: "Assets", title: "The Atelier Flyer", price: "$45", link: "/products/flyer" },
-  { id: "ple3", category: "Digital", title: "The Masterclass", price: "$250", link: "/course" },
+  { id: "ple1", category: "Digital", title: "The Private Lounge Experience", price: "$65", link: "/products/planner" },
+  { id: "ple2", category: "Digital", title: "Lounge Legacy Table", price: "$45", link: "/products/flyer" },
+  { id: "ple3", category: "Digital", title: "Suite Of Self Leadership", price: "$250", link: "/course" },
 ];
 
 export default function PrivateloungePage() {

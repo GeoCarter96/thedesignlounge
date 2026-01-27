@@ -19,7 +19,7 @@ export default function PlannerProductPage() {
         >
           <p className="text-[10px] uppercase tracking-[0.6em] text-[#D4AF37] mb-4">Tactile Excellence</p>
           <h1 className="font-serif-display text-6xl md:text-8xl font-extralight tracking-tighter italic">
-            The Obsidian <span className="non-italic font-normal">Planner</span>
+            Balanced By <span className="italic font-normal">Design</span>
           </h1>
         </motion.div>
 
@@ -53,7 +53,7 @@ export default function PlannerProductPage() {
         <div className="flex flex-col gap-8">
           <h2 className="text-xs uppercase tracking-[0.5em] text-white/30">The Philosophy</h2>
           <p className="text-2xl font-extralight leading-relaxed tracking-tight">
-            A sanctuary for your most ambitious intentions. Bound in vegan leather with <span className="text-[#D4AF37]">120gsm champagne paper</span>, designed to hold the weight of your future.
+            A sanctuary for your most ambitious intentions. Designed to hold the weight of your future.
           </p>
         </div>
 

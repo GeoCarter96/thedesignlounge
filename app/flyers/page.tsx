@@ -15,9 +15,9 @@ export default function FlyerProductPage() {
           transition={{ duration: 1.2 }}
           className="text-center mb-16"
         >
-          <p className="text-[10px] uppercase tracking-[0.6em] text-[#D4AF37] mb-4">Bespoke Assets</p>
+          <p className="text-[10px] uppercase tracking-[0.6em] text-[#D4AF37] mb-4">The Digital Flyer</p>
           <h1 className="font-serif-display text-6xl md:text-8xl font-extralight tracking-tighter italic">
-            The Digital <span className="non-italic font-normal">Flyer</span>
+            Will You Be My <span className="italic font-normal">Clientine ?</span>
           </h1>
         </motion.div>
 

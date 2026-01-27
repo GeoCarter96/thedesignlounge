@@ -7,23 +7,16 @@ import './testimonials.css';
 
 const TESTIMONIALS = [
   {
-    quote: "The Design Lounge didn't just build a website; they curated a digital atmosphere that perfectly reflects our heritage.",
-    author: "Julianne V.",
-    title: "Creative Director, Maison Lux",
-    year: "2025"
+    quote: "Quick and convenient luxury designs for marketing my business. The instructions were so easy to follow and I love that I can customize the design to my own personal brand kit. This saved me so much time!",
+    author: "Teaira",
+   
   },
   {
-    quote: "Precision, elegance, and an unparalleled understanding of modern luxury. Truly in a league of their own.",
-    author: "Marcus Thorne",
-    title: "Founder, Thorne & Co.",
-    year: "2024"
+    quote:    "The seller was 100% responsive and quick to help when I needed help locating the pdf file. The quality of the E book covers is TOP TEIR SIS!!! I’ve been looking for luxury and cute E book covers and I found the perfect one!!! Don’t hesitate buy this!!!!!!",
+    author: "Tasia",
+   
   },
-  {
-    quote: "An experience that transcends typical design. They treat every pixel with the reverence of a master jeweler.",
-    author: "Elena Rossi",
-    title: "Chief Brand Officer, VELA",
-    year: "2025"
-  }
+  
 ];
 
 export default function Testimonials() {

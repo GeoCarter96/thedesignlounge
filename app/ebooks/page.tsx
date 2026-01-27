@@ -5,7 +5,7 @@ import './ebooks.css';
 const PUBLICATIONS = [
   {
     id: "vol-01",
-    title: "Minimalist Authority",
+    title: "How To Create And Sell Digital Products",
     subtitle: "(Item Still In Production)",
     price: "$85",
     img: "/ebooks.png"
