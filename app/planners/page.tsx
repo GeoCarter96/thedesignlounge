@@ -30,13 +30,7 @@ export default function PlannerProductPage() {
           transition={{ duration: 1.8, ease: "easeOut" }}
           className="relative w-full max-w-lg aspect-[4/5] bg-neutral-900 border border-white/5 rounded-sm shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] group overflow-hidden"
         >
-          {/* Internal Loading State */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-30 transition-opacity duration-1000">
-             <div className="flex flex-col items-center gap-4 text-center px-10">
-                <div className="w-1 h-16 bg-gradient-to-b from-transparent via-[#D4AF37] to-transparent animate-pulse" />
-                <p className="text-[9px] uppercase tracking-[0.5em]">Awaiting Visual Masterpiece</p>
-             </div>
-          </div>
+          
 
           {/* Actual Image Holder */}
           <img 

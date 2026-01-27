@@ -47,6 +47,13 @@ export default function Navbar() {
   hover:bg-gradient-to-b 
   hover:from-[#D4AF37] hover:via-[#F9E498] hover:to-[#AF8A3F]
   hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">About The Owner</Link>
+  <Link href="/customwork" className="transition-all duration-500 cursor-pointer
+  text-white/80 
+  hover:text-transparent 
+  hover:bg-clip-text 
+  hover:bg-gradient-to-b 
+  hover:from-[#D4AF37] hover:via-[#F9E498] hover:to-[#AF8A3F]
+  hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">Custom Work</Link>
         </div>
     <Link href="/contact">
   <button className="hidden md:block transition-all duration-500 cursor-pointer text-white/80 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-b hover:from-[#D4AF37] hover:via-[#F9E498] hover:to-[#AF8A3F] hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">
