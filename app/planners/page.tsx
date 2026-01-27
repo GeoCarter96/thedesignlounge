@@ -40,7 +40,7 @@ export default function PlannerProductPage() {
 
           {/* Actual Image Holder */}
           <img 
-            src="/planner-mockup.jpg" 
+            src="/planner.png" 
             alt="Luxury Planner Mockup"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
             onLoad={(e) => (e.currentTarget.style.opacity = "1")}

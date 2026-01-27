@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import './privatelounge.css';
 const COLLECTION = [
-  { id: "01", category: "Stationery", title: "The Obsidian Planner", price: "$65", link: "/products/planner" },
-  { id: "02", category: "Assets", title: "The Atelier Flyer", price: "$45", link: "/products/flyer" },
-  { id: "03", category: "Digital", title: "The Masterclass", price: "$250", link: "/course" },
+  { id: "ple1", category: "Stationery", title: "The Obsidian Planner", price: "$65", link: "/products/planner" },
+  { id: "ple2", category: "Assets", title: "The Atelier Flyer", price: "$45", link: "/products/flyer" },
+  { id: "ple3", category: "Digital", title: "The Masterclass", price: "$250", link: "/course" },
 ];
 
 export default function PrivateloungePage() {
@@ -48,17 +48,11 @@ export default function PrivateloungePage() {
               {/* IMAGE PLACEHOLDER: The 4:5 Monolith */}
               <div className="relative aspect-[4/5] w-full bg-neutral-950 border border-white/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-1000 group-hover:border-[#D4AF37]/40">
                 
-                {/* Minimalist Visual Anchor */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-30 transition-opacity duration-1000">
-                   <div className="flex flex-col items-center gap-6">
-                      <div className="w-[1px] h-12 bg-gradient-to-b from-transparent via-[#D4AF37] to-transparent" />
-                      <p className="text-[8px] uppercase tracking-[0.6em] text-white">Visual Refinement</p>
-                   </div>
-                </div>
+              
 
                 {/* Actual Product Image */}
                 <img 
-                  src={`/product-${item.id}.jpg`} 
+                  src={`/${item.id}.png`} 
                   alt={item.title}
                   className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 group-hover:scale-105"
                   onLoad={(e) => (e.currentTarget.style.opacity = "0.8")}

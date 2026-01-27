@@ -3,12 +3,13 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import './theloungemenu.css';
 const SECTIONS = [
-  { id: "planners", title: "Planners", sub: "Architectural Time Management", img: "/planner-hero.jpg" },
-  { id: "freebies", title: "Freebies", sub: "Gifts from the Atelier", img: "/freebie-hero.jpg" },
-  { id: "ebooks", title: "Ebooks", sub: "Curated Digital Knowledge", img: "/ebook-hero.jpg" },
-  { id: "courses", title: "Courses", sub: "Mastery of Restraint", img: "/course-hero.jpg" },
-  { id: "flyers", title: "Flyers", sub: "Digital Couture Assets", img: "/flyer-hero.jpg" },
-  { id: "privatelounge", title: "Private Lounge", sub: "Exclusivity Redefined", img: "/lounge-hero.jpg" },
+  { id: "planners", title: "Planners", sub: "Architectural Time Management", img: "/planner.png" },
+  { id: "freebies", title: "Freebies", sub: "Gifts from the Atelier", img: "/freebie.jpg" },
+  { id: "ebooks", title: "Ebooks", sub: "Curated Digital Knowledge", img: "/ebooks.png" },
+  { id: "courses", title: "Courses", sub: "Mastery of Restraint", img: "/course.png" },
+  { id: "flyers", title: "Flyers", sub: "Digital Couture Assets", img: "/flyer.png" },
+  { id: "privatelounge", title: "Private Lounge", sub: "Exclusivity Redefined", img: "/ple1.png" },
+
 ];
 
 export default function LuxuryExperience() {
@@ -55,20 +56,7 @@ export default function LuxuryExperience() {
               onError={(e) => (e.currentTarget.style.opacity = "0.1")}
             />
 
-            {/* Inner "System Live" Anchor */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="flex flex-col items-center gap-4 opacity-20">
-                <div className="w-12 h-12 border border-[#D4AF37] rounded-full flex items-center justify-center animate-pulse">
-                  <div className="w-1 h-1 bg-[#D4AF37] rounded-full" />
-                </div>
-                <p className="text-[8px] uppercase tracking-[0.6em]">Visualizing {section.title}</p>
-              </div>
-            </div>
-
-            {/* The Gold Shine Ray */}
-            <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer" />
-            </div>
+         
             
             {/* Action Overlay */}
             <Link href={`/${section.id}`} className="absolute inset-0 z-30 cursor-pointer" />

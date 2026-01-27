@@ -49,7 +49,7 @@ export default function Courses() {
   >
     {/* 1. THE ACTUAL IMAGE */}
     <img 
-      src="/your-course-image.jpg" // Replace with your image path
+      src="/course.png" // Replace with your image path
       alt="Course Preview"
       className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
       onError={(e) => e.currentTarget.src = "https://placehold.co"} // Fallback

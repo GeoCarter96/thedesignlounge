@@ -28,17 +28,11 @@ export default function FlyerProductPage() {
           transition={{ duration: 1.8, ease: "easeOut" }}
           className="relative w-full max-w-lg aspect-[4/5] bg-neutral-900 border border-white/5 rounded-sm shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] group overflow-hidden"
         >
-          {/* Internal Loading State */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-30 transition-opacity duration-1000">
-             <div className="flex flex-col items-center gap-4">
-                <div className="w-12 h-12 border border-white rounded-full animate-spin-slow" />
-                <p className="text-[9px] uppercase tracking-[0.5em]">Awaiting Visual</p>
-             </div>
-          </div>
+         
 
           {/* Actual Image Holder */}
           <img 
-            src="/flyer-mockup.jpg" // Replace with your file
+            src="/flyer.PNG" // Replace with your file
             alt="Luxury Flyer Mockup"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
             onError={(e) => (e.currentTarget.style.opacity = "0")}

@@ -8,7 +8,7 @@ const PUBLICATIONS = [
     title: "Minimalist Authority",
     subtitle: "(Item Still In Production)",
     price: "$85",
-    img: "/book-mockup-1.jpg"
+    img: "/ebooks.png"
   }
   
 ];

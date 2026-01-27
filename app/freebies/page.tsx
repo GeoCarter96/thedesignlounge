@@ -6,9 +6,9 @@ import Link from "next/link";
 import './freebies.css';
 
 const FREEBIES = [
-  { id: "01", title: "The Flyer Template", desc: "4K Digital Couture", link: "/freebies/flyer" },
-  { id: "02", title: "Luxury Typeface", desc: "Bespoke Serif Font", link: "/freebies/font" },
-  { id: "03", title: "Brand Guidelines", desc: "Minimalist Authority", link: "/freebies/guide" },
+  { id: "1", title: "The Flyer Template", desc: "4K Digital Couture", link: "/freebies/flyer" },
+  { id: "2", title: "Luxury Typeface", desc: "Bespoke Serif Font", link: "/freebies/font" },
+  { id: "3", title: "Brand Guidelines", desc: "Minimalist Authority", link: "/freebies/guide" },
 ];
 
 export default function FreebiesPage() {
@@ -58,7 +58,7 @@ export default function FreebiesPage() {
 
                 {/* Actual Image Tag */}
                 <img 
-                  src={`/freebie-${item.id}.jpg`} 
+                  src={`/freebie${item.id}.jpg`} 
                   alt={item.title}
                   className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
                   onLoad={(e) => (e.currentTarget.style.opacity = "0.7")}
