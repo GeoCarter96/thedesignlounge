@@ -65,6 +65,15 @@ export default function PrivateloungePage() {
                   src={`/${item.id}.png`} 
                   alt={item.title}
                   className="absolute inset-0 w-full h-full object-cover opacity-80 transition-all duration-1000 group-hover:opacity-100 group-hover:scale-105"
+                  onError={(e) => {
+    const target = e.currentTarget;
+    // If .png fails, try .PNG (or vice versa)
+    if (target.src.endsWith('.png')) {
+      target.src = target.src.replace('.png', '.PNG');
+    } else if (target.src.endsWith('.PNG')) {
+      target.src = target.src.replace('.PNG', '.png');
+    }
+  }}
                 />
 
                 {/* Signature Gold Shine Overlay */}

@@ -60,7 +60,7 @@ export default function Courses() {
             className="mt-16 relative w-full max-w-2xl aspect-[16/10] overflow-hidden rounded-xl bg-white/5 border border-white/10 shadow-2xl group"
           >
             <img 
-              src="/course.png" 
+              src="/course.PNG" 
               alt="Course Preview"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
             />
