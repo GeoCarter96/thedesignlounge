@@ -72,21 +72,23 @@ export default function Testimonials() {
       </section>
 
       {/* 3. Luxury Call to Action */}
-      <section className="py-60 flex flex-col items-center text-center px-6">
-        <motion.div
-           initial={{ opacity: 0 }}
-           whileInView={mounted ? { opacity: 1 } : {}}
-           transition={{ duration: 2 }}
-        >
-          <p className="text-xs uppercase tracking-[0.6em] opacity-30 mb-12">Your Seat is Waiting</p>
-          <Link 
-            href="/"
-            className="rounded-full border border-white/20 bg-transparent px-16 py-6 text-sm font-bold uppercase tracking-[0.3em] text-white hover:bg-white hover:text-black transition-all duration-700 hover:scale-105"
-          >
-            Return to The Lobby
-          </Link>
-        </motion.div>
-      </section>
+    
+<section className="hidden md:flex py-60 flex-col items-center text-center px-6">
+  <motion.div
+     initial={{ opacity: 0 }}
+     whileInView={mounted ? { opacity: 1 } : {}}
+     transition={{ duration: 2 }}
+  >
+    <p className="text-xs uppercase tracking-[0.6em] opacity-30 mb-12">Your Seat is Waiting</p>
+    <Link 
+      href="/"
+      className="rounded-full border border-white/20 bg-transparent px-16 py-6 text-sm font-bold uppercase tracking-[0.3em] text-white hover:bg-white hover:text-black transition-all duration-700 hover:scale-105"
+    >
+      Return to The Lobby
+    </Link>
+  </motion.div>
+</section>
+
     </div>
   );
 }

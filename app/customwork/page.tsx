@@ -64,34 +64,35 @@ export default function CustomWork() {
 
       {/* 3. THE GOLD BULLION CTA */}
       <section className="py-40 flex flex-col items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={hasMounted ? { opacity: 1, scale: 1 } : {}}
-          viewport={{ once: true }}
-          transition={{ duration: 1.5 }}
-          className="w-full flex justify-center px-4"
-        >
-          <Link 
-            href="/contact"
-            className="group relative inline-flex items-center justify-center overflow-hidden rounded-sm w-full max-w-3xl px-12 py-24 md:px-50 md:py-[100px] text-sm md:text-base font-bold uppercase tracking-[1em] text-black transition-all hover:scale-[1.02] active:scale-95 animate-gold-pulse shadow-[0_40px_100px_-20px_rgba(212,175,55,0.4)]"
-            style={{
-              background: 'linear-gradient(180deg, #AF8A3F 0%, #D4AF37 30%, #F9E498 50%, #D4AF37 70%, #AF8A3F 100%)',
-            }}
-          >
-            <span className="relative z-10 block whitespace-nowrap">
-              Contact Founder
-            </span>
+       <motion.div
+  initial={{ opacity: 0, scale: 0.9 }}
+  whileInView={hasMounted ? { opacity: 1, scale: 1 } : {}}
+  viewport={{ once: true }}
+  transition={{ duration: 1.5 }}
+  className="w-full flex justify-center px-4"
+>
+  <Link 
+    href="/contact"
+    className="group relative inline-flex items-center justify-center overflow-hidden rounded-sm w-full max-w-3xl px-6 py-16 md:px-50 md:py-[100px] text-sm md:text-base font-bold uppercase tracking-[0.4em] md:tracking-[1em] text-black transition-all hover:scale-[1.02] active:scale-95 animate-gold-pulse shadow-[0_40px_100px_-20px_rgba(212,175,55,0.4)]"
+    style={{
+      background: 'linear-gradient(180deg, #AF8A3F 0%, #D4AF37 30%, #F9E498 50%, #D4AF37 70%, #AF8A3F 100%)',
+    }}
+  >
+    {/* Removed whitespace-nowrap to prevent overflow clipping */}
+    <span className="relative z-10 block text-center">
+      Contact Founder
+    </span>
 
-            {/* Shine Ray */}
-            <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/95 to-transparent -translate-x-full group-hover:animate-shimmer" />
-            </div>
+    {/* Shine Ray */}
+    <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
+       <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/95 to-transparent -translate-x-full group-hover:animate-shimmer" />
+    </div>
 
-            {/* Bevels */}
-            <div className="absolute inset-0 border-t-[8px] border-white/40 z-[15] pointer-events-none" />
-            <div className="absolute inset-0 border-b-[8px] border-black/50 z-[15] pointer-events-none" />
-          </Link>
-        </motion.div>
+    {/* Bevels */}
+    <div className="absolute inset-0 border-t-[8px] border-white/40 z-[15] pointer-events-none" />
+    <div className="absolute inset-0 border-b-[8px] border-black/50 z-[15] pointer-events-none" />
+  </Link>
+</motion.div>
 
         <p className="mt-16 text-[10px] uppercase tracking-[0.8em] text-white/20 text-center">
           Response time: 24 — 48 Hours
