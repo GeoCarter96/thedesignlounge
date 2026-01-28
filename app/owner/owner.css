@@ -33,10 +33,15 @@ body{
 
 /* Signature Shimmer Effect */
 @keyframes shimmer {
-  100% { transform: translateX(100%); }
+   0% { 
+    transform: translateX(-100%); 
+  }
+  100% { 
+    transform: translateX(100%); 
+  }
 }
 .group-hover\:animate-shimmer {
-  animation: shimmer 1.5s infinite;
+  animation: shimmer 7s infinite;
 }
 
 /* Optimization for Portrait */
