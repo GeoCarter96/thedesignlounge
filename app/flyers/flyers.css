@@ -1,7 +1,9 @@
+
 body{
     font-family: var(--font-luxury), sans-serif;
     
 }
+
 /* Base Transition Settings */
 .reveal {
   will-change: transform, opacity;

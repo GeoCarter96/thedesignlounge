@@ -40,15 +40,20 @@ body{
 }
 
 @keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% { 
+    transform: translateX(-100%); 
+  }
+  /* Ensure it hits the full 100% width of the button */
+  100% { 
+    transform: translateX(100%); 
+  }
 }
 
 .group-hover\:animate-shimmer {
-  /* 4 seconds for a slow glide, using a soft s-curve (easeInOutSine) */
-  animation: shimmer 6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  /* Using a more standard 'ease-in-out' or a corrected bezier for a smooth exit */
+  animation: shimmer 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
-    
+
 
 
 
