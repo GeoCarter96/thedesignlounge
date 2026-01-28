@@ -72,7 +72,7 @@ export default function Owner() {
               "Design is not a service; it is a <span className="italic">dialogue</span> between history and the future."
             </p>
             <p className="narrative-body">
-              With a decade of immersion in high-fidelity digital architecture, I founded The Design Lounge to serve those who reject the noise of the masses. We don't just build brands; we curate legacies that resonate with precision, elegance, and intentional restraint. 
+              With a decade of immersion in high-fidelity digital architecture, I founded The Design Lounge to serve those who reject the noise of the masses. We don&apos;t just build brands; we curate legacies that resonate with precision, elegance, and intentional restraint. 
             </p>
             
             <div style={{ marginTop: '64px', display: 'flex', gap: '48px' }}>

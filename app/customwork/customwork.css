@@ -1,15 +1,15 @@
-/* --- CORE PAGE STYLES --- */
+
 .custom-work-page {
   min-height: 100vh;
   background-color: #000;
   color: #fff;
-  padding: 160px 24px 128px; /* pt-40 pb-32 px-6 */
+  padding: 160px 24px 128px; 
 }
 
 .max-w-5xl { max-width: 1024px; margin: 0 auto; }
 .max-w-4xl { max-width: 896px; margin: 0 auto; }
 
-/* --- EDITORIAL HEADER --- */
+
 .header-section {
   text-align: center;
   margin-bottom: 128px;
@@ -37,7 +37,7 @@
   font-style: normal;
 }
 
-/* --- PROCESS NARRATIVE --- */
+
 .narrative-section {
   display: grid;
   grid-template-columns: 1fr;
@@ -67,7 +67,7 @@
   letter-spacing: -0.02em;
 }
 
-/* --- THE GOLD BULLION CTA --- */
+
 .cta-section {
   padding: 160px 0;
   display: flex;
@@ -111,7 +111,7 @@
   transform: scale(0.95);
 }
 
-/* BEVELS */
+
 .bullion-top-bevel {
   position: absolute;
   inset: 0;
@@ -128,7 +128,7 @@
   z-index: 15;
 }
 
-/* --- ANIMATIONS --- */
+
 .reveal {
   opacity: 0;
   transition: all 1.2s ease-out;
@@ -142,7 +142,7 @@
   transform: translateY(0) scale(1);
 }
 
-/* SHINE RAY EFFECT */
+
 .shine-ray {
   position: absolute;
   inset: 0;
@@ -161,7 +161,7 @@
   100% { transform: translateX(100%); }
 }
 
-/* GOLD PULSE */
+
 .gold-bullion {
   animation: bullion-pulse 4s ease-in-out infinite;
 }

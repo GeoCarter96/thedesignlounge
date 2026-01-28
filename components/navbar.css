@@ -1,11 +1,10 @@
-/* --- NAVIGATION LAYOUT --- */
-/* navbar.css */
+
 .anim-nav-entrance {
-  position: fixed; /* Changed from relative to stay visible */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999; /* Ensure this is the highest number on the site */
+  z-index: 9999; 
   
 
   animation: navFadeDown 1.2s ease forwards;
@@ -16,13 +15,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 32px 40px; /* py-8 px-10 */
+  padding: 32px 40px; 
   color: #ffffff;
 }
 
-/* --- LOGO STYLING --- */
+
 .nav-logo {
-  display: none; /* hidden */
+  display: none; 
   font-size: 1.5rem;
   font-weight: bold;
   letter-spacing: 0.1em;
@@ -30,17 +29,16 @@
 }
 
 @media (min-width: 768px) {
-  .nav-logo { display: block; } /* md:block */
+  .nav-logo { display: block; } 
 }
 
-/* --- LINKS & HOVER EFFECTS --- */
 .nav-links-wrapper {
-  display: none; /* hidden */
-  gap: 48px; /* gap-12 */
+  display: none;
+  gap: 48px; 
 }
 
 @media (min-width: 768px) {
-  .nav-links-wrapper { display: flex; } /* md:flex */
+  .nav-links-wrapper { display: flex; } 
 }
 
 .nav-link, .nav-btn {
@@ -57,13 +55,13 @@
   display: none;
 }
 
-/* Show on desktop (768px and up) */
+
 @media (min-width: 768px) {
   .nav-btn {
-    display: inline-block; /* Keeps the link's flow correct */
+    display: inline-block; 
   }
 }
-/* THE LUXURY GOLD GLOW HOVER */
+
 .nav-link:hover, .nav-btn:hover {
   color: transparent;
   background: linear-gradient(to bottom, #D4AF37, #F9E498, #AF8A3F);
@@ -72,7 +70,7 @@
   filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
 }
 
-/* --- ANIMATIONS --- */
+
 @keyframes navFadeDown {
   from { 
     opacity: 0; 
@@ -84,7 +82,7 @@
   }
 }
 
-/* GLOBAL SELECTION OVERRIDE */
+
 .nav-logo::selection {
   background-color: transparent;
   color: #D4AF37;

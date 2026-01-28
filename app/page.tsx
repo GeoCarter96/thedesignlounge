@@ -51,9 +51,9 @@ export default function HomePage() {
        
         <div className="editorial-section">
           <p className="reveal-on-scroll anim-slide-up editorial-text">
-            Welcome To <span className="italic">The Design Lounge</span> – Where Luxury Meets Creativity. 
+            Welcome To <span className="italic">The Design Lounge</span> - Where Luxury Meets Creativity. 
             Where Bold Ideas Are Curated, Not Rushed, And Your Brand Is Treated Like An Experience, Not A Task.
-            Inside The Lounge, You'll Find Done For You Designs, Planners, Templates, And Brand Assets.
+            Inside The Lounge, You&apos;ll Find Done For You Designs, Planners, Templates, And Brand Assets.
           </p>
         </div>
 
@@ -79,7 +79,7 @@ export default function HomePage() {
       <div className="footer-grid">
          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <h3 style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.4em', opacity: 0.4 }}>Inquiries</h3>
-            <Link href="/contact" style={{ fontSize: '1.5rem', fontWeight: 200, color: '#fff', textDecoration: 'none' }}>Visit Concierge's Desk</Link>
+            <Link href="/contact" style={{ fontSize: '1.5rem', fontWeight: 200, color: '#fff', textDecoration: 'none' }}>Visit Concierge&apos;s Desk</Link>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <h3 style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.4em', opacity: 0.4 }}>Connect</h3>

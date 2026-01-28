@@ -1,17 +1,17 @@
-/* --- CORE PAGE STYLES --- */
+
 .planner-page {
   min-height: 100vh;
   background-color: #000;
   color: #fff;
-  padding-top: 128px; /* pt-32 */
+  padding-top: 128px; 
 }
 
 .max-w-5xl { max-width: 1024px; margin: 0 auto; }
 
-/* Custom Selection */
+
 ::selection { background: #D4AF37; color: #000; }
 
-/* --- HERO SECTION --- */
+
 .hero-section {
   position: relative;
   display: flex;
@@ -20,7 +20,7 @@
   padding: 0 24px;
 }
 
-/* Layer A: Text */
+
 .hero-text-layer {
   text-align: center;
   margin-bottom: 48px;
@@ -49,9 +49,8 @@
   font-weight: 400;
 }
 
-/* Layer B: Light Beam */
 .light-beam-layer {
-  display: none; /* hidden md:block */
+  display: none; 
   position: relative;
   width: 100%;
   max-width: 512px;
@@ -76,7 +75,7 @@
   opacity: 100%;
 }
 
-/* Layer C: Image Card */
+
 .image-card-layer {
   position: relative;
   width: 100%;
@@ -87,7 +86,7 @@
 .planner-card {
   position: relative;
   width: 100%;
-  background-color: #171717; /* neutral-900 */
+  background-color: #171717; 
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 4px;
   box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 1);
@@ -107,7 +106,7 @@
   opacity: 1;
 }
 
-/* SHIMMER EFFECT */
+
 .shimmer-overlay {
   position: absolute;
   inset: 0;
@@ -133,7 +132,7 @@
   100% { transform: translateX(100%); }
 }
 
-/* --- PRODUCT DETAILS --- */
+
 .details-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -167,7 +166,7 @@
   padding-bottom: 24px;
 }
 
-/* --- QUOTE VIGNETTE --- */
+
 .quote-section {
   padding: 128px 24px;
   display: flex;
@@ -188,7 +187,6 @@
   max-width: 896px;
 }
 
-/* --- INTERSECTION REVEALS --- */
 .reveal { opacity: 0; transition: all 1.2s ease-out; }
 .anim-slide-up { transform: translateY(20px); }
 .anim-scale-in { transform: scale(0.95); }

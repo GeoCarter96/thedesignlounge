@@ -1,4 +1,4 @@
-/* 1. DEFAULT STATE (DESKTOP) */
+
 .sidebar-container-fixed,
 .sidebar-trigger,
 .sidebar-backdrop,
@@ -6,15 +6,15 @@
   display: none;
 }
 
-/* 2. MOBILE LOGIC (Under 767px) */
+
 @media (max-width: 767px) {
-  /* The Hamburger Button */
+ 
   .sidebar-trigger {
     display: flex;
     position: fixed;
     top: 32px;
     right: 32px;
-    z-index: 999999; /* High, but lower than the open sidebar */
+    z-index: 999999; 
     flex-direction: column;
     gap: 6px;
     padding: 16px;
@@ -30,16 +30,16 @@
     background-color: #fff;
   }
 
-  /* The Wrapper for the open state */
+  
   .sidebar-container-fixed {
     display: block;
     position: fixed;
     inset: 0;
-    z-index: 100000; /* Top of the world */
-    pointer-events: none; /* Let clicks through to children */
+    z-index: 100000; 
+    pointer-events: none; 
   }
 
-  /* The Dark Overlay */
+ 
   .sidebar-backdrop {
     display: block;
     position: absolute;
@@ -47,46 +47,44 @@
    background: rgba(0, 0, 0, 0.2); 
     backdrop-filter: blur(12px);
     z-index: 1;
-    pointer-events: auto; /* Clickable to close */
+    pointer-events: auto; 
     cursor: pointer;
   }
 
-  /* The Slide-out Menu */
   .sidebar-panel {
     display: flex;
     flex-direction: column;
-    position: fixed; /* Changed from relative to fixed */
+    position: fixed; 
     top: 0;
     right: 0;
     height: 100vh;
     width: 80%;
     max-width: 320px;
     background: rgba(0, 0, 0, 0.2); 
-    z-index: 2; /* In front of backdrop */
+    z-index: 2; 
     padding: 48px 24px;
     border-left: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: -20px 0 50px rgba(0, 0, 0, 0.9);
-    pointer-events: auto; /* Clickable links/buttons */
+    pointer-events: auto; 
   }
 
-  /* The Close "X" Button */
   .sidebar-close-btn {
     align-self: flex-end;
     background: none;
     border: none;
-    color: #D4AF37; /* Gold color for visibility */
+    color: #D4AF37; 
     text-transform: uppercase;
     letter-spacing: 0.3em;
-    font-size: 14px; /* Slightly larger for thumb-tapping */
+    font-size: 14px; 
     margin-bottom: 40px;
     cursor: pointer;
-    padding: 15px; /* Large hit area */
+    padding: 15px; 
     position: relative;
     z-index: 10;
   }
 }
 
-/* 3. NAVIGATION & LUXURY TEXT STYLES */
+
 .scroll-container {
   flex: 1;
   overflow-y: auto;

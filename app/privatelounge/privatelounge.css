@@ -1,9 +1,9 @@
-/* --- CORE PAGE STYLES --- */
+
 .lounge-page {
   min-height: 100vh;
   background-color: #000;
   color: #fff;
-  padding: 128px 0 160px; /* pt-32 pb-40 */
+  padding: 128px 0 160px; 
 }
 
 .max-w-7xl {
@@ -11,13 +11,12 @@
   margin: 0 auto;
 }
 
-/* Custom Selection */
 ::selection {
   background: #D4AF37;
   color: #000;
 }
 
-/* --- EDITORIAL HEADER --- */
+
 .header-section {
   padding: 0 40px 96px;
   border-bottom: 1px solid rgba(12, 11, 11, 0.05);
@@ -44,7 +43,6 @@
   font-style: italic;
 }
 
-/* --- THE TRIPTYCH GRID --- */
 .grid-container {
   padding: 128px 40px;
 }
@@ -73,7 +71,7 @@
   position: relative;
 }
 
-/* LIGHT BEAM LOGIC (Behind Image) */
+
 .light-beam-bg {
   display: none;
 }
@@ -99,7 +97,7 @@
   }
 }
 
-/* IMAGE CONTAINER */
+
 .image-wrapper {
   position: relative;
   z-index: 10;
@@ -131,7 +129,7 @@
   transform: scale(1.05);
 }
 
-/* TEXT CONTENT */
+
 .content-wrapper {
   position: relative;
   z-index: 20;
@@ -192,7 +190,7 @@
   border-color: #fff;
 }
 
-/* --- ANIMATIONS --- */
+
 .reveal {
   opacity: 0;
   transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -201,7 +199,7 @@
 .anim-slide-up { transform: translateY(32px); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
-/* SHIMMER GLIDE */
+
 .shimmer-overlay {
   position: absolute;
   inset: 0;
@@ -227,7 +225,6 @@
   100% { transform: translateX(100%); }
 }
 
-/* --- CLOSURE --- */
 .closure-section {
   padding: 160px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.05);

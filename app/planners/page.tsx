@@ -69,7 +69,7 @@ export default function PlannerProductPage() {
 
     <section className="quote-section">
        <p className="reveal anim-fade-in quote-text">
-        "Organize the chaos, curate the legacy."
+        &quot;Organize the chaos, curate the legacy.&quot;
        </p>
     </section>
   </div>

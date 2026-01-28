@@ -1,9 +1,9 @@
-/* --- CORE LAYOUT & TYPOGRAPHY --- */
+
 .owner-page {
   min-height: 100vh;
   background-color: #000;
   color: #fff;
-  padding: 128px 0 160px; /* pt-32 pb-40 */
+  padding: 128px 0 160px; 
 }
 
 .max-w-7xl {
@@ -15,7 +15,7 @@
 .italic { font-style: italic; }
 .text-gold { color: #D4AF37; }
 
-/* --- GRID SYSTEM --- */
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -33,7 +33,7 @@
   .pl-20-md { padding-left: 80px; }
 }
 
-/* --- REVEAL ANIMATIONS --- */
+
 .reveal {
   opacity: 0;
   transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -49,10 +49,10 @@
   transform: translate(0) scale(1);
 }
 
-/* --- PORTRAIT & SHIMMER --- */
+
 .portrait-container {
   position: relative;
-  background-color: #171717; /* neutral-900 */
+  background-color: #171717; 
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 2px;
   overflow: hidden;
@@ -98,7 +98,7 @@
   100% { transform: translateX(100%); }
 }
 
-/* --- NARRATIVE ELEMENTS --- */
+
 .label-tag {
   text-transform: uppercase;
   font-size: 10px;
@@ -130,7 +130,7 @@
   max-width: 32rem;
 }
 
-/* --- CLOSING --- */
+
 .closing-section {
   padding: 160px 0;
   text-align: center;

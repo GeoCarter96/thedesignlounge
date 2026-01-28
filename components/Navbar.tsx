@@ -33,7 +33,7 @@ export default function Navbar() {
 
         <Link href="/contact" style={{ textDecoration: 'none' }}>
           <button className="nav-btn">
-            Visit Concierge's Desk
+            Visit Concierge&apos;s Desk
           </button>
         </Link>
       </div>

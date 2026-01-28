@@ -1,4 +1,4 @@
-/* --- CORE LAYOUT --- */
+
 .bg-black {
   background-color: #000;
   color: #fff;
@@ -8,7 +8,7 @@
 .h-screen { height: 100vh; }
 .w-full { width: 100%; }
 
-/* --- VIDEO BACKGROUND --- */
+
 .video-background {
   position: absolute;
   inset: 0;
@@ -28,7 +28,7 @@
   width: 100%;
 }
 
-/* --- LOGO CONTAINER --- */
+
 .logo-container {
   display: flex;
   height: 100vh;
@@ -48,13 +48,13 @@
   .logo-monolith {
   position: relative;
   width: 100%;
-  max-width: 400px;      /* Better sizing for mobile */
-  aspect-ratio: 1/1;      /* Square-ish for mobile portrait */
+  max-width: 400px;      
+  aspect-ratio: 1/1;      
 }
   .logo-img {
-    width: 10%;  /* Adjust this percentage to make it as small as you like */
+    width: 10%;  
     height: 10%;
-    margin: auto; /* Keeps it centered within the absolute container */
+    margin: auto; 
   }
 }
 

@@ -1,9 +1,9 @@
-/* --- CORE LAYOUT --- */
+
 .ebooks-page {
   min-height: 100vh;
   background-color: #000;
   color: #fff;
-  padding-top: 128px; /* pt-32 */
+  padding-top: 128px; 
 }
 
 .max-w-7xl {
@@ -11,10 +11,10 @@
   margin: 0 auto;
 }
 
-/* --- HEADER --- */
+
 .header-section {
   padding: 0 40px 96px;
-  border-bottom: 1px solid #000; /* border-black */
+  border-bottom: 1px solid #000; 
 }
 
 .editorial-tag {
@@ -36,7 +36,7 @@
   font-style: italic;
 }
 
-/* --- COLLECTION GRID --- */
+
 .collection-section {
   padding: 128px 40px;
   display: flex;
@@ -46,7 +46,7 @@
 
 .book-card {
   width: 100%;
-  max-width: 512px; /* max-lg */
+  max-width: 512px; 
   position: relative;
   margin-top: 32px;
   transition: transform 1s ease;
@@ -56,9 +56,9 @@
   transform: translateY(-16px);
 }
 
-/* BACKGROUND LIGHT BEAM */
+
 .bg-light-beam {
-  display: none; /* hidden */
+  display: none; 
   position: absolute;
   top: -100px;
   left: 0;
@@ -81,12 +81,11 @@
   opacity: 100%;
 }
 
-/* LUXURY BOOK DISPLAY */
 .book-wrapper {
   position: relative;
   z-index: 10;
   width: 100%;
-  background-color: #171717; /* neutral-900 */
+  background-color: #171717; 
   border-radius: 2px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   overflow: hidden;
@@ -104,7 +103,7 @@
   opacity: 1;
 }
 
-/* GOLD SPINE DETAIL */
+
 .book-spine {
   position: absolute;
   left: 0;
@@ -116,7 +115,6 @@
   z-index: 20;
 }
 
-/* --- METADATA --- */
 .book-meta {
   position: relative;
   z-index: 20;
@@ -153,12 +151,12 @@
   line-height: 1.6;
 }
 
-/* --- ANIMATIONS --- */
+
 .reveal { opacity: 0; transition: all 1.2s ease-out; }
 .anim-slide-up { transform: translateY(40px); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
-/* SHIMMER */
+
 .shimmer-overlay {
   position: absolute;
   inset: 0;

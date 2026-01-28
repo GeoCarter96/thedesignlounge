@@ -51,7 +51,7 @@ export default function Contact() {
      
       <div className="reveal anim-fade-in form-column">
         <p className="label-text" style={{ letterSpacing: '0.4em' }}>
-          Whether It's A Question, Or Feedback, The Lounge Is Always Open
+          Whether It&apos;s A Question, Or Feedback, The Lounge Is Always Open
         </p>
         
         <form className="form-column">

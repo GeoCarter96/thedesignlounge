@@ -1,15 +1,15 @@
-/* --- ORB CONTAINER & LAYOUT --- */
+
 .orb-viewport-lock {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  display: none; /* hidden */
+  display: none; 
 }
 
 @media (min-width: 768px) {
   .orb-viewport-lock {
-    display: block; /* md:block */
+    display: block; 
   }
 }
 
@@ -24,7 +24,7 @@
   user-select: none;
 }
 
-/* --- NAVIGATION MENU --- */
+
 .orb-nav-menu {
   margin-bottom: 32px;
   display: flex;
@@ -32,7 +32,7 @@
   align-items: flex-end;
   gap: 16px;
   background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(40px); /* backdrop-blur-2xl */
+  backdrop-filter: blur(40px); 
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 32px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -67,7 +67,7 @@
   transform: translateX(-4px);
 }
 
-/* --- TRIGGER BUTTON & ANIMATIONS --- */
+
 .orb-trigger-btn {
   position: relative;
   width: 64px;
@@ -92,7 +92,7 @@
   transform: scale(0.95);
 }
 
-/* Luxury Pulse Rings */
+
 .orb-pulse-ring {
   position: absolute;
   inset: 0;
@@ -102,7 +102,7 @@
   animation: orbLuxuryPulse 4s infinite ease-in-out;
 }
 
-/* --- WHISPER HINT --- */
+
 .orb-whisper-hint {
   position: absolute;
   right: 80px;
@@ -129,7 +129,7 @@
   font-weight: 300;
 }
 
-/* --- KEYFRAMES --- */
+
 @keyframes orbMenuReveal {
   from { opacity: 0; transform: translateY(20px) scale(0.95); }
   to { opacity: 1; transform: translateY(0) scale(1); }

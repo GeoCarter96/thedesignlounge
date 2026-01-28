@@ -37,8 +37,10 @@ export default function DiscoveryPage() {
   const [showResult, setShowResult] = useState(false);
 
   useEffect(() => {
+    setTimeout(() => {
     setMounted(true);
-  }, []);
+   }, 0);
+}, []);
 
   const getResult = () => {
     const winner = (Object.keys(scores) as ScoreCategory[]).reduce((a, b) => 

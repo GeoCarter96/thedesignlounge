@@ -1,9 +1,9 @@
-/* RESET & CORE LAYOUT */
+
 .contact-page {
   min-height: 100vh;
   background-color: #000000;
   color: #ffffff;
-  padding: 160px 24px 96px; /* pt-40 px-6 pb-24 */
+  padding: 160px 24px 96px; 
 }
 
 .max-w-7xl {
@@ -11,7 +11,7 @@
   margin: 0 auto;
 }
 
-/* TYPOGRAPHY */
+
 .font-serif { font-family: serif; }
 .italic { font-style: italic; }
 .text-gold { color: #D4AF37; }
@@ -26,7 +26,7 @@
   padding-bottom: 64px;
 }
 
-/* GRID SYSTEM */
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -42,7 +42,6 @@
   }
 }
 
-/* FORM ELEMENTS */
 .form-column {
   display: flex;
   flex-direction: column;
@@ -80,7 +79,7 @@
 
 .custom-input::placeholder { color: #666; }
 
-/* THE SUBMIT BUTTON */
+
 .submit-btn {
   align-self: flex-start;
   position: relative;
@@ -119,7 +118,7 @@
   transform: translateY(0);
 }
 
-/* REVEAL ANIMATIONS */
+
 .reveal {
   opacity: 0;
   transition: all 1.2s ease;
@@ -133,7 +132,7 @@
   transform: translateY(0);
 }
 
-/* RIGHT COLUMN DETAILS */
+
 .details-column {
   display: flex;
   flex-direction: column;

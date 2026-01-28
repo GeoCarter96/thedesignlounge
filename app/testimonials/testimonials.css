@@ -1,9 +1,9 @@
-/* --- CORE LAYOUT --- */
+
 .testimonials-page {
   min-height: 100vh;
   background-color: #000;
   color: #fff;
-  padding-top: 80px; /* pt-20 */
+  padding-top: 80px; 
 }
 
 .max-w-7xl {
@@ -11,15 +11,15 @@
   margin: 0 auto;
 }
 
-/* Custom Selection */
+
 ::selection {
   background: #D4AF37;
   color: #000;
 }
 
-/* --- HEADER SECTION --- */
+
 .header-section {
-  padding: 80px 40px; /* pt-20 pb-20 px-10 */
+  padding: 80px 40px; 
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -37,9 +37,8 @@
   font-weight: 400;
 }
 
-/* --- TESTIMONIAL ITEMS --- */
 .testimonial-item {
-  padding: 128px 0; /* py-32 */
+  padding: 128px 0; 
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
@@ -69,11 +68,11 @@
 }
 
 .testimonial-content {
-  max-width: 768px; /* max-w-3xl */
+  max-width: 768px; 
 }
 
 .quote-text {
-  font-size: clamp(1.25rem, 3vw, 1.875rem); /* text-xl md:text-3xl */
+  font-size: clamp(1.25rem, 3vw, 1.875rem); 
   font-style: italic;
   font-weight: 200;
   line-height: 1.6;
@@ -91,9 +90,9 @@
   color: #D4AF37;
 }
 
-/* --- CTA SECTION --- */
+
 .cta-section {
-  display: none; /* hidden */
+  display: none; 
   padding: 240px 24px;
   flex-direction: column;
   align-items: center;
@@ -133,7 +132,7 @@
   transform: scale(1.05);
 }
 
-/* --- REVEAL ANIMATIONS --- */
+
 .reveal-element {
   opacity: 0;
   transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
