@@ -69,7 +69,7 @@ export default function Owner() {
           <div className="reveal anim-slide-right" style={{ maxWidth: '36rem' }}>
             <h2 className="label-tag text-gold" style={{ marginBottom: '48px', letterSpacing: '0.5em' }}>The Philosophy</h2>
             <p className="philosophy-text">
-              "Design is not a service; it is a <span className="italic">dialogue</span> between history and the future."
+              &quot;Design is not a service; it is a <span className="italic">dialogue</span> between history and the future.&quot;
             </p>
             <p className="narrative-body">
               With a decade of immersion in high-fidelity digital architecture, I founded The Design Lounge to serve those who reject the noise of the masses. We don&apos;t just build brands; we curate legacies that resonate with precision, elegance, and intentional restraint. 
