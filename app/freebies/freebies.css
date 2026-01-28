@@ -87,7 +87,7 @@
   width: 100%;
   margin-top: 32px;
   background-color: #171717; 
-  border: 1px solid rgba(255, 255, 255, 0.05);
+ 
   border-radius: 2px;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -181,8 +181,8 @@
   transform: translateX(-100%);
 }
 
-.freebie-card:hover .shimmer-beam {
-  animation: shimmer-glide 1.5s ease-in-out forwards;
+.freebie-card .shimmer-beam {
+  animation: shimmer-glide 4s ease-in-out infinite;
 }
 
 @keyframes shimmer-glide {

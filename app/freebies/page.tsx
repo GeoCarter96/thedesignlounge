@@ -4,9 +4,9 @@ import Link from "next/link";
 import './freebies.css';
 
 const FREEBIES = [
-  { id: "1", title: "The Soft Launch Playbook", desc: "4K Digital Couture", link: "https://www.theedesignlounge.co/product/the-soft-launch-playbook/5?cs=true&cst=custom" },
-  { id: "2", title: "The Luxe Launchpad", desc: "4K Digital Couture", link: "https://www.theedesignlounge.co/product/the-luxe-launchpad/3?cp=true&sa=true&sbp=false&q=false" },
-  { id: "3", title: "The Luxe Lounge Pregame", desc: "4K Digital Couture", link: "https://www.theedesignlounge.co/product/the-luxe-lounge-pre-game/1?cp=true&sa=true&sbp=false&q=false" },
+  { id: "1", title: "The Soft Launch Playbook", desc: " The Soft Launch Playbook is a free digital guide for minimalist creatives who want to launch with intention and confidence. It supports soft pivots and aligned moves while maintaining a polished presence that still feels like you.  ", link: "https://www.theedesignlounge.co/product/the-soft-launch-playbook/5?cs=true&cst=custom" },
+  { id: "2", title: "The Luxe Launchpad", desc: " Every takeoff starts on solid ground. The Luxe Launchpad™ is a digital brand kit designed to help your brand gain lift — refining your visuals, voice, and first impression before you ascend. This is where clarity fuels momentum and your next era begins to rise.  ", link: "https://www.theedesignlounge.co/product/the-luxe-launchpad/3?cp=true&sa=true&sbp=false&q=false" },
+  { id: "3", title: "The Luxe Lounge Pregame", desc: " Before the launch, there's the moment where everything clicks. The Luxe Lounge Pre-Game is a free branding warm-up created to help you find your rhythm, refine your presence, and step into your brand with intention. This is where clarity meets creativity — and your launch begins to feel aligned. ", link: "https://www.theedesignlounge.co/product/the-luxe-lounge-pre-game/1?cp=true&sa=true&sbp=false&q=false" },
 ];
 
 export default function FreebiesPage() {

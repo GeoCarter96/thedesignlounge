@@ -75,6 +75,7 @@
   margin-top: 8px;
   color: #ffffff;
   outline: none;
+  font-family: ui-sans-serif, system-ui, sans-serif;
 }
 
 .custom-input::placeholder { color: #666; }

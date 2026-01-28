@@ -149,23 +149,22 @@
 
 
 .light-layer {
-    display: none; /* Hidden on mobile */
+    display: none; 
     pointer-events: none; 
-    z-index: 10; /* Sits behind the main image, but maybe we want it in front? */
+    z-index: 10; 
 }
 
-/* This places the actual light image precisely above the portrait */
+
 .light-layer img {
     position: absolute;
     width: 100%;
-    max-width: 500px; /* Match the max width of the portrait container if needed */
+    max-width: 500px; 
     height: auto;
     
-    /* Center it horizontally */
+    
     left: 50%;
-    transform: translateX(-50%) translateY(-100px); /* Adjust Y to move it up */
+    transform: translateX(-50%) translateY(-100px);
 
-    /* The intensity settings we discussed earlier */
     mix-blend-mode: screen; 
     opacity: 1;
    
