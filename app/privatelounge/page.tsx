@@ -4,9 +4,9 @@ import Link from "next/link";
 import './privatelounge.css';
 
 const COLLECTION = [
-  { id: "ple1", category: "Digital", title: "The Private Lounge Experience", price: "$17", link: "https://www.theedesignlounge.co/product/the-private-lounge-experience-night-1-the-brand-identity-bar/2" },
-  { id: "ple3", category: "Digital", title: "The Suite Of Self Leadership", price: "$17", link: "https://www.theedesignlounge.co/product/the-suite-of-self-leadership-night-2/4" },
- { id: "ple2", category: "Digital", title: "The Lounge Legacy Table", price: "$17", link: "https://www.theedesignlounge.co/product/the-lounge-legacy-table-night-3/6" },
+  { id: "ple1", category: " Night One of the three-night Private Lounge Experience opens at the Brand Identity Bar, where you’ll explore your brand through a luxury-inspired drink menu of identity elixirs and immersive visual prompts. This opening night is about refining your aesthetic and reconnecting with the energy your brand is meant to carry — so you stop guessing and start showing up aligned.", title: "The Private Lounge Experience Night 1 The Brand Identity Bar", price: "$17", link: "https://www.theedesignlounge.co/product/the-private-lounge-experience-night-1-the-brand-identity-bar/2" },
+  { id: "primary", category: " Night Two of the three-night Private Lounge Experience invites you into The Suite of Self-Leadership, where you’ll audit your brand from the inside out, redefine your boundaries, and reconnect with the voice you’re meant to lead with. Through intentional reflection and guided exercises like the Self-Led Brand Inventory and the Leadership Ledger, this night is about stepping into clarity and moving like someone who already knows who she is.  ", title: "The Private Lounge Experience Night 2 The Suite of Self Leadership", price: "$17", link: "https://www.theedesignlounge.co/product/the-suite-of-self-leadership-night-2/4" },
+ { id: "ple2", category: "The three-night Private Lounge Experience concludes at The Lounge Legacy Table On Night Three, you’ll refine how you show up, clarify what your content is really saying, and design a rhythm of visibility that supports the brand legacy you’re building — not just the algorithm.", title: "The Private Lounge Experience Night 3 The Lounge Legacy Table", price: "$17", link: "https://www.theedesignlounge.co/product/the-lounge-legacy-table-night-3/6" },
 ];
   
  
@@ -54,14 +54,27 @@ export default function PrivateloungePage() {
          
             <div className="image-wrapper">
               <img 
-                src={`/${item.id}.png`} 
-                alt={item.title}
-                className="product-img"
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  target.src = target.src.endsWith('.png') ? target.src.replace('.png', '.PNG') : target.src.replace('.PNG', '.png');
-                }}
-              />
+  src={`/${item.id}.png`} 
+  alt={item.title}
+  className="product-img"
+  onError={(e) => {
+    const target = e.currentTarget;
+   
+    if (target.dataset.triedAll) return;
+
+    if (target.src.endsWith('.png')) {
+      target.src = target.src.replace('.png', '.PNG');
+    } else if (target.src.endsWith('.PNG')) {
+      target.src = target.src.replace('.PNG', '.jpg');
+    } else {
+      
+      target.dataset.triedAll = 'true';
+      target.src = "/placeholder.jpg"; 
+    }
+  }}
+  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+/>
+
               <div className="shimmer-overlay">
                  <div className="shimmer-beam" />
               </div>
