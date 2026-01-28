@@ -30,7 +30,7 @@ export default function FlyerProductPage() {
 
       <div className="light-layer">
         <div style={{ position: 'absolute', top: '32px', left: 0, width: '100%', height: '288px' }}>
-          <img src="/lightbeam.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'screen', opacity: 0.3 }} />
+          <img src="/lightbeam.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'screen', opacity: '100%' }} />
         </div>
       </div>
 
