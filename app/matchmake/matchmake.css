@@ -1,46 +1,143 @@
-*{ padding: 0; margin: 0; box-sizing: border-box; }
-
-body{
-    font-family: var(--font-luxury), sans-serif;
-    
+/* --- CORE LAYOUT --- */
+.discovery-page {
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px 0; /* pt-20 px-6 */
 }
-/* Question Entry Animation (Slide from Right) */
+
+.max-w-2xl { max-width: 672px; width: 100%; }
+.max-w-3xl { max-width: 768px; width: 100%; }
+
+/* --- STEP INDICATOR --- */
+.step-counter {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  opacity: 0.3;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.question-text {
+  font-size: clamp(2rem, 5vw, 3rem); /* text-3xl md:text-5xl */
+  font-weight: 200;
+  letter-spacing: -0.02em;
+  margin-bottom: 64px;
+  text-align: center;
+}
+
+/* --- INTERACTIVE BUTTONS --- */
+.option-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.option-btn {
+  position: relative;
+  padding: 24px 0;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.5s ease;
+}
+
+.option-btn:hover {
+  border-color: #D4AF37;
+}
+
+.option-text {
+  position: relative;
+  z-index: 10;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+  transition: color 0.5s ease;
+}
+
+.option-btn:hover .option-text {
+  color: #000;
+}
+
+.option-fill {
+  position: absolute;
+  inset: 0;
+  background-color: #D4AF37;
+  transform: translateY(100%);
+  transition: transform 0.5s ease-out;
+  z-index: 0;
+}
+
+.option-btn:hover .option-fill {
+  transform: translateY(0);
+}
+
+/* --- RESULT VIEW --- */
+.result-tag {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  color: #D4AF37;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.result-name {
+  font-family: serif;
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  font-style: italic;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.result-desc {
+  font-size: 1.25rem;
+  font-weight: 200;
+  opacity: 0.6;
+  margin-bottom: 64px;
+  text-align: center;
+}
+
+.cta-btn {
+  padding: 20px 64px;
+  border-radius: 9999px;
+  background-color: #fff;
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #D4AF37;
+}
+
+/* --- ANIMATIONS --- */
 .anim-question-enter {
-  animation: slideFadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: fadeInSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* Result Entry Animation (Scale Up) */
 .anim-result-enter {
-  animation: scaleFadeIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: resultReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-@keyframes slideFadeIn {
-  from {
-    opacity: 0;
-    transform: translate3d(20px, 0, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+@keyframes fadeInSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes scaleFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Luxury Button Hover Shimmer (Optional logic) */
-.group:hover .shimmer-layer {
-  animation: shimmerMove 1.5s infinite;
-}
-
-@keyframes shimmerMove {
-  100% { transform: translateX(100%); }
+@keyframes resultReveal {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
 }

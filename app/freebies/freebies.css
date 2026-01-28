@@ -1,33 +1,192 @@
-body{
-    font-family: var(--font-luxury), sans-serif;
-    
-}
-/* Base Transition Settings */
-.reveal {
-  will-change: transform, opacity;
-  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+/* --- CORE PAGE STYLES --- */
+.freebies-page {
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+  padding: 128px 0 160px; /* pt-32 pb-40 */
 }
 
-/* Specific Animation States */
-.anim-fade-in.is-visible {
-  opacity: 0.4 !important;
-  letter-spacing: 0.6em !important;
+.max-w-7xl {
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-.anim-slide-up.is-visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+/* --- HEADER SECTION --- */
+.header-section {
+  padding: 0 40px 96px;
+  border-bottom: 1px solid rgba(5, 5, 5, 0.05);
 }
 
-/* Shimmer Animation */
-@keyframes shimmer {
+.editorial-tag {
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.5em;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-family: serif;
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 200;
+  letter-spacing: -0.05em;
+}
+
+.text-gold-italic {
+  color: #D4AF37;
+  font-style: italic;
+}
+
+/* --- FREEBIES GRID --- */
+.freebies-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+  padding: 128px 40px;
+}
+
+@media (min-width: 768px) {
+  .freebies-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.freebie-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.5s ease;
+}
+
+/* LIGHT BEAM (Background Layer) */
+.light-beam-bg {
+  display: none; /* hidden md:block */
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 256px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .light-beam-bg { display: block; }
+}
+
+.light-beam-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  opacity: 100%;
+}
+
+/* IMAGE CONTAINER (Middle Layer) */
+.freebie-image-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  margin-top: 32px;
+  background-color: #171717; /* neutral-900 */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: border-color 1s ease;
+}
+
+.freebie-card:hover .freebie-image-wrapper {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.freebie-img {
+  width: 100%;
+  height: auto;
+  opacity: 0.7;
+  transition: opacity 1s ease;
+}
+
+.freebie-card:hover .freebie-img {
+  opacity: 1;
+}
+
+/* TEXT CONTENT (Top Layer) */
+.freebie-content {
+  position: relative;
+  z-index: 20;
+  margin-top: 32px;
+  padding: 8px;
+  backdrop-filter: blur(4px); /* blur-sm */
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+  .freebie-content {
+    background-color: transparent;
+    backdrop-filter: none;
+  }
+}
+
+.freebie-desc {
+  font-size: 10px;
+  color: #D4AF37;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+}
+
+.freebie-title {
+  font-family: serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  margin-top: 8px;
+  transition: color 0.3s;
+}
+
+.download-link {
+  display: inline-block;
+  margin-top: 24px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 4px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.download-link:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+/* --- ANIMATIONS --- */
+.reveal { opacity: 0; transition: all 1.2s ease-out; }
+.anim-slide-up { transform: translateY(32px); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+.shimmer-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.shimmer-beam {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+}
+
+.freebie-card:hover .shimmer-beam {
+  animation: shimmer-glide 1.5s ease-in-out forwards;
+}
+
+@keyframes shimmer-glide {
   100% { transform: translateX(100%); }
-}
-.group-hover\:animate-shimmer {
-  animation: shimmer 1.5s infinite;
-}
-
-/* Footer Specific Overrides */
-section.reveal.is-visible:last-child {
-  opacity: 0.2 !important;
 }

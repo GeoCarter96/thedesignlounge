@@ -61,42 +61,44 @@ export default function DiscoveryPage() {
   if (!mounted) return <div className="min-h-screen bg-black" />;
 
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center px-6 pt-20">
-      {!showResult ? (
-        <div key={`step-${step}`} className="anim-question-enter max-w-2xl w-full text-center">
-          <p className="text-[10px] uppercase tracking-[0.5em] opacity-30 mb-8">
-            Step {step + 1} of {QUESTIONS.length}
-          </p>
-          <h2 className="text-3xl md:text-5xl font-extralight tracking-tight mb-16">
-            {QUESTIONS[step].text}
-          </h2>
-          <div className="flex flex-col gap-6">
-            {QUESTIONS[step].options.map((opt) => (
-              <button
-                key={opt.text}
-                onClick={() => handleAnswer(opt.points)}
-                className="group relative py-6 border border-white/10 cursor-pointer rounded-full hover:border-[#D4AF37] transition-all duration-500 overflow-hidden"
-              >
-                <span className="relative z-10 uppercase tracking-[0.2em] text-xs group-hover:text-black transition-colors duration-500">
-                  {opt.text}
-                </span>
-                <div className="absolute inset-0 bg-[#D4AF37] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
-              </button>
-            ))}
-          </div>
+  <div className="discovery-page">
+    {!showResult ? (
+      <div key={`step-${step}`} className="anim-question-enter max-w-2xl">
+        <p className="step-counter">
+          Step {step + 1} of {QUESTIONS.length}
+        </p>
+        <h2 className="question-text">
+          {QUESTIONS[step].text}
+        </h2>
+        <div className="option-list">
+          {QUESTIONS[step].options.map((opt) => (
+            <button
+              key={opt.text}
+              onClick={() => handleAnswer(opt.points)}
+              className="option-btn"
+            >
+              <span className="option-text">
+                {opt.text}
+              </span>
+              <div className="option-fill" />
+            </button>
+          ))}
         </div>
-      ) : (
-        <div className="anim-result-enter text-center max-w-3xl">
-          <p className="text-[10px] uppercase tracking-[0.5em] text-[#D4AF37] mb-6">Your Curated Recommendation</p>
-          <h1 className="text-5xl md:text-7xl font-serif mb-8 italic">{getResult().name}</h1>
-          <p className="text-xl opacity-60 font-extralight mb-16">{getResult().desc}</p>
+      </div>
+    ) : (
+      <div className="anim-result-enter max-w-3xl">
+        <p className="result-tag">Your Curated Recommendation</p>
+        <h1 className="result-name">{getResult().name}</h1>
+        <p className="result-desc">{getResult().desc}</p>
+        <div style={{ textAlign: 'center' }}>
           <Link href={getResult().path}>
-            <button className="rounded-full bg-white px-16 py-5 text-xs font-bold uppercase cursor-pointer tracking-[0.3em] text-black hover:bg-[#D4AF37] transition-all">
+            <button className="cta-btn">
               Secure Your Placement
             </button>
           </Link>
         </div>
-      )}
-    </div>
-  );
+      </div>
+    )}
+  </div>
+);
 }

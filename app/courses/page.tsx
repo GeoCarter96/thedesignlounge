@@ -26,113 +26,70 @@ export default function Courses() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] selection:text-black">
-      
-     
-<section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-24 md:py-32">
-  <div className="absolute inset-0 z-0 opacity-40">
-     <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-       <source src="/luxury-ink.mp4" type="video/mp4" />
-     </video>
-  </div>
-  
-  {/* CONTAINER A: THE TEXT (Top Layer) */}
-  <div className="reveal anim-fade-in text-center mb-12 relative z-30 opacity-0">
-    <p className="uppercase text-[10px] mb-6 font-light tracking-[0.2em] text-white/60">
-      A Masterclass by The Design Lounge
-    </p>
-
-    <h1 className="reveal anim-slide-up font-serif text-5xl md:text-7xl lg:text-8xl font-extralight tracking-tighter italic leading-tight opacity-0 translate-y-5">
-      The Canva<span className="text-[#D4AF37] not-italic"> Crash Course</span>
-    </h1>
-  </div>
-
-  {/* CONTAINER B: THE LIGHT (Middle Layer) */}
-  {/* Lowered beam: originates below text and shines onto the image */}
-  <div className="hidden md:block relative w-full max-w-lg h-32 pointer-events-none z-10 overflow-visible">
-    <div className="absolute top-8 left-0 w-full h-72">
-      <img
-        src="/lightbeam.png"
-        alt=""
-        className="w-full h-full opacity-200 object-contain opacity-30 mix-blend-screen"
-      />
-    </div>
-  </div>
-
-  {/* CONTAINER C: THE IMAGE (Base Layer) */}
-  <div className="relative w-full max-w-lg">
-    <div className="reveal anim-scale-in relative z-20 w-full overflow-hidden rounded-xl bg-white/5 border border-white/10 shadow-2xl group opacity-0 scale-95 transition-all">
-      <img 
-        src="/course.PNG" 
-        alt="Course Preview"
-        className="w-full h-auto object-contain transition-transform duration-1000 group-hover:scale-105"
-      />
-      
-      {/* Signature Shimmer */}
-      <div className="absolute inset-0 z-30 pointer-events-none overflow-hidden">
-         <div 
-           className="absolute inset-0 w-full h-full -translate-x-full group-hover:animate-shimmer" 
-           style={{
-             background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.02) 40%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.02) 60%, transparent 100%)'
-           }}
-         />
+  <div className="courses-page">
+    <section className="hero-section">
+      <div className="video-bg">
+        <video autoPlay loop muted playsInline>
+          <source src="/luxury-ink.mp4" type="video/mp4" />
+        </video>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 opacity-60 pointer-events-none" />
-    </div>
-  </div>
-</section>
-
-
-      {/* 2. THE PHILOSOPHY */}
-      <section className="py-32 md:py-48 px-10 max-w-5xl mx-auto text-center">
-        <h2 className="reveal anim-fade-in text-xs uppercase tracking-[0.5em] text-white/30 mb-12 opacity-0">The Philosophy</h2>
-        <p className="reveal anim-slide-up text-2xl md:text-5xl font-extralight leading-snug tracking-tight opacity-0 translate-y-5">
-          True luxury is not about what is added, but what is <span className="text-[#D4AF37]">carefully removed</span>.
+      
+      <div className="reveal anim-fade-in hero-text-layer">
+        <p style={{ letterSpacing: '0.2em', fontSize: '10px', opacity: 0.6, marginBottom: '24px' }}>
+          A Masterclass by The Design Lounge
         </p>
-      </section>
+        <h1 className="hero-title reveal anim-slide-up">
+          The Canva <span className="text-gold">Crash Course</span>
+        </h1>
+      </div>
 
-      {/* 3. CURRICULUM */}
-      <section className="py-24 md:py-40 px-6 md:px-10 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-start">
-          <div className="lg:sticky lg:top-40 reveal anim-fade-in opacity-0">
-            <h3 className="font-serif text-5xl md:text-6xl italic">The Syllabus</h3>
-            <p className="mt-6 text-white/40 max-w-xs font-light text-lg">A self-paced immersive journey into the anatomy of premium design.</p>
-          </div>
-          
-          <div className="flex flex-col border-t border-white/10">
-            {CURRICULUM.map((item, i) => (
-              <div 
-                key={item.id}
-                style={{ transitionDelay: `${i * 0.1}s` }}
-                className="reveal anim-slide-right py-10 md:py-14 border-b border-white/10 flex gap-8 md:gap-12 group cursor-pointer transition-all opacity-0 translate-x-[-10px]"
-              >
-                <span className="text-[#D4AF37] font-serif text-xl opacity-40 group-hover:opacity-100 transition-opacity">{item.id}</span>
-                <div>
-                  <h4 className="text-xl md:text-2xl uppercase tracking-widest mb-3 group-hover:text-[#D4AF37] transition-colors">{item.title}</h4>
-                  <p className="text-white/40 font-light leading-relaxed">{item.detail}</p>
-                </div>
-              </div>
-            ))}
+      <div className="light-layer">
+        <img src="/lightbeam.png" alt="" />
+      </div>
+
+      <div className="image-layer">
+        <div className="reveal anim-scale-in course-card group">
+          <img src="/course.PNG" alt="Course Preview" />
+           <div className="shimmer-beam" />
+          <div className="shimmer-container" style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
+            <div className="shimmer-beam" style={{ 
+              position: 'absolute', inset: 0, width: '100%', height: '100%',
+              background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%)',
+              transform: 'translateX(-100%)'
+            }} />
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* 4. ENROLLMENT */}
-      <section className="py-40 md:py-60 bg-[#080808] border-y border-white/5 text-center px-6">
-        <div className="reveal anim-fade-in ">
-          <h2 className="text-4xl text-white md:text-7xl font-extralight mb-8">Secure Your Seat</h2>
-          <p className="mb-16 text-white tracking-[0.3em] uppercase text-[10px] font-light italic">Start Your 2026 With A Bang</p>
-          <Link 
-            href="https://www.theedesignlounge.co/product/the-canva-crash-course/7"
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="group relative inline-block px-12 md:px-20 py-6 rounded-full border border-[#D4AF37] text-white overflow-hidden transition-all"
-          >
-            <span className="relative z-10 text-[10px] font-bold uppercase tracking-[0.4em] group-hover:text-black transition-colors duration-500">Acquire Crash course</span>
-            <div className="absolute inset-0 bg-[#D4AF37] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
-          </Link>
-        </div>
-      </section>
-    </div>
-  );
+    <section className="curriculum-grid max-w-7xl">
+      <div className="sticky-header reveal anim-fade-in">
+        <h3 style={{ fontFamily: 'serif', fontSize: '3rem', fontStyle: 'italic' }}>The Syllabus</h3>
+        <p style={{ marginTop: '24px', opacity: 0.4 }}>A self-paced immersive journey.</p>
+      </div>
+      
+      <div>
+        {CURRICULUM.map((item, i) => (
+          <div key={item.id} className="reveal anim-slide-right curriculum-item" style={{ transitionDelay: `${i * 0.1}s` }}>
+            <span style={{ color: '#D4AF37', fontFamily: 'serif', fontSize: '1.25rem', opacity: 0.4 }}>{item.id}</span>
+            <div>
+              <h4 style={{ letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px' }}>{item.title}</h4>
+              <p style={{ opacity: 0.4 }}>{item.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section style={{ textAlign: 'center', padding: '160px 24px', background: '#080808' }}>
+      <div className="reveal anim-fade-in">
+        <h2 style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', fontWeight: 200, marginBottom: '32px' }}>Secure Your Seat</h2>
+        <Link href="https://www.theedesignlounge.co/product/the-canva-crash-course/7" target="_blank" className="enroll-btn">
+          <span>Acquire Crash course</span>
+          <div className="btn-fill" />
+        </Link>
+      </div>
+    </section>
+  </div>
+);
 }

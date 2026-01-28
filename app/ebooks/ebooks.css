@@ -1,36 +1,185 @@
-
-
-body{
-    font-family: var(--font-luxury), sans-serif;
-    
-}
-/* Base Transition Logic */
-.reveal {
-  will-change: transform, opacity;
-  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+/* --- CORE LAYOUT --- */
+.ebooks-page {
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+  padding-top: 128px; /* pt-32 */
 }
 
-/* Header Reveal */
-.anim-fade-in.is-visible {
-  opacity: 0.4 !important;
-  letter-spacing: 0.5em !important;
+.max-w-7xl {
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-/* Card & Heading Reveal */
-.anim-slide-up.is-visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+/* --- HEADER --- */
+.header-section {
+  padding: 0 40px 96px;
+  border-bottom: 1px solid #000; /* border-black */
 }
 
-/* Footer Reveal Overwrite */
-section.reveal.is-visible:last-child {
-  opacity: 0.2 !important;
+.editorial-tag {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  margin-bottom: 24px;
 }
 
-/* Shimmer Animation */
-@keyframes shimmer {
+.hero-title {
+  font-family: serif;
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 200;
+  letter-spacing: -0.05em;
+}
+
+.text-gold {
+  color: #D4AF37;
+  font-style: italic;
+}
+
+/* --- COLLECTION GRID --- */
+.collection-section {
+  padding: 128px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-card {
+  width: 100%;
+  max-width: 512px; /* max-lg */
+  position: relative;
+  margin-top: 32px;
+  transition: transform 1s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-16px);
+}
+
+/* BACKGROUND LIGHT BEAM */
+.bg-light-beam {
+  display: none; /* hidden */
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 288px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .bg-light-beam { display: block; }
+}
+
+.bg-light-beam img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  opacity: 100%;
+}
+
+/* LUXURY BOOK DISPLAY */
+.book-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  background-color: #171717; /* neutral-900 */
+  border-radius: 2px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.book-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: opacity 1s ease;
+}
+
+.book-card:hover .book-img {
+  opacity: 1;
+}
+
+/* GOLD SPINE DETAIL */
+.book-spine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(to bottom, #D4AF37, #F9E498, #AF8A3F);
+  opacity: 0.5;
+  z-index: 20;
+}
+
+/* --- METADATA --- */
+.book-meta {
+  position: relative;
+  z-index: 20;
+  margin-top: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.book-id {
+  font-size: 10px;
+  color: #D4AF37;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.book-title {
+  font-family: serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-top: 8px;
+  transition: color 0.3s;
+}
+
+.book-card:hover .book-title {
+  color: #D4AF37;
+}
+
+.book-subtitle {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* --- ANIMATIONS --- */
+.reveal { opacity: 0; transition: all 1.2s ease-out; }
+.anim-slide-up { transform: translateY(40px); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* SHIMMER */
+.shimmer-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.shimmer-beam {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+}
+
+.book-card:hover .shimmer-beam {
+  animation: shimmer-glide 1.5s ease-in-out forwards;
+}
+
+@keyframes shimmer-glide {
   100% { transform: translateX(100%); }
-}
-.group-hover\:animate-shimmer {
-  animation: shimmer 1.5s infinite;
 }

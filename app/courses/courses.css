@@ -1,44 +1,201 @@
-body{
-    font-family: var(--font-luxury), sans-serif;
-    
-}
-/* Base Transition Logic */
-.reveal {
-  will-change: transform, opacity;
-  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+/* --- CORE LAYOUT --- */
+.courses-page {
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
 }
 
-/* Animations */
-.anim-fade-in.is-visible {
-  opacity: 100 !important;
+.max-w-7xl { max-width: 1280px; margin: 0 auto; }
+.max-w-5xl { max-width: 1024px; margin: 0 auto; }
+
+/* --- HERO LAYERS --- */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 100px 0;
 }
 
-.is-visible p.tracking-\[0\.2em\] {
-  letter-spacing: 0.5em !important;
-  opacity: 0.5 !important;
+.video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.4;
 }
 
-.anim-slide-up.is-visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+.video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.anim-slide-right.is-visible {
-  opacity: 1 !important;
-  transform: translateX(0) !important;
+/* CONTAINER A: TEXT */
+.hero-text-layer {
+  text-align: center;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 30;
 }
 
-.anim-scale-in.is-visible {
-  opacity: 1 !important;
-  transform: scale(1) !important;
-  transition-duration: 1.8s;
+.hero-title {
+  font-family: serif;
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 200;
+  font-style: italic;
+  letter-spacing: -0.05em;
+  line-height: 1.1;
 }
 
-/* Shimmer Effect Keyframes */
-@keyframes shimmer {
-  100% { transform: translateX(100%); }
+.text-gold { color: #D4AF37; font-style: normal; }
+
+/* CONTAINER B: LIGHT BEAM */
+.light-layer {
+  position: relative;
+  width: 100%;
+  max-width: 512px;
+  height: 128px;
+  pointer-events: none;
+  z-index: 10;
 }
 
-.group-hover\:animate-shimmer {
-  animation: shimmer 2s infinite;
+.light-layer img {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  width: 100%;
+  height: 288px;
+ object-fit: contain;
+ mix-blend-mode: screen;
+  opacity: 100%;
 }
+
+/* CONTAINER C: IMAGE */
+.image-layer {
+  position: relative;
+  width: 100%;
+  max-width: 512px;
+  z-index: 20;
+}
+
+.course-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease;
+  z-index: 10;
+}
+
+.course-card img {
+  width: 100%;
+  height: auto;
+  transition: transform 1s ease;
+}
+
+.course-card:hover img { transform: scale(1.05); }
+
+/* --- SYLLABUS --- */
+.curriculum-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+  padding: 100px 24px;
+}
+
+@media (min-width: 1024px) {
+  .curriculum-grid { grid-template-columns: 1fr 1fr; gap: 96px; }
+  .sticky-header { position: sticky; top: 160px; }
+}
+
+.curriculum-item {
+  display: flex;
+  gap: 32px;
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.curriculum-item:hover h4 { color: #D4AF37; }
+
+/* --- ANIMATIONS --- */
+.reveal { opacity: 0; transition: all 1.2s ease-out; }
+.anim-slide-up { transform: translateY(20px); }
+.anim-scale-in { transform: scale(0.95); }
+.anim-slide-right { transform: translateX(-20px); }
+
+.reveal.is-visible { opacity: 1; transform: translate(0) scale(1); }
+
+
+
+
+/* The Shimmer Beam - This will run constantly */
+.shimmer-beam {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* Using a white/gold tint for the beam */
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.1) 45%, 
+    rgba(255, 255, 255, 0.25) 50%, 
+    rgba(255, 255, 255, 0.1) 55%, 
+    transparent 100%
+  );
+  transform: translateX(-100%) skewX(-12deg);
+  pointer-events: none;
+  z-index: 50; /* Sits on top of the image */
+  
+  /* Constant infinite loop at 4 seconds */
+  animation: shimmer-infinite 4s ease-in-out infinite;
+}
+
+@keyframes shimmer-infinite {
+  0% { transform: translateX(-110%) skewX(-12deg); }
+  100% { transform: translateX(110%) skewX(-12deg); }
+}
+
+/* ... keep the rest of your SYLLABUS and BUTTON styles ... */
+
+
+
+
+
+/* --- BUTTON --- */
+.enroll-btn {
+  position: relative;
+  display: inline-block;
+  padding: 24px 60px;
+  border-radius: 999px;
+  border: 1px solid #D4AF37;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-weight: bold;
+  font-size: 10px;
+  overflow: hidden;
+  transition: all 0.5s;
+  text-decoration: none;
+}
+
+.enroll-btn span { position: relative; z-index: 10; }
+.enroll-btn:hover span { color: #000; }
+
+.btn-fill {
+  position: absolute;
+  inset: 0;
+  background: #D4AF37;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+  z-index: 0;
+}
+
+.enroll-btn:hover .btn-fill { transform: translateY(0); }

@@ -1,38 +1,121 @@
-body{
-    font-family: var(--font-luxury), sans-serif;
-    
-}
-/* Reveal Containers */
-.reveal-sub, .reveal-title, .reveal-monolith, .reveal-link {
-  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform, opacity;
+/* --- CORE PAGE STYLES --- */
+.bg-black {
+  background-color: #000;
+  color: #fff;
 }
 
-/* Specific Animations when .is-visible is added */
-.is-visible .reveal-sub {
+/* Custom Selection */
+::selection {
+  background: #D4AF37;
+  color: #000;
+}
+
+/* --- FULL-SCREEN SECTIONS --- */
+.reveal-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 128px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.text-center { text-align: center; }
+.mb-20 { margin-bottom: 80px; }
+
+/* TYPOGRAPHY */
+.reveal-sub {
+  text-transform: uppercase;
+  font-size: 10px;
+  margin-bottom: 16px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  opacity: 0;
+  transition: opacity 1.2s ease 0.2s;
+}
+
+.reveal-title {
+  font-family: serif;
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 200;
+  letter-spacing: -0.05em;
+  font-style: italic;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+}
+
+/* --- PRODUCT MONOLITH --- */
+.reveal-monolith {
+  position: relative;
+  width: 100%;
+  max-width: 896px; /* max-w-4xl */
+  aspect-ratio: 16 / 9;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.6s;
+}
+
+.reveal-monolith img {
+  width: 100%;
+  height: 100%;
+  /* COVER fills the entire container while keeping the image whole (centered crop) */
+  object-fit: fill; 
+  /* Ensures the focus of the image stays in the middle */
+  object-position: center; 
   opacity: 0.4;
-  letter-spacing: 0.5em;
+  filter: grayscale(100%);
+  transition: all 1s ease;
 }
 
-.is-visible .reveal-title {
+
+/* Hover States for Monolith */
+.reveal-monolith:hover img {
   opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.2s;
+  filter: grayscale(0%);
 }
 
-.is-visible .reveal-monolith {
+.monolith-link {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  cursor: pointer;
+  
+}
+
+/* --- EXPLORE LINK --- */
+.reveal-link {
+  margin-top: 64px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 8px;
+  text-decoration: none;
+  opacity: 0;
+  transition: all 0.7s ease 0.8s;
+}
+
+.reveal-link:hover {
+  color: #D4AF37;
+  border-color: #D4AF37;
+}
+
+/* --- ANIMATION TRIGGER (IS-VISIBLE) --- */
+.reveal-section.is-visible .reveal-sub,
+.reveal-section.is-visible .reveal-title,
+.reveal-section.is-visible .reveal-monolith,
+.reveal-section.is-visible .reveal-link {
   opacity: 1;
-  transform: scale(1);
-  transition-delay: 0.4s;
-  transition-duration: 1.5s;
-}
-
-.is-visible .reveal-link {
-  opacity: 1;
-  transition-delay: 0.8s;
-}
-
-/* Optimize Video/Image Performance */
-img, video {
-  content-visibility: auto; /* Browser optimization for off-screen content */
+  transform: translate(0) scale(1);
 }

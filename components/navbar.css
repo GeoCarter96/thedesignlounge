@@ -1,20 +1,91 @@
-
+/* --- NAVIGATION LAYOUT --- */
+/* navbar.css */
 .anim-nav-entrance {
-  opacity: 0;
-  transform: translateY(-20px);
-  animation: navReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  will-change: transform, opacity;
+  position: fixed; /* Changed from relative to stay visible */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* Ensure this is the highest number on the site */
+  
+
+  animation: navFadeDown 1.2s ease forwards;
 }
 
-@keyframes navReveal {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 40px; /* py-8 px-10 */
+  color: #ffffff;
+}
+
+/* --- LOGO STYLING --- */
+.nav-logo {
+  display: none; /* hidden */
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .nav-logo { display: block; } /* md:block */
+}
+
+/* --- LINKS & HOVER EFFECTS --- */
+.nav-links-wrapper {
+  display: none; /* hidden */
+  gap: 48px; /* gap-12 */
+}
+
+@media (min-width: 768px) {
+  .nav-links-wrapper { display: flex; } /* md:flex */
+}
+
+.nav-link, .nav-btn {
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.5s ease;
+  white-space: nowrap;
+}
+.nav-btn {
+  display: none;
+}
+
+/* Show on desktop (768px and up) */
+@media (min-width: 768px) {
+  .nav-btn {
+    display: inline-block; /* Keeps the link's flow correct */
+  }
+}
+/* THE LUXURY GOLD GLOW HOVER */
+.nav-link:hover, .nav-btn:hover {
+  color: transparent;
+  background: linear-gradient(to bottom, #D4AF37, #F9E498, #AF8A3F);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+}
+
+/* --- ANIMATIONS --- */
+@keyframes navFadeDown {
+  from { 
+    opacity: 0; 
+    transform: translateY(-20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
   }
 }
 
-/* Luxury Text Selection */
-::selection {
-  background: #D4AF37;
-  color: black;
+/* GLOBAL SELECTION OVERRIDE */
+.nav-logo::selection {
+  background-color: transparent;
+  color: #D4AF37;
 }

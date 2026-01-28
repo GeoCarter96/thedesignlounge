@@ -36,63 +36,67 @@ export default function ConciergeOrb() {
     return () => clearInterval(interval);
   }, [isOpen]);
 
-  return (
-    <div className="fixed inset-0 pointer-events-none z-[9999] hidden md:block">
-      <div
-        ref={orbRef}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        className="pointer-events-auto absolute bottom-12 right-12 flex flex-col items-end group select-none"
-        style={{
-          transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
-          cursor: isDragging ? "grabbing" : "grab",
-          transition: isDragging ? "none" : "transform 0.6s cubic-bezier(0.2, 0, 0.2, 1)",
+ return (
+  <div className="orb-viewport-lock">
+    <div
+      ref={orbRef}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      className="orb-draggable-wrapper"
+      style={{
+        transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
+        cursor: isDragging ? "grabbing" : "grab",
+        transition: isDragging ? "none" : "transform 0.6s cubic-bezier(0.2, 0, 0.2, 1)",
+      }}
+    >
+      {/* Navigation Menu */}
+      {isOpen && (
+        <div className="orb-nav-menu">
+          <p className="orb-menu-title">The Lounge Menu</p>
+          {["PLANNERS", "COURSES", "FLYERS", "EBOOKS", "PRIVATE LOUNGE", "FREEBIES"].map((name) => (
+            <Link
+              key={name}
+              href={`/${name.toLowerCase().replace(" ", "")}`}
+              onClick={() => setIsOpen(false)}
+              className="orb-nav-link"
+            >
+              {name}
+            </Link>
+          ))}
+        </div>
+      )}
+
+      {/* Whisper Hint */}
+      {showHint && !isOpen && (
+        <div className="orb-whisper-hint">
+          <div className="orb-hint-box">
+            <p className="orb-hint-text">Quick Navigation</p>
+          </div>
+        </div>
+      )}
+
+      {/* Trigger Button */}
+      <button
+        onClick={() => {
+          if (isDragging) return;
+          setIsOpen(!isOpen);
         }}
+        className="orb-trigger-btn"
       >
-        {/* Navigation Menu */}
-        {isOpen && (
-          <div className="anim-menu-reveal mb-8 flex flex-col items-end gap-4 bg-black/40 backdrop-blur-2xl border border-white/10 p-8 shadow-2xl min-w-[240px]">
-            <p className="text-[10px] uppercase tracking-[0.6em] text-[#D4AF37] mb-2 border-b border-[#D4AF37]/20 w-full pb-3 font-light">
-              The Lounge Menu
-            </p>
-            {["PLANNERS", "COURSES", "FLYERS", "EBOOKS", "PRIVATE LOUNGE", "FREEBIES"].map((name) => (
-              <Link
-                key={name}
-                href={`/${name.toLowerCase().replace(" ", "")}`}
-                onClick={() => setIsOpen(false)}
-                className="text-sm font-extralight tracking-[0.2em] text-white/60 hover:text-white transition-all duration-500 hover:-translate-x-1"
-              >
-                {name}
-              </Link>
-            ))}
-          </div>
-        )}
-
-        {/* Whisper Hint */}
-        {showHint && !isOpen && (
-          <div className="anim-hint-reveal absolute right-20 top-1/2 -translate-y-1/2 whitespace-nowrap pointer-events-none">
-            <div className="bg-black/20 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full shadow-2xl">
-              <p className="text-[9px] uppercase tracking-[0.4em] text-[#D4AF37] font-light">Quick Navigation</p>
-            </div>
-          </div>
-        )}
-
-        {/* Trigger Button */}
-        <button
-          onClick={(e) => {
-            if (isDragging) return; // Prevent opening while dragging
-            setIsOpen(!isOpen);
-          }}
-          className="relative w-16 h-16 cursor-pointer rounded-full bg-gradient-to-br from-white/20 via-white/5 to-transparent backdrop-blur-2xl border border-white/20 flex items-center justify-center shadow-2xl transition-all duration-700 hover:scale-110 active:scale-95"
-        >
-          <div className="relative z-10 flex flex-col gap-1.5 items-end">
-            <span className={`h-[1px] transition-all duration-500 ${isOpen ? 'w-5 rotate-45 translate-y-[5px] bg-[#D4AF37]' : 'w-5 bg-white'}`} />
-            <span className={`h-[1px] transition-all duration-500 ${isOpen ? 'w-5 -rotate-45 -translate-y-[2px] bg-[#D4AF37]' : 'w-3 bg-white'}`} />
-          </div>
-          <div className="absolute inset-0 rounded-full border border-[#D4AF37]/30 animate-luxury-pulse opacity-20" />
-        </button>
-      </div>
+        <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'flex-end' }}>
+          <span style={{ 
+            height: '1px', transition: 'all 0.5s', backgroundColor: isOpen ? '#D4AF37' : '#fff',
+            width: '20px', transform: isOpen ? 'rotate(45deg) translateY(5px)' : 'none' 
+          }} />
+          <span style={{ 
+            height: '1px', transition: 'all 0.5s', backgroundColor: isOpen ? '#D4AF37' : '#fff',
+            width: isOpen ? '20px' : '12px', transform: isOpen ? 'rotate(-45deg) translateY(-2px)' : 'none' 
+          }} />
+        </div>
+        <div className="orb-pulse-ring" />
+      </button>
     </div>
-  );
+  </div>
+);
 }

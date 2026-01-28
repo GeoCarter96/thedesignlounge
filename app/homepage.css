@@ -1,66 +1,231 @@
-*{ padding: 0; margin: 0; box-sizing: border-box; }
+/* --- CORE LAYOUT --- */
+.bg-black {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+}
 
+.h-screen { height: 100vh; }
+.w-full { width: 100%; }
+
+/* --- VIDEO BACKGROUND --- */
+.video-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* --- LOGO CONTAINER --- */
+.logo-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.logo-monolith {
+  position: relative;
+  width: 100%;
+  max-width: 896px;
+  aspect-ratio: 1/1;
+}
+@media (max-width: 767px) {
+  .logo-monolith {
+  position: relative;
+  width: 100%;
+  max-width: 400px;      /* Better sizing for mobile */
+  aspect-ratio: 1/1;      /* Square-ish for mobile portrait */
+}
+  .logo-img {
+    width: 10%;  /* Adjust this percentage to make it as small as you like */
+    height: 10%;
+    margin: auto; /* Keeps it centered within the absolute container */
+  }
+}
+
+
+@media (min-width: 768px) {
+  .logo-monolith { aspect-ratio: 21/9; }
+}
+
+.logo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 24px;
+  z-index: 10;
+  transition: transform 1s ease;
+}
+
+/* --- EDITORIAL TEXT --- */
+.editorial-section {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.editorial-text {
+  max-width: 768px;
+  font-size: clamp(1.25rem, 3vw, 1.875rem);
+  font-weight: 200;
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+}
+
+.italic { font-style: italic; font-weight: 400; }
+
+/* --- GOLD BULLION BUTTON --- */
+.gold-monolith-section {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  padding: 0 16px;
+}
+
+.gold-bullion-link {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 2px;
+  padding: 64px 40px;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  font-size: 12px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(180deg, #AF8A3F 0%, #D4AF37 30%, #F9E498 50%, #D4AF37 70%, #AF8A3F 100%);
+  box-shadow: 0 0 50px rgba(212, 175, 55, 0.3);
+}
+
+@media (min-width: 768px) {
+  .gold-bullion-link {
+    padding: 120px 200px;
+    font-size: 1.875rem;
+    letter-spacing: 1em;
+    box-shadow: 0 0 100px rgba(212, 175, 55, 0.4);
+  }
+}
+
+.gold-bullion-link:hover { transform: scale(1.05); }
+
+/* Bevels & Shimmer */
+.bullion-top {
+  position: absolute;
+  inset: 0;
+  border-top: 3px solid rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+.bullion-bottom {
+  position: absolute;
+  inset: 0;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .bullion-top { border-top-width: 8px; }
+  .bullion-bottom { border-bottom-width: 8px; }
+}
+
+.shimmer-ray {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.95), transparent);
+  transform: translateX(-100%);
+}
+
+.gold-bullion-link:hover .shimmer-ray {
+  animation: shine-glide 1.5s ease-in-out forwards;
+}
+
+@keyframes shine-glide { 100% { transform: translateX(100%); } }
+
+/* --- REVEAL ANIMATIONS --- */
+.reveal-on-scroll {
+  opacity: 0;
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.anim-slide-up { transform: translateY(40px); }
+.anim-scale-in-heavy { transform: scale(0.9); }
+.anim-fade-slow { transition-duration: 2s; }
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* --- FOOTER --- */
+footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 96px 32px 48px;
+}
+
+.footer-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+@media (min-width: 768px) {
+  .footer-grid { flex-direction: row; justify-content: space-between; }
+}
+
+.social-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.social-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #D4AF37;
+  transition: width 0.5s ease;
+}
+
+.social-link:hover::after { width: 100%; }
 body{
     font-family: var(--font-luxury), sans-serif;
     
-}
-/* Base Visibility */
-.reveal-on-scroll {
-  opacity: 0;
-  will-change: transform, opacity;
-}
-
-/* 1. Logo Scale (anim-scale-in) */
-.anim-scale-in {
-  transform: scale(0.95);
-  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-}
-
-/* 2. Text Slide Up (anim-slide-up) */
-.anim-slide-up {
-  transform: translateY(30px);
-  transition: opacity 1s ease-out 0.2s, transform 1s ease-out 0.2s;
-}
-
-/* 3. Monolith Heavy Scale (anim-scale-in-heavy) */
-.anim-scale-in-heavy {
-  transform: scale(0.9);
-  transition: opacity 1.5s ease-out;
-}
-
-/* 4. Slow Fade */
-.anim-fade-slow {
-  transition: opacity 2s ease-out 1s;
-}
-
-/* Active State Triggered by JS */
-.is-visible {
-  opacity: 1 !important;
-  transform: scale(1) translateY(0) !important;
-}
-
-@keyframes shimmer {
-  0% { 
-    transform: translateX(-100%); 
-  }
-  /* Ensure it hits the full 100% width of the button */
-  100% { 
-    transform: translateX(100%); 
-  }
-}
-
-.group-hover\:animate-shimmer {
-  /* Using a more standard 'ease-in-out' or a corrected bezier for a smooth exit */
-  animation: shimmer 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-
-
-
-@keyframes gold-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(212,175,55,0.2); }
-  50% { box-shadow: 0 0 60px rgba(212,175,55,0.5); }
-}
-.animate-gold-pulse {
-  animation: gold-pulse 5s infinite ease-in-out;
 }

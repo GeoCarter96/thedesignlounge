@@ -38,105 +38,97 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] selection:text-black pt-24 md:pt-40 px-6 md:px-12 pb-24">
+  <div className="contact-page">
+    
+    <section className="max-w-7xl">
+      <h1 className="reveal anim-slide-up hero-headline">
+       Need Something? <br />
+       <span className="text-gold">The Lounge Listens</span>
+      </h1>
+    </section>
+
+    <div className="max-w-7xl grid-container">
       
-      {/* 1. Hero Headline */}
-      <section className="max-w-7xl mx-auto pb-16 md:pb-24 border-b border-white/5">
-        <h1 className="reveal anim-slide-up font-serif italic text-5xl md:text-8xl lg:text-9xl font-extralight tracking-tighter leading-[1.1] opacity-0 translate-y-8">
-         Need Something? <br />
-         <span className="italic font-light text-[#D4AF37] tracking-normal">
-           The Lounge Listens
-         </span>
-        </h1>
-      </section>
-
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 py-16 md:py-32">
+      {/* Left: Form */}
+      <div className="reveal anim-fade-in form-column">
+        <p className="label-text" style={{ letterSpacing: '0.4em' }}>
+          Whether It's A Question, Or Feedback, The Lounge Is Always Open
+        </p>
         
-        {/* Left: Boutique Inquiry Form */}
-        <div className="reveal anim-fade-in flex flex-col gap-10 md:gap-16 opacity-0">
-          <p className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-white leading-loose">
-            Whether It's A Question, Or Feedback, The Lounge Is Always Open
-          </p>
+        <form className="form-column">
+          <div className="input-group">
+            <label className="label-text">Full Name</label>
+            <input 
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              type="text" 
+              placeholder="Your Name" 
+              className="custom-input" 
+            />
+          </div>
           
-          <form className="flex flex-col gap-8 md:gap-12">
-            <div className="group border-b border-white/10 focus-within:border-[#D4AF37] transition-colors duration-500 pb-4">
-              <label className="block text-[10px] uppercase tracking-[0.3em] text-white">Full Name</label>
-              <input 
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                type="text" 
-                placeholder="Your Name" 
-                className="w-full bg-transparent border-none focus:ring-0 text-lg md:text-xl font-extralight mt-2 p-0 placeholder:text-grey outline-none" 
-              />
-            </div>
-            
-            <div className="group border-b border-white/10 focus-within:border-[#D4AF37] transition-colors duration-500 pb-4">
-              <label className="block text-[10px] uppercase tracking-[0.3em] text-white">Electronic Mail</label>
-              <input 
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                type="email" 
-                placeholder="email@address.com" 
-                className="w-full bg-transparent border-none focus:ring-0 text-lg md:text-xl font-extralight mt-2 p-0 placeholder:text-grey outline-none" 
-              />
-            </div>
+          <div className="input-group">
+            <label className="label-text">Electronic Mail</label>
+            <input 
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              type="email" 
+              placeholder="email@address.com" 
+              className="custom-input" 
+            />
+          </div>
 
-            <div className="group border-b border-white/10 focus-within:border-[#D4AF37] transition-colors duration-500 pb-4">
-              <label className="block text-[10px] uppercase tracking-[0.3em] text-white">Your Vision</label>
-              <textarea 
-                name="vision"
-                value={formData.vision}
-                onChange={handleChange}
-                rows={2} 
-                placeholder="Tell us about your project" 
-                className="w-full bg-transparent border-none focus:ring-0 text-lg md:text-xl font-extralight mt-2 p-0 placeholder:text-grey resize-none outline-none" 
-              />
-            </div>
+          <div className="input-group">
+            <label className="label-text">Your Vision</label>
+            <textarea 
+              name="vision"
+              value={formData.vision}
+              onChange={handleChange}
+              rows={2} 
+              placeholder="Tell us about your project" 
+              className="custom-input" 
+              style={{ resize: 'none' }}
+            />
+          </div>
 
-            <button 
-              disabled={!isFormValid}
-              type="submit" 
-              className={`self-start mt-4 group relative overflow-hidden px-10 py-5 rounded-full border transition-all duration-500 text-[10px] font-bold uppercase tracking-[0.4em]
-                ${isFormValid 
-                  ? "border-[#D4AF37] text-white hover:text-black cursor-pointer" 
-                  : "border-white/5 text-white/80 cursor-not-allowed"
-                }`}
+          <button 
+            disabled={!isFormValid}
+            type="submit" 
+            className={`submit-btn ${isFormValid ? 'valid' : ''}`}
+          >
+            <span style={{ position: 'relative', zIndex: 10 }}>Send Invitation</span>
+            <div className="btn-fill" />
+          </button>
+        </form>
+      </div>
+
+      {/* Right: Studio Details */}
+      <div className="reveal anim-fade-in details-column" style={{ transitionDelay: '0.2s' }}>
+        <div>
+          <h3 className="label-text" style={{ marginBottom: '32px', color: '#666' }}>Social Atelier</h3>
+          {socials.map((social) => (
+            <a 
+              key={social.name} 
+              href={social.url} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-link"
             >
-              <span className="relative z-10">Send Invitation</span>
-              {isFormValid && (
-                <div className="absolute inset-0 z-0 bg-[#D4AF37] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
-              )}
-            </button>
-          </form>
+              {social.name}
+            </a>
+          ))}
         </div>
 
-        {/* Right: Studio Details */}
-        <div className="reveal anim-fade-in flex flex-col gap-12 md:gap-20 md:pl-12 opacity-0" style={{ transitionDelay: '0.2s' }}>
-          <div className="flex flex-col gap-8">
-            <h3 className="text-[10px] uppercase tracking-[0.5em] text-grey">Social Atelier</h3>
-            <div className="flex flex-col gap-4">
-              {socials.map((social) => (
-                <a 
-                  key={social.name} 
-                  href={social.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-xs md:text-sm uppercase tracking-[0.3em] hover:text-[#D4AF37] transition-colors w-fit"
-                >
-                  {social.name}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-8">
-            <h3 className="text-[10px] uppercase tracking-[0.5em] text-grey">Direct Contact</h3>
-            <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/80">concierge@yourstudio.com</p>
-          </div>
+        <div>
+          <h3 className="label-text" style={{ marginBottom: '32px', color: '#666' }}>Direct Contact</h3>
+          <p className="social-link" style={{ pointerEvents: 'none', opacity: 0.8 }}>
+            concierge@yourstudio.com
+          </p>
         </div>
       </div>
     </div>
-  );
+  </div>
+);
 }
