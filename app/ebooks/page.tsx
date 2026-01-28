@@ -15,7 +15,6 @@ const PUBLICATIONS = [
 
 export default function Ebooks() {
   useEffect(() => {
-    // Native Intersection Observer to trigger reveals
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -32,7 +31,7 @@ export default function Ebooks() {
     <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] selection:text-black pt-32">
       
       {/* 1. Header: Editorial Intro */}
-      <section className="px-10 max-w-7xl mx-auto pb-24 border-b border-white/5">
+      <section className="px-10 max-w-7xl mx-auto pb-24 border-b border-black">
         <p className="reveal anim-fade-in uppercase text-[10px] mb-6 tracking-[0.5em] opacity-0">
           The Digital Atelier // Library
         </p>
@@ -47,25 +46,36 @@ export default function Ebooks() {
           <div 
             key={book.id}
             style={{ transitionDelay: `${i * 0.2}s` }}
-            className="reveal anim-slide-up group cursor-pointer w-full max-w-lg opacity-0 translate-y-10"
+            className="reveal anim-slide-up group cursor-pointer w-full max-w-lg opacity-0 translate-y-10 relative"
           >
+            {/* LIGHT BEAM LOGIC: Positioned above the book container */}
+            <div className="hidden md:block absolute -top-48 left-0 w-full h-72 pointer-events-none z-0 overflow-hidden">
+              <img
+                src="/lightbeam.png"
+                alt=""
+                className="w-full h-full object-contain opacity-30 mix-blend-screen"
+              />
+            </div>
+
             {/* Luxury Book Display */}
-            <div className="relative  w-full bg-neutral-900 overflow-hidden rounded-sm shadow-2xl transition-transform duration-1000 group-hover:-translate-y-4">
+            <div className="relative z-10 w-full bg-neutral-900 overflow-hidden rounded-sm shadow-2xl transition-transform duration-1000 group-hover:-translate-y-4 mt-8">
               <img 
                 src={book.img} 
                 alt={book.title}
-                className=" inset-0 w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-1000"
+                className="w-full h-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-1000"
               />
               
-              <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-[#D4AF37] via-[#F9E498] to-[#AF8A3F] opacity-50" />
+              {/* Gold Spine Detail */}
+              <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-[#D4AF37] via-[#F9E498] to-[#AF8A3F] opacity-50 z-20" />
               
-              <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
+              {/* Shimmer Effect */}
+              <div className="absolute inset-0 z-30 pointer-events-none overflow-hidden">
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
               </div>
             </div>
 
-            {/* Book Metadata */}
-            <div className="mt-12 flex justify-between items-start">
+            {/* Book Metadata: Higher Z-Index to remain crisp over light */}
+            <div className="relative z-20 mt-12 flex justify-between items-start">
               <div className="max-w-[70%]">
                 <span className="text-[10px] text-[#D4AF37] tracking-[0.3em] uppercase">{book.id}</span>
                 <h3 className="text-2xl font-serif mt-2 italic group-hover:text-[#D4AF37] transition-colors">{book.title}</h3>
@@ -79,10 +89,12 @@ export default function Ebooks() {
 
       {/* 3. Global Shipping/Delivery Note */}
       <section className="py-40 text-center border-t border-white/5 reveal anim-fade-in opacity-0">
-        <p className="text-[10px] uppercase tracking-[0.5em] text-white/20">
+        <p className="text-[10px] uppercase tracking-[0.5em] text-white">
           Instant Digital Fulfillment // Secure Encryption
         </p>
       </section>
+      
     </div>
   );
 }
+

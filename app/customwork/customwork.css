@@ -25,13 +25,16 @@ body{
   transition-duration: 1.5s;
 }
 
-/* Signature Shimmer Effect */
 @keyframes shimmer {
-  100% { transform: translateX(100%); }
+  0% { transform: translateX(-150%); }
+  100% { transform: translateX(150%); }
 }
+
 .group-hover\:animate-shimmer {
-  animation: shimmer 4s ;
+  /* Using cubic-bezier for a "glide" feel rather than a robotic "slide" */
+  animation: shimmer 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
+
 
 /* Optimization for CTA Shimmer */
 .animate-gold-pulse {

@@ -1,0 +1,46 @@
+/* Breathing Pulse Animation */
+@keyframes luxury-pulse {
+  0% { transform: scale(1); opacity: 0.2; }
+  50% { transform: scale(1.1); opacity: 0.4; }
+  100% { transform: scale(1); opacity: 0.2; }
+}
+
+.animate-luxury-pulse {
+  animation: luxury-pulse 3s infinite ease-in-out;
+}
+
+/* Menu Reveal Animation */
+@keyframes menu-reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0px);
+  }
+}
+
+.anim-menu-reveal {
+  animation: menu-reveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Hint Reveal Animation */
+@keyframes hint-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(20px, -50%, 0);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, -50%, 0);
+    filter: blur(0px);
+  }
+}
+
+.anim-hint-reveal {
+  animation: hint-reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}

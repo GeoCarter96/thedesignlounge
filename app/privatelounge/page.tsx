@@ -43,13 +43,23 @@ export default function PrivateloungePage() {
             <div 
               key={item.id}
               style={{ transitionDelay: `${i * 0.2}s` }}
-              className="reveal anim-slide-up group flex flex-col opacity-0 translate-y-8"
+              className="reveal anim-slide-up group flex flex-col opacity-0 translate-y-8 relative"
             >
-              <div className="relative w-full max-w-lg bg-neutral-950 border border-white/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-1000 group-hover:border-[#D4AF37]/40">
+              {/* LIGHT BEAM LOGIC: Desktop only, layered behind text */}
+              <div className="hidden md:block absolute -top-40 left-0 w-full h-64 pointer-events-none z-0 overflow-hidden">
+                <img
+                  src="/lightbeam.png"
+                  alt=""
+                  className="w-full h-full object-contain opacity-30 mix-blend-screen"
+                />
+              </div>
+
+              {/* PRODUCT IMAGE CONTAINER */}
+              <div className="relative z-10 w-full max-w-lg bg-neutral-950 border border-white/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-1000 group-hover:border-[#D4AF37]/40 mt-8">
                 <img 
                   src={`/${item.id}.png`} 
                   alt={item.title}
-                  className=" inset-0 w-full h-full object-contain opacity-80 transition-all duration-1000 group-hover:opacity-100 group-hover:scale-105"
+                  className="w-full h-auto object-contain opacity-80 transition-all duration-1000 group-hover:opacity-100 group-hover:scale-105"
                   onError={(e) => {
                     const target = e.currentTarget;
                     target.src = target.src.endsWith('.png') ? target.src.replace('.png', '.PNG') : target.src.replace('.PNG', '.png');
@@ -60,7 +70,8 @@ export default function PrivateloungePage() {
                 </div>
               </div>
 
-              <div className="mt-10 flex flex-col items-start">
+              {/* TEXT CONTENT CONTAINER */}
+              <div className="relative z-20 mt-10 flex flex-col items-start">
                 <div className="flex justify-between w-full items-baseline">
                   <span className="text-[9px] text-[#D4AF37] tracking-[0.5em] uppercase font-medium">{item.category}</span>
                   <span className="text-sm font-extralight opacity-40">{item.price}</span>

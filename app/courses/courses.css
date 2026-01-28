@@ -10,7 +10,7 @@ body{
 
 /* Animations */
 .anim-fade-in.is-visible {
-  opacity: 1 !important;
+  opacity: 100 !important;
 }
 
 .is-visible p.tracking-\[0\.2em\] {

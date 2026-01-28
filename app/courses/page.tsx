@@ -28,38 +28,60 @@ export default function Courses() {
   return (
     <div className="min-h-screen bg-black text-white selection:bg-[#D4AF37] selection:text-black">
       
-      {/* 1. HERO: Cinematic Introduction */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24 md:py-32">
-        <div className="absolute inset-0 z-0 opacity-40">
-           <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-             <source src="/luxury-ink.mp4" type="video/mp4" />
-           </video>
-        </div>
-        
-        <div className="relative z-10 text-center px-6 flex flex-col items-center gap-8 md:gap-12 w-full max-w-7xl">
-          <div className="reveal anim-fade-in opacity-0">
-            <p className="uppercase text-[10px] mb-6 font-light tracking-[0.2em]">
-              A Masterclass by The Design Lounge
-            </p>
+     
+<section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-24 md:py-32">
+  <div className="absolute inset-0 z-0 opacity-40">
+     <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+       <source src="/luxury-ink.mp4" type="video/mp4" />
+     </video>
+  </div>
+  
+  {/* CONTAINER A: THE TEXT (Top Layer) */}
+  <div className="reveal anim-fade-in text-center mb-12 relative z-30 opacity-0">
+    <p className="uppercase text-[10px] mb-6 font-light tracking-[0.2em] text-white/60">
+      A Masterclass by The Design Lounge
+    </p>
 
-            <h1 className="reveal anim-slide-up font-serif text-5xl md:text-7xl lg:text-8xl font-extralight tracking-tighter italic leading-tight opacity-0 translate-y-5">
-              The Canva<span className="text-[#D4AF37] not-italic"> Crash Course</span>
-            </h1>
-          </div>
+    <h1 className="reveal anim-slide-up font-serif text-5xl md:text-7xl lg:text-8xl font-extralight tracking-tighter italic leading-tight opacity-0 translate-y-5">
+      The Canva<span className="text-[#D4AF37] not-italic"> Crash Course</span>
+    </h1>
+  </div>
 
-          <div className="reveal anim-scale-in relative w-full max-w-lg  overflow-hidden rounded-xl bg-white/5 border border-white/10 shadow-2xl group mx-auto opacity-0 scale-95 transition-all">
-            <img 
-              src="/course.PNG" 
-              alt="Course Preview"
-              className=" inset-0 w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 opacity-60 pointer-events-none" />
-          </div>
-        </div>
-      </section>
+  {/* CONTAINER B: THE LIGHT (Middle Layer) */}
+  {/* Lowered beam: originates below text and shines onto the image */}
+  <div className="hidden md:block relative w-full max-w-lg h-32 pointer-events-none z-10 overflow-visible">
+    <div className="absolute top-8 left-0 w-full h-72">
+      <img
+        src="/lightbeam.png"
+        alt=""
+        className="w-full h-full object-contain opacity-30 mix-blend-screen"
+      />
+    </div>
+  </div>
+
+  {/* CONTAINER C: THE IMAGE (Base Layer) */}
+  <div className="relative w-full max-w-lg">
+    <div className="reveal anim-scale-in relative z-20 w-full overflow-hidden rounded-xl bg-white/5 border border-white/10 shadow-2xl group opacity-0 scale-95 transition-all">
+      <img 
+        src="/course.PNG" 
+        alt="Course Preview"
+        className="w-full h-auto object-contain transition-transform duration-1000 group-hover:scale-105"
+      />
+      
+      {/* Signature Shimmer */}
+      <div className="absolute inset-0 z-30 pointer-events-none overflow-hidden">
+         <div 
+           className="absolute inset-0 w-full h-full -translate-x-full group-hover:animate-shimmer" 
+           style={{
+             background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.02) 40%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.02) 60%, transparent 100%)'
+           }}
+         />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 opacity-60 pointer-events-none" />
+    </div>
+  </div>
+</section>
+
 
       {/* 2. THE PHILOSOPHY */}
       <section className="py-32 md:py-48 px-10 max-w-5xl mx-auto text-center">

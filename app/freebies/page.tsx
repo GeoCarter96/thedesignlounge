@@ -37,52 +37,56 @@ export default function FreebiesPage() {
         </h1>
       </section>
 
-      {/* 2. THREE-COLUMN PRODUCT GRID */}
-      <section className="px-10 max-w-7xl mx-auto py-32">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-          {FREEBIES.map((item, i) => (
-            <div 
-              key={item.id}
-              style={{ transitionDelay: `${i * 0.2}s` }}
-              className="reveal anim-slide-up group flex flex-col opacity-0 translate-y-8"
-            >
-              <div className="relative  w-full bg-neutral-900 border border-white/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-1000 group-hover:border-[#D4AF37]/30">
-                <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-30 transition-opacity">
-                   <div className="w-12 h-12 border border-white/50 rounded-full animate-pulse flex items-center justify-center">
-                      <span className="text-[8px] uppercase tracking-widest">{item.id}</span>
-                   </div>
-                </div>
+    <section className="px-10 max-w-7xl mx-auto py-32">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+    {FREEBIES.map((item, i) => (
+     <div 
+  key={item.id}
+  style={{ transitionDelay: `${i * 0.2}s` }}
+  className="reveal anim-slide-up group flex flex-col opacity-0 translate-y-8 relative"
+>
+  {/* 1. LIGHT CONTAINER: Lowered Z-Index and adjusted opacity */}
+ {/* Hides on mobile (hidden), displays on tablet/desktop (md:block) */}
+<div className="hidden md:block absolute -top-40 left-0 w-full h-64 pointer-events-none z-0 overflow-hidden">
+  <img
+    src="/lightbeam.png"
+    alt=""
+    className="w-full h-full object-contain opacity-30 mix-blend-screen"
+  />
+</div>
 
-                <img 
-                  src={`/freebie${item.id}.jpg`} 
-                  alt={item.title}
-                  className=" inset-0 w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-all duration-1000"
-                />
+  
+  {/* 2. IMAGE CONTAINER: Stays relative to keep the layout order */}
+  <div className="relative z-10 w-full bg-neutral-900 border border-white/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-1000 group-hover:border-[#D4AF37]/30 mt-8">
+    <img 
+      src={`/freebie${item.id}.jpg`} 
+      alt={item.title}
+      className="w-full h-auto object-contain opacity-70 group-hover:opacity-100 transition-all duration-1000"
+    />
+  </div>
 
-                <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-                   <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
-                </div>
-              </div>
+  {/* 3. TEXT CONTAINER: Explicitly raised Z-Index to prevent interference */}
+  <div className="relative z-20 mt-8 flex flex-col items-start bg-black/50 backdrop-blur-sm md:bg-transparent">
+    <span className="text-[10px] text-[#D4AF37] tracking-[0.4em] uppercase">{item.desc}</span>
+    <h3 className="text-xl font-serif mt-2 italic group-hover:text-white transition-colors">
+      {item.title}
+    </h3>
+    
+    <Link 
+      href={item.link}
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="mt-6 text-[10px] uppercase tracking-[0.4em] text-white/40 border-b border-white/10 pb-1 hover:text-white hover:border-white transition-all"
+    >
+      Download Gift —
+    </Link>
+  </div>
+</div>
 
-              <div className="mt-8 flex flex-col items-start">
-                <span className="text-[10px] text-[#D4AF37] tracking-[0.4em] uppercase">{item.desc}</span>
-                <h3 className="text-xl font-serif mt-2 italic group-hover:text-white transition-colors">
-                  {item.title}
-                </h3>
-                
-                <Link 
-                  href={item.link}
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="mt-6 text-[10px] uppercase tracking-[0.4em] text-white/40 border-b border-white/10 pb-1 hover:text-white hover:border-white transition-all"
-                >
-                  Download Gift —
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+    ))}
+  </div>
+</section>
+
 
       {/* 3. FOOTER NOTE */}
       <section className="mt-20 text-center opacity-20 reveal anim-fade-in">

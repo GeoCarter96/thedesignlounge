@@ -39,10 +39,16 @@ body{
   transform: scale(1) translateY(0) !important;
 }
 
-/* Existing Custom Animations */
 @keyframes shimmer {
-  100% { transform:  translateX(100%); }
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
+
+.group-hover\:animate-shimmer {
+  /* 4 seconds for a slow glide, using a soft s-curve (easeInOutSine) */
+  animation: shimmer 6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+    
 
 
 
