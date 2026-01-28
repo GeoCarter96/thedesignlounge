@@ -22,7 +22,7 @@ export default function PlannerProductPage() {
  return (
   <div className="planner-page">
     
-    {/* 1. HERO SECTION */}
+
     <section className="hero-section">
       
       <div className="reveal anim-slide-up hero-text-layer">
@@ -46,7 +46,7 @@ export default function PlannerProductPage() {
       </div>
     </section>
 
-    {/* 2. PRODUCT DETAILS */}
+   
     <section className="details-grid max-w-5xl">
       <div className="reveal anim-slide-up" style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
         <h2 className="details-label">The Philosophy</h2>
@@ -67,7 +67,6 @@ export default function PlannerProductPage() {
       </div>
     </section>
 
-    {/* 3. QUOTE VIGNETTE */}
     <section className="quote-section">
        <p className="reveal anim-fade-in quote-text">
         "Organize the chaos, curate the legacy."

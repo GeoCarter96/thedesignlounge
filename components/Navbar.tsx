@@ -13,12 +13,12 @@ export default function Navbar() {
   return (
     <nav className="anim-nav-entrance">
       <div className="nav-container">
-        {/* LOGO */}
+       
         <div className="nav-logo">
           The Design Lounge
         </div>
 
-        {/* NAVIGATION LINKS */}
+        
         <div className="nav-links-wrapper">
           {navLinks.map((link) => (
             <Link
@@ -31,7 +31,6 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA BUTTON */}
         <Link href="/contact" style={{ textDecoration: 'none' }}>
           <button className="nav-btn">
             Visit Concierge's Desk

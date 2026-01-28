@@ -10,7 +10,7 @@ export default function Contact() {
   });
 
   useEffect(() => {
-    // Native Intersection Observer to trigger CSS reveals
+    
     const observerOptions = { threshold: 0.1 };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -48,8 +48,7 @@ export default function Contact() {
     </section>
 
     <div className="max-w-7xl grid-container">
-      
-      {/* Left: Form */}
+     
       <div className="reveal anim-fade-in form-column">
         <p className="label-text" style={{ letterSpacing: '0.4em' }}>
           Whether It's A Question, Or Feedback, The Lounge Is Always Open
@@ -104,7 +103,7 @@ export default function Contact() {
         </form>
       </div>
 
-      {/* Right: Studio Details */}
+     
       <div className="reveal anim-fade-in details-column" style={{ transitionDelay: '0.2s' }}>
         <div>
           <h3 className="label-text" style={{ marginBottom: '32px', color: '#666' }}>Social Atelier</h3>

@@ -41,14 +41,14 @@ export default function HomePage() {
 
       <div className="content-wrapper">
         
-        {/* LOGO SECTION */}
+       
         <div className="logo-container">
           <div className="logo-monolith">
             <img src="/logo3.png" alt="Logo" className="logo-img" />
           </div>
         </div>
 
-        {/* EDITORIAL SECTION */}
+       
         <div className="editorial-section">
           <p className="reveal-on-scroll anim-slide-up editorial-text">
             Welcome To <span className="italic">The Design Lounge</span> – Where Luxury Meets Creativity. 
@@ -57,7 +57,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* BULLION SECTION */}
+       
         <div className="gold-monolith-section">
           <div className="reveal-on-scroll anim-scale-in-heavy" style={{ width: '100%', textAlign: 'center' }}>
             <Link href="/matchmake" className="gold-bullion-link">

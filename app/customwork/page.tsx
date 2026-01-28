@@ -5,7 +5,7 @@ import './customwork.css';
 
 export default function CustomWork() {
   useEffect(() => {
-    // Native Intersection Observer for performance
+   
     const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
 
     const observer = new IntersectionObserver((entries) => {
@@ -16,7 +16,7 @@ export default function CustomWork() {
       });
     }, observerOptions);
 
-    // Track all elements with the 'reveal' class
+   
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     
     return () => observer.disconnect();
@@ -25,7 +25,7 @@ export default function CustomWork() {
   return (
   <div className="custom-work-page">
     
-    {/* 1. EDITORIAL HEADER */}
+  
     <section className="max-w-5xl header-section">
       <p className="reveal anim-fade-in editorial-tag">
         Private Commissions // Bespoke Design
@@ -35,7 +35,7 @@ export default function CustomWork() {
       </h1>
     </section>
 
-    {/* 2. THE PROCESS NARRATIVE */}
+    
     <section className="max-w-4xl narrative-section">
       <div className="reveal anim-slide-up" style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
         <h2 className="narrative-title">The Dialogue</h2>
@@ -61,7 +61,7 @@ export default function CustomWork() {
       </div>
     </section>
 
-    {/* 3. THE GOLD BULLION CTA */}
+   
     <section className="cta-section">
       <div className="reveal anim-scale-in" style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
         <Link href="/contact" className="gold-bullion">

@@ -11,7 +11,7 @@ const FREEBIES = [
 
 export default function FreebiesPage() {
   useEffect(() => {
-    // Native Intersection Observer to trigger reveals
+    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -43,12 +43,12 @@ export default function FreebiesPage() {
           style={{ transitionDelay: `${i * 0.2}s` }}
           className="reveal anim-slide-up freebie-card group"
         >
-          {/* Light Beam Background */}
+        
           <div className="light-beam-bg">
             <img src="/lightbeam.png" alt="" />
           </div>
           
-          {/* Image Display */}
+          
           <div className="freebie-image-wrapper">
             <img src={`/freebie${item.id}.jpg`} alt={item.title} className="freebie-img" />
             <div className="shimmer-overlay">
@@ -56,7 +56,6 @@ export default function FreebiesPage() {
             </div>
           </div>
 
-          {/* Text Content */}
           <div className="freebie-content">
             <span className="freebie-desc">{item.desc}</span>
             <h3 className="freebie-title">{item.title}</h3>

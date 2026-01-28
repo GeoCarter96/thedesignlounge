@@ -26,7 +26,7 @@ export default function PrivateloungePage() {
   return (
   <div className="lounge-page">
     
-    {/* 1. EDITORIAL HEADER */}
+    
     <section className="header-section max-w-7xl">
       <p className="reveal anim-fade-in editorial-tag">
         Curated Excellence // Volume I
@@ -36,7 +36,7 @@ export default function PrivateloungePage() {
       </h1>
     </section>
 
-    {/* 2. THE TRIPTYCH GRID */}
+    
     <section className="grid-container max-w-7xl">
       <div className="grid-layout">
         {COLLECTION.map((item, i) => (
@@ -45,12 +45,12 @@ export default function PrivateloungePage() {
             style={{ transitionDelay: `${i * 0.2}s` }}
             className="reveal anim-slide-up collection-item group"
           >
-            {/* Desktop Light Beam Background */}
+            
             <div className="light-beam-bg">
               <img src="/lightbeam.png" alt="" />
             </div>
 
-            {/* Product Image Container */}
+         
             <div className="image-wrapper">
               <img 
                 src={`/${item.id}.png`} 
@@ -66,7 +66,6 @@ export default function PrivateloungePage() {
               </div>
             </div>
 
-            {/* Text Content Container */}
             <div className="content-wrapper">
               <div className="meta-row">
                 <span className="category-tag">{item.category}</span>
@@ -89,7 +88,7 @@ export default function PrivateloungePage() {
       </div>
     </section>
 
-    {/* 3. VIGNETTE CLOSURE */}
+  
     <section className="closure-section">
        <p className="reveal anim-fade-in closure-text">
           Exclusivity is a Dialogue

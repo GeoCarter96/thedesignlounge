@@ -15,7 +15,7 @@ const luxurySerif = Bodoni_Moda({
 
 const cleanSans = Montserrat({
   subsets: ['latin'],
-  weight: ['300'], // Light weight is more "premium"
+  weight: ['300'], 
   variable: '--font-sans',
 });
  

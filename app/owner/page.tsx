@@ -8,19 +8,19 @@ export default function Owner() {
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        // Only add the class, don't remove it, to prevent layout shifts
+      
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
         }
       });
     }, observerOptions);
 
-    // Capture the current elements in a variable to use in cleanup
+    
     const elements = document.querySelectorAll(".reveal");
     elements.forEach((el) => observer.observe(el));
 
     return () => {
-      // Safely disconnect
+     
       observer.disconnect();
     };
   }, []);
@@ -29,7 +29,7 @@ export default function Owner() {
  return (
   <div className="owner-page">
     
-    {/* 1. HERO SECTION */}
+
     <section className="max-w-7xl grid-container" style={{ padding: '0 40px' }}>
       <div className="col-span-7">
         <p className="reveal anim-fade-in label-tag">
@@ -47,7 +47,7 @@ export default function Owner() {
       </div>
     </section>
 
-    {/* 2. THE PORTRAIT */}
+   
     <section className="max-w-7xl" style={{ padding: '128px 40px' }}>
       <div className="grid-container" style={{ alignItems: 'center' }}>
         <div className="reveal anim-scale-in col-span-5 portrait-container">
@@ -64,7 +64,7 @@ export default function Owner() {
           </div>
         </div>
 
-        {/* 3. THE NARRATIVE */}
+       
         <div className="col-span-7 pl-20-md" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div className="reveal anim-slide-right" style={{ maxWidth: '36rem' }}>
             <h2 className="label-tag text-gold" style={{ marginBottom: '48px', letterSpacing: '0.5em' }}>The Philosophy</h2>
@@ -90,7 +90,7 @@ export default function Owner() {
       </div>
     </section>
 
-    {/* 4. CLOSING */}
+  
     <section className="closing-section">
       <p className="reveal anim-fade-in font-serif italic hero-title" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)' }}>
         Curated with <span className="text-gold">Intent.</span>

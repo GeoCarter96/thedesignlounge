@@ -57,11 +57,11 @@
  position: relative;
   width: 100%;
   max-width: 512px;
-  height: 128px;
+  height: 150px;
   pointer-events: none;
   z-index: 0;
-  overflow: visible;
-  opacity: 1;
+  
+    
 }
 
 
@@ -76,13 +76,8 @@
   width: 100%;
   height: 288px;
   object-fit: contain;
-   
   mix-blend-mode: screen; /* Better for "sharp intense" beams */
-
-  opacity: 100%;
-
-
-  
+opacity: 100%;
 }
 
 /* CONTAINER C: IMAGE (Base Layer) */

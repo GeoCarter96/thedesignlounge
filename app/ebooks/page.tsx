@@ -46,12 +46,10 @@ export default function Ebooks() {
           style={{ transitionDelay: `${i * 0.2}s` }}
           className="reveal anim-slide-up book-card"
         >
-          {/* Background Light Beam */}
           <div className="bg-light-beam">
             <img src="/lightbeam.png" alt="" />
           </div>
 
-          {/* Luxury Book Display */}
           <div className="book-wrapper">
             <img src={book.img} alt={book.title} className="book-img" />
             <div className="book-spine" />
@@ -60,7 +58,7 @@ export default function Ebooks() {
             </div>
           </div>
 
-          {/* Metadata */}
+        
           <div className="book-meta">
             <div style={{ maxWidth: '70%' }}>
               <span className="book-id">{book.id}</span>

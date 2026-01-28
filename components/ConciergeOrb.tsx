@@ -10,7 +10,7 @@ export default function ConciergeOrb() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
 
-  // Drag Logic
+
   const handlePointerDown = (e: React.PointerEvent) => {
     setIsDragging(true);
     (e.target as HTMLElement).setPointerCapture(e.pointerId);
@@ -50,7 +50,7 @@ export default function ConciergeOrb() {
         transition: isDragging ? "none" : "transform 0.6s cubic-bezier(0.2, 0, 0.2, 1)",
       }}
     >
-      {/* Navigation Menu */}
+    
       {isOpen && (
         <div className="orb-nav-menu">
           <p className="orb-menu-title">The Lounge Menu</p>
@@ -67,7 +67,6 @@ export default function ConciergeOrb() {
         </div>
       )}
 
-      {/* Whisper Hint */}
       {showHint && !isOpen && (
         <div className="orb-whisper-hint">
           <div className="orb-hint-box">
@@ -76,7 +75,7 @@ export default function ConciergeOrb() {
         </div>
       )}
 
-      {/* Trigger Button */}
+     
       <button
         onClick={() => {
           if (isDragging) return;

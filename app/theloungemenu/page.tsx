@@ -39,7 +39,7 @@ export default function LuxuryExperience() {
         key={section.id} 
         className="reveal-section"
       >
-        {/* Section Heading */}
+       
         <div className="text-center mb-20">
           <p className="reveal-sub">
             Volume 0{i + 1} // {section.sub}
@@ -49,7 +49,7 @@ export default function LuxuryExperience() {
           </h2>
         </div>
 
-        {/* PRODUCT MONOLITH */}
+      
         <div className="reveal-monolith">
           <img 
             src={section.img} 

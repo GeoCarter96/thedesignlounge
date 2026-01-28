@@ -34,7 +34,7 @@ export default function Testimonials() {
   return (
   <div className="testimonials-page">
     
-    {/* 1. Header Section */}
+ 
     <section className="header-section">
       <h1 className="reveal-element anim-slide-up hero-title">
         Voices of <br />
@@ -42,14 +42,14 @@ export default function Testimonials() {
       </h1>
     </section>
 
-    {/* 2. Testimonial List */}
+   
     <section className="max-w-7xl" style={{ padding: '0 40px' }}>
       {TESTIMONIALS.map((t, i) => (
         <div 
           key={i}
           className="reveal-element anim-fade-up testimonial-item"
         >
-          {/* Massive Gold Quote Mark */}
+         
           <div className="quote-mark">
             “
           </div>
@@ -69,7 +69,6 @@ export default function Testimonials() {
       ))}
     </section>
 
-    {/* 3. Luxury Call to Action */}
     <section className="cta-section">
       <div className="reveal-element anim-fade-in">
         <p className="cta-label">Your Seat is Waiting</p>

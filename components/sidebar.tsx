@@ -16,7 +16,7 @@ export default function Sidebar() {
 
   return (
   <div>
-  {/* 1. TRIGGER: Only shows when sidebar is CLOSED */}
+ 
   {!isOpen && (
     <button 
       onClick={() => setIsOpen(true)}
@@ -30,10 +30,9 @@ export default function Sidebar() {
 
   <AnimatePresence mode="wait">
     {isOpen && (
-      /* This container matches the .sidebar-container-fixed in your CSS */
+    
       <div key="sidebar-fixed-wrapper" className="sidebar-container-fixed">
-        
-        {/* 2. BACKDROP: The dark overlay */}
+      
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -42,7 +41,7 @@ export default function Sidebar() {
           className="sidebar-backdrop"
         />
 
-        {/* 3. SIDEBAR PANEL: The actual menu */}
+      
         <motion.div 
           initial={{ x: "100%" }}
           animate={{ x: 0 }}
@@ -50,10 +49,10 @@ export default function Sidebar() {
           transition={{ type: "spring", damping: 30, stiffness: 300 }}
           className="sidebar-panel"
         >
-          {/* CLOSE BUTTON */}
+        
           <button 
             onClick={(e) => {
-              e.stopPropagation(); // Prevents click from hitting the backdrop
+              e.stopPropagation(); 
               setIsOpen(false);
             }}
             className="sidebar-close-btn"
@@ -62,7 +61,7 @@ export default function Sidebar() {
             X
           </button>
 
-          {/* SCROLLABLE NAV */}
+       
           <div className="scroll-container custom-scrollbar">
             <nav className="sidebar-nav">
               {menuItems.map((item, i) => (
