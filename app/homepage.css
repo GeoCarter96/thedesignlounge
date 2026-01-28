@@ -74,7 +74,7 @@
   transition: transform 1s ease;
 }
 
-/* --- EDITORIAL TEXT --- */
+
 .editorial-section {
   display: flex;
   height: 100vh;
@@ -97,7 +97,7 @@
 
 .italic { font-style: italic; font-weight: 400; }
 
-/* --- GOLD BULLION BUTTON --- */
+
 .gold-monolith-section {
   display: flex;
   height: 100vh;
@@ -137,7 +137,7 @@
 
 .gold-bullion-link:hover { transform: scale(1.05); }
 
-/* Bevels & Shimmer */
+
 .bullion-top {
   position: absolute;
   inset: 0;
@@ -171,7 +171,7 @@
 
 @keyframes shine-glide { 100% { transform: translateX(100%); } }
 
-/* --- REVEAL ANIMATIONS --- */
+
 .reveal-on-scroll {
   opacity: 0;
   transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -186,7 +186,7 @@
   transform: translateY(0) scale(1);
 }
 
-/* --- FOOTER --- */
+
 footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 96px 32px 48px;
@@ -228,4 +228,29 @@ footer {
 body{
     font-family: var(--font-luxury), sans-serif;
     
+}
+.editorial-section, .gold-monolith-section {
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.2); 
+}
+.video-background-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }

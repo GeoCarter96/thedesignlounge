@@ -14,7 +14,7 @@ export default function HomePage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Native Intersection Observer to trigger CSS animations
+    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -23,7 +23,7 @@ export default function HomePage() {
         entry.target.classList.remove('is-visible');
       }
       });
-    }, { threshold: 0.1, rootMargin: "-50px" });
+    }, { threshold: 0.1, rootMargin: "-100px" });
 
     document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
     
@@ -31,24 +31,23 @@ export default function HomePage() {
   }, []);
 
   return (
-  <div className="bg-black">
-    <div className="relative w-full bg-black" style={{ minHeight: '100vh' }}>
-      <video 
-        autoPlay loop muted playsInline preload="auto" 
-        poster="/placeholder.png" 
-        className="video-background"
-      >
-        <source src="/video.mp4" type="video/mp4" />
-      </video>
+ <div className="bg-black">
+  {/* Wrap the top section in the container with the mask */}
+  <div className="video-background-container">
+    <video 
+      autoPlay loop muted playsInline preload="auto" 
+      poster="/placeholder.png" 
+      className="video-background"
+    >
+      <source src="/video.mp4" type="video/mp4" />
+    </video>
 
-      <div className="content-wrapper">
-        
-       
-        <div className="logo-container">
-          <div className="logo-monolith">
-            <img src="/logo3.png" alt="Logo" className="logo-img" />
-          </div>
+    <div className="content-wrapper">
+      <div className="logo-container">
+        <div className="logo-monolith">
+          <img src="/logo3.png" alt="Logo" className="logo-img" />
         </div>
+      </div>
 
        
         <div className="editorial-section">
