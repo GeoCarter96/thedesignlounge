@@ -231,8 +231,8 @@ body{
 }
 .editorial-section, .gold-monolith-section {
 
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(0px);
   background: rgba(0, 0, 0, 0.2); 
 }
 .video-background-container {

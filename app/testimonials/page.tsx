@@ -51,7 +51,7 @@ export default function Testimonials() {
         >
          
           <div className="quote-mark">
-            “
+            ★★★★★
           </div>
           
           <div className="testimonial-content">

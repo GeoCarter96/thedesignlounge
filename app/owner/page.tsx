@@ -63,20 +63,23 @@ export default function Owner() {
           <div className="shimmer-overlay">
              <div className="shimmer-beam" />
           </div>
-          <div style={{ position: 'absolute', bottom: '40px', left: '40px', opacity: 0.2 }}>
-             <p className="label-tag" style={{ margin: 0, letterSpacing: '0.6em', fontSize: '9px' }}>The Curator</p>
-          </div>
+         
         </div>
 
        
         <div className="col-span-7 pl-20-md" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div className="reveal anim-slide-right" style={{ maxWidth: '36rem' }}>
-            <h2 className="label-tag text-gold" style={{ marginBottom: '48px', letterSpacing: '0.5em' }}>The Philosophy</h2>
+            <h2 className="label-tag text-gold" style={{ marginBottom: '48px', letterSpacing: '0.5em' }}>The Curator</h2>
             <p className="philosophy-text">
-              &quot;Design is not a service; it is a <span className="italic">dialogue</span> between history and the future.&quot;
+              Mary McDougald is the founder and CEO of The Design Lounge — a creative space where luxury, intention, and bold self-expression meet.
             </p>
             <p className="narrative-body">
-              With a decade of immersion in high-fidelity digital architecture, I founded The Design Lounge to serve those who reject the noise of the masses. We don&apos;t just build brands; we curate legacies that resonate with precision, elegance, and intentional restraint. 
+              With a background in leadership, training, and design, Mary is passionate about creating spaces that help people show up fully — in their work, their creativity, and their vision. Her approach blends structure with softness, strategy with soul, and presence over performance.
+
+The Design Lounge was created for those who don’t want to blend in, rush the process, or dilute their voice. It’s for brands that want to make statements thoughtfully, confidently, and with intention — without sacrificing ease or authenticity.
+
+
+At the head of the Lounge, Mary leads with clarity, creativity, and a deep belief that how you show up matters just as much as what you create.
             </p>
             
             <div style={{ marginTop: '64px', display: 'flex', gap: '48px' }}>
