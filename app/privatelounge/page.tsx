@@ -50,7 +50,7 @@ export default function PrivateloungePage() {
                 <img
                   src="/lightbeam.png"
                   alt=""
-                  className="w-full h-full object-contain opacity-30 mix-blend-screen"
+                  className="w-full h-full opacity-200 object-contain opacity-30 mix-blend-screen"
                 />
               </div>
 

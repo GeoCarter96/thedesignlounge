@@ -51,18 +51,21 @@ export default function FreebiesPage() {
   <img
     src="/lightbeam.png"
     alt=""
-    className="w-full h-full object-contain opacity-30 mix-blend-screen"
+    className="w-full h-full opacity-200 object-contain opacity-30 mix-blend-screen"
   />
 </div>
 
   
   {/* 2. IMAGE CONTAINER: Stays relative to keep the layout order */}
-  <div className="relative z-10 w-full bg-neutral-900 border border-white/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-1000 group-hover:border-[#D4AF37]/30 mt-8">
+  <div className="relative z-10 w-full bg-neutral-900 border border-white/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-1000 group-hover:border-[#D4AF37]/30 mt-8 ">
     <img 
       src={`/freebie${item.id}.jpg`} 
       alt={item.title}
-      className="w-full h-auto object-contain opacity-70 group-hover:opacity-100 transition-all duration-1000"
+      className="w-full h-auto object-contain opacity-70 group-hover:opacity-100 transition-all duration-1000 "
     />
+      <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
+                   <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
+                </div>
   </div>
 
   {/* 3. TEXT CONTAINER: Explicitly raised Z-Index to prevent interference */}
