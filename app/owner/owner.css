@@ -52,8 +52,8 @@
 
 .portrait-container {
   position: relative;
-  background-color: #171717; 
-  border: 1px solid rgba(255, 255, 255, 0.05);
+ 
+ 
   border-radius: 2px;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -90,8 +90,8 @@
   transform: translateX(-100%);
 }
 
-.portrait-container:hover .shimmer-beam {
-  animation: shimmer-glide 1.5s ease-in-out forwards;
+.portrait-container .shimmer-beam {
+  animation: shimmer-glide 4s ease-in-out infinite;
 }
 
 @keyframes shimmer-glide {
@@ -136,4 +136,44 @@
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   margin: 0 40px;
+}
+
+
+
+
+
+.portrait-container {
+    position: relative; 
+   overflow: visible !important;
+}
+
+
+.light-layer {
+    display: none; /* Hidden on mobile */
+    pointer-events: none; 
+    z-index: 10; /* Sits behind the main image, but maybe we want it in front? */
+}
+
+/* This places the actual light image precisely above the portrait */
+.light-layer img {
+    position: absolute;
+    width: 100%;
+    max-width: 500px; /* Match the max width of the portrait container if needed */
+    height: auto;
+    
+    /* Center it horizontally */
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px); /* Adjust Y to move it up */
+
+    /* The intensity settings we discussed earlier */
+    mix-blend-mode: screen; 
+    opacity: 1;
+   
+}
+
+
+@media (min-width: 768px) {
+  .light-layer { 
+    display: block; 
+  }
 }

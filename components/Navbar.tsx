@@ -3,11 +3,11 @@ import './navbar.css';
 
 export default function Navbar() {
   const navLinks = [
-    { name: "The Lobby", href: "/" },
-    { name: "The Lounge Menu", href: "/theloungemenu" },
-    { name: "The Guest Book", href: "/testimonials" },
-    { name: "From The Founder", href: "/owner" },
-    { name: "The Custom Suite", href: "/customwork" },
+    { name: "THE LOBBY", href: "/" },
+    { name: "THE LOUNGE MENU", href: "/theloungemenu" },
+    { name: "THE GUEST BOOK", href: "/testimonials" },
+    { name: "FROM THE FOUNDER", href: "/owner" },
+    { name: "THE CUSTOM SUITE", href: "/customwork" },
   ];
 
   return (
@@ -33,7 +33,7 @@ export default function Navbar() {
 
         <Link href="/contact" style={{ textDecoration: 'none' }}>
           <button className="nav-btn">
-            Visit Concierge&apos;s Desk
+            VISIT CONCIERGE&apos;S DESK
           </button>
         </Link>
       </div>

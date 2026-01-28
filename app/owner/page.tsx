@@ -50,7 +50,11 @@ export default function Owner() {
    
     <section className="max-w-7xl" style={{ padding: '128px 40px' }}>
       <div className="grid-container" style={{ alignItems: 'center' }}>
+       
         <div className="reveal anim-scale-in col-span-5 portrait-container">
+             <div className="light-layer">
+ <img src="/lightbeam.png" alt="Light source" />
+        </div>
           <img 
             src="/owner.PNG" 
             alt="The Curator"
