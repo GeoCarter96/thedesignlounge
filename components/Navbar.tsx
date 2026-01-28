@@ -5,9 +5,9 @@ export default function Navbar() {
   const navLinks = [
     { name: "The Lobby", href: "/" },
     { name: "The Lounge Menu", href: "/theloungemenu" },
-    { name: "Testimonials", href: "/testimonials" },
-    { name: "About The Owner", href: "/owner" },
-    { name: "Custom Work", href: "/customwork" },
+    { name: "The Guest Book", href: "/testimonials" },
+    { name: "From The Founder", href: "/owner" },
+    { name: "The Custom Suite", href: "/customwork" },
   ];
 
   return (

@@ -6,7 +6,7 @@ import './matchmake.css';
 const QUESTIONS = [
   {
     id: 1,
-    text: "Lounge Matchmaker",
+    text: "LOUNGE MATCHMAKER",
     options: [
       { text: "Live In Luxury", points: { luxury: 1 } },
       { text: "Plan Ahead", points: { goalsetter: 1 } },

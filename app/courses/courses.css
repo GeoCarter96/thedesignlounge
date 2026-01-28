@@ -59,6 +59,12 @@
   height: 128px;
   pointer-events: none;
   z-index: 10;
+  display: none;
+}
+@media (min-width: 768px) {
+  .light-layer {
+    display: block; 
+  }
 }
 
 .light-layer img {

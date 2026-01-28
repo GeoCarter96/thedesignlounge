@@ -33,16 +33,16 @@ export default function Owner() {
     <section className="max-w-7xl grid-container" style={{ padding: '0 40px' }}>
       <div className="col-span-7">
         <p className="reveal anim-fade-in label-tag">
-          The Architect // Founder
+          The  Founder
         </p>
         <h1 className="reveal anim-slide-up font-serif hero-title">
-          Defining <br />
-          <span className="italic text-gold">The Aesthetic</span>
+          Meet The Woman Behind <br />
+          <span className="italic text-gold">The Lounge</span>
         </h1>
       </div>
       <div className="col-span-5 text-right-md">
         <p className="reveal anim-fade-in label-tag italic" style={{ transitionDelay: '0.4s', fontSize: '12px' }}>
-          Est. 2026 // Indiana Studio
+          Est. 2024
         </p>
       </div>
     </section>
@@ -52,7 +52,7 @@ export default function Owner() {
       <div className="grid-container" style={{ alignItems: 'center' }}>
         <div className="reveal anim-scale-in col-span-5 portrait-container">
           <img 
-            src="/owner-portrait.jpg" 
+            src="/owner.PNG" 
             alt="The Curator"
             className="portrait-img"
           />
@@ -82,7 +82,7 @@ export default function Owner() {
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <span className="label-tag" style={{ opacity: 0.3, margin: 0 }}>Experience</span>
-                <span style={{ fontSize: '12px', letterSpacing: '0.1em' }}>10+ Years</span>
+                <span style={{ fontSize: '12px', letterSpacing: '0.1em' }}>4+ Years</span>
               </div>
             </div>
           </div>
@@ -91,11 +91,7 @@ export default function Owner() {
     </section>
 
   
-    <section className="closing-section">
-      <p className="reveal anim-fade-in font-serif italic hero-title" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)' }}>
-        Curated with <span className="text-gold">Intent.</span>
-      </p>
-    </section>
+   
   </div>
 );
 }

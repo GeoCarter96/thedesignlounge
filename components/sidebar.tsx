@@ -9,9 +9,9 @@ export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    'The Lobby', 'Freebies', 'Testimonials', 'Courses', 'Ebooks', 
+    'The Lobby', 'Freebies', 'Courses', 'Ebooks', 
     'Flyers', 'Planners', 'PrivateLounge', 'LoungeMenu', 
-    'Owner', 'CustomWork', 'Contact'
+    'Founder', 'CustomSuite', 'GuestBook', 'Contact'
   ];
 
   return (
@@ -73,7 +73,7 @@ export default function Sidebar() {
                 >
                   <Link 
                     href={item === 'The Lobby' ? '/' : item === 'LoungeMenu' 
-                      ? '/theloungemenu' : `/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                      ? '/theloungemenu' : item === 'Founder' ? '/owner' : item === 'GuestBook' ? '/testimonials' : item === 'CustomSuite' ? '/customwork' : `/${item.toLowerCase().replace(/\s+/g, '-')}`}
                     className="sidebar-link group"
                     onClick={() => setIsOpen(false)}
                   >
