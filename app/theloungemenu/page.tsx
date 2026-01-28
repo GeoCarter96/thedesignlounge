@@ -48,7 +48,7 @@ export default function LuxuryExperience() {
             </h2>
           </div>
 
-          <div className="reveal-monolith">
+          <div  className="reveal-monolith">
       
             <img 
               src={section.img} 

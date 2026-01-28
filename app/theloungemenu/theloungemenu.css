@@ -24,6 +24,7 @@
   overflow: hidden;
 }
 
+
 .text-center { text-align: center; }
 .mb-20 { margin-bottom: 80px; }
 
@@ -79,6 +80,7 @@
 }
 
 
+
 .reveal-monolith img {
   opacity: 1;
  
@@ -92,7 +94,6 @@
   
 }
 
-/* --- EXPLORE LINK --- */
 .reveal-link {
   margin-top: 64px;
   font-size: 10px;
@@ -111,7 +112,6 @@
   border-color: #D4AF37;
 }
 
-/* --- ANIMATION TRIGGER (IS-VISIBLE) --- */
 .reveal-section.is-visible .reveal-sub,
 .reveal-section.is-visible .reveal-title,
 .reveal-section.is-visible .reveal-monolith,

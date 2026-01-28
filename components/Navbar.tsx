@@ -8,6 +8,7 @@ export default function Navbar() {
     { name: "THE GUEST BOOK", href: "/testimonials" },
     { name: "FROM THE FOUNDER", href: "/owner" },
     { name: "THE CUSTOM SUITE", href: "/customwork" },
+    { name: "VISIT CONCIERGE'S DESK", href: "/contact" },
   ];
 
   return (
@@ -31,11 +32,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <Link href="/contact" style={{ textDecoration: 'none' }}>
-          <button className="nav-btn">
-            VISIT CONCIERGE&apos;S DESK
-          </button>
-        </Link>
+       
       </div>
     </nav>
   );
