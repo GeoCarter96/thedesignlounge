@@ -129,22 +129,13 @@ export default function HomePage() {
 
 
        
-        <div className="gold-monolith-section">
-          <div className="reveal-on-scroll anim-scale-in-heavy" style={{ width: '100%', textAlign: 'center' }}>
-            <Link href="/matchmake" className="gold-bullion-link">
-              <span style={{ position: 'relative', zIndex: 10 }}>Enter The Lounge</span>
-              <div className="shimmer-ray" />
-              <div className="bullion-top" />
-              <div className="bullion-bottom" />
-            </Link>
-          </div>
-          
-          <p className="reveal-on-scroll anim-fade-slow" style={{ marginTop: '128px', fontSize: '12px', letterSpacing: '0.6em', textTransform: 'uppercase', fontWeight: 300 }}>
-            Your Seat Is Reserved
-          </p>
-        </div>
+       
       </div>
     </div>
+     
+         
+          
+         
 
     <footer>
       <div className="footer-grid">
