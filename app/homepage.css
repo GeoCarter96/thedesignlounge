@@ -1,4 +1,3 @@
-
 .bg-black {
   background-color: #000;
   color: #fff;
@@ -225,22 +224,22 @@ footer {
 }
 
 .social-link:hover::after { width: 100%; }
+
 body{
     font-family: var(--font-luxury), sans-serif;
-    
 }
-.editorial-section, .gold-monolith-section {
 
+.editorial-section, .gold-monolith-section {
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(0px);
   background: rgba(0, 0, 0, 0.2); 
 }
+
 .video-background-container {
   position: relative;
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  
   mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
@@ -254,6 +253,7 @@ body{
   object-fit: cover;
   z-index: -1;
 }
+
 /* ==========================================================================
    EDITORIAL ARCH LAYOUT SYSTEM
    ========================================================================== */
@@ -264,27 +264,37 @@ body{
   max-width: 1200px;
   height: 600px; /* Adjust layout framing height as desired */
   margin: 4rem auto 0 auto;
-  overflow: hidden;
+  overflow: visible; /* Crucial: Allows the master image background breakout box to bleed out */
   border-radius: 8px;
 }
 
-/* Master background placeholder styling */
+/* Master background breaks free to stretch 100% side-to-side across the screen */
 .master-backdrop-placeholder {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   height: 100%;
   background-color: #111111; /* Dark charcoal layout placeholder color */
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
 }
 
-/* Foreground arches layout grid layer */
+/* Ensures Next.js fill layout picture stretches edge-to-edge seamlessly */
+.layout-image-fit {
+  object-fit: cover;
+  object-position: center;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Foreground arches layout grid layer stays inside centered container bounds */
 .arches-showcase {
   position: absolute;
   bottom: 0;
@@ -338,11 +348,11 @@ body{
 
 /* Interior placeholder box inside each arch for separate background graphics */
 .arch-bg-placeholder {
+  position: relative;
+  overflow: hidden;
   width: 100%;
   height: 100%;
   background-color: #1a1a1a; /* Background fallback color for arch graphics */
-  background-size: cover;
-  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -356,4 +366,62 @@ body{
   color: rgba(255, 255, 255, 0.4);
   text-align: center;
   padding: 1rem;
+}
+
+/* ==========================================================================
+   LUXURY ARCH IMAGE SHIMMER EFFECT (COMPLETED)
+   ========================================================================== */
+
+/* The Gloss Shimmer Layer over the images */
+.arch-bg-placeholder::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%; /* Starts completely hidden out of frame to the left */
+  width: 60%;
+  height: 100%;
+  
+  /* Bright, elegant white/gold gloss stripe angled at 45 degrees */
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.25) 30%, 
+    rgba(249, 228, 152, 0.4) 50%, 
+    rgba(255, 255, 255, 0.25) 70%, 
+    transparent
+  );
+  transform: skewX(-30deg);
+  
+  /* Triggers a continuous sweeping animation loop every 6 seconds */
+  animation: archShimmerSweep 6s infinite ease-in-out;
+  pointer-events: none; /* Ensures users can still click or hover past this layer */
+  z-index: 3; /* Places the shine directly over the Next.js images */
+}
+
+/* Staggers the shimmer effect across each arch so they don't flash at the exact same time */
+.arch-one .arch-bg-placeholder::after {
+  animation-delay: 0s;
+}
+.arch-two .arch-bg-placeholder::after {
+  animation-delay: 0.8s;
+}
+.arch-three .arch-bg-placeholder::after {
+  animation-delay: 1.6s;
+}
+.arch-four .arch-bg-placeholder::after {
+  animation-delay: 2.4s;
+}
+
+/* Arch Shimmer Sweep Animation Engine */
+@keyframes archShimmerSweep {
+  0% {
+    left: -150%;
+  }
+  /* Sweeps across quickly between 0% and 25% of the timeline, then rests */
+  25% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
 }
