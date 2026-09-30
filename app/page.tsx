@@ -2,6 +2,7 @@
 import './homepage.css';
 import Link from 'next/link';
 import { useEffect } from 'react';
+import Image from "next/image";
 
 const SOCIAL_LINKS = [
   { name: 'Instagram', href: 'https://instagram.com/theedesignlounge?igsh=MXVvYjlpNWl4bDFngw==' },
@@ -51,12 +52,81 @@ export default function HomePage() {
 
        
         <div className="editorial-section">
-          <p className="reveal-on-scroll anim-slide-up editorial-text">
-            Welcome To <span className="italic">The Design Lounge</span> - Where Luxury Meets Creativity. 
-            Where Bold Ideas Are Curated, Not Rushed, And Your Brand Is Treated Like An Experience, Not A Task.
-            Inside The Lounge, You&apos;ll Find Done For You Designs, Planners, Templates, And Brand Assets.
-          </p>
+  
+
+  {/* ==========================================================================
+     NEW: MASTER BACKGROUND LAYOUT & 4 LAYERED GOLD ARCHES
+     ========================================================================== */}
+ <div className="magazine-layout">
+  {/* Master Background Image Placeholder */}
+  <div className="master-backdrop-placeholder">
+  <Image 
+    src="/bk.png" 
+    alt="Master Backdrop Image"
+    fill={true}                 /* Explicitly tells Next.js to fill the container layout */
+    className="layout-image-fit"
+    priority 
+  />
+</div>
+
+
+
+    {/* Arches Showcase Wrapper Container */}
+    <div className="arches-showcase">
+      
+      {/* Arch 1 */}
+      <div className="gold-arch arch-one">
+  <div className="arch-bg-placeholder">
+    <Image 
+      src="/bk1.png" /* Replace with your image file path */
+      alt="Showcase Arch 1"
+      fill={true}                  /* Replaces the span with a functional responsive image */
+      className="layout-image-fit"
+    />
+  </div>
+</div>
+
+
+      {/* Arch 2 */}
+      <div className="gold-arch arch-two">
+        <div className="arch-bg-placeholder">
+          <Image 
+            src="/bk2.png" /* Replace with your image file path */
+            alt="Showcase Arch 2"
+            fill={true}                  /* Replaces the span with a functional responsive image */
+            className="layout-image-fit"
+          />
         </div>
+      </div>
+
+      {/* Arch 3 */}
+      <div className="gold-arch arch-three">
+        <div className="arch-bg-placeholder">
+          <Image 
+            src="/bk3.png" /* Replace with your image file path */
+            alt="Showcase Arch 3"
+            fill={true}                  /* Replaces the span with a functional responsive image */
+            className="layout-image-fit"
+          />
+        </div>
+      </div>
+
+      {/* Arch 4 */}
+      <div className="gold-arch arch-four">
+        <div className="arch-bg-placeholder">
+          <Image 
+            src="/bk4.png" /* Replace with your image file path */
+            alt="Showcase Arch 4"
+            fill={true}                  /* Replaces the span with a functional responsive image */
+            className="layout-image-fit"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
        
         <div className="gold-monolith-section">

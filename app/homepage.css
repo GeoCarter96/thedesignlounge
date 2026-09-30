@@ -254,3 +254,106 @@ body{
   object-fit: cover;
   z-index: -1;
 }
+/* ==========================================================================
+   EDITORIAL ARCH LAYOUT SYSTEM
+   ========================================================================== */
+
+.magazine-layout {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 600px; /* Adjust layout framing height as desired */
+  margin: 4rem auto 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Master background placeholder styling */
+.master-backdrop-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #111111; /* Dark charcoal layout placeholder color */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Foreground arches layout grid layer */
+.arches-showcase {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 85%; /* Sits slightly lower than full height to create visual depth */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1.5rem;
+  padding: 0 2rem 2rem 2rem;
+  z-index: 2; /* Forces the arches to float directly in front of the backdrop image */
+}
+
+/* Base structural properties for all luxury arches */
+.gold-arch {
+  position: relative;
+  flex: 1;
+  max-width: 220px;
+  height: 100%;
+  background: #050505;
+  box-sizing: border-box;
+  overflow: hidden;
+  
+  /* Creates the architectural round dome top while keeping bottom flat */
+  border-radius: 120px 120px 0 0; 
+  
+  /* Thick premium gold border wrapper styling using your multi-tone gradient tint */
+  border: 3px solid transparent;
+  background-image: linear-gradient(#050505, #050505) padding-box,
+                    linear-gradient(to bottom, #D4AF37, #F9E498, #AF8A3F) border-box;
+  
+  /* Soft floating depth drop shadow */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.15);
+  transition: transform 0.5s ease;
+}
+
+/* Staggers the heights of the arches slightly for a high-end designer layout dynamic */
+.arch-one, .arch-four {
+  height: 85%;
+}
+.arch-two, .arch-three {
+  height: 100%;
+}
+
+/* Micro-interaction: Elegant lifting effect on hover */
+.gold-arch:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.3);
+}
+
+/* Interior placeholder box inside each arch for separate background graphics */
+.arch-bg-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #1a1a1a; /* Background fallback color for arch graphics */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Universal Typography styling helper tags for your image layout text tags */
+.placeholder-label {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  padding: 1rem;
+}
