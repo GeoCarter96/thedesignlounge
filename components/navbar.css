@@ -136,10 +136,15 @@
 /* ==========================================================================
    LUXURIOUS PULSING & SHIMMERING GOLD CTA
    ========================================================================== */
+/* ==========================================================================
+   COMBINED LUXURY GOLD OUTLINE, PULSE, & SHIMMER CTA
+   ========================================================================= */
 .nav-cta {
   position: relative; /* Anchor for the hidden gloss layer */
   overflow: hidden;    /* Clips the gloss shine so it stays inside the borders */
-  border: 1px solid transparent;
+  
+  /* Gold Outline Implementation */
+  border: 1px solid gold;
   background: linear-gradient(#000000, #000000) padding-box,
               linear-gradient(to bottom, #D4AF37, #F9E498, #AF8A3F) border-box;
   
@@ -151,7 +156,7 @@
   background-image: linear-gradient(to bottom, #D4AF37, #F9E498, #AF8A3F);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent !important;
+  color: gold !important;
   
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   animation: luxuryPulse 3s infinite ease-in-out;
