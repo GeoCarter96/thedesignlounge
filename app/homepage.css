@@ -30,11 +30,13 @@
 
 .logo-container {
   display: flex;
-  height: 100vh;
+  /* 1. Change from 100vh to a responsive height so it doesn't push the CTA away */
+  min-height: 55vh; 
   width: 100%;
   align-items: center;
   justify-content: center;
-  padding: 0 16px;
+  /* 2. Adds breathing room on top for the corner text overlay labels */
+  padding: 8rem 16px 0 16px; 
 }
 
 .logo-monolith {
@@ -537,8 +539,10 @@ margin-bottom: 0.5rem;
   text-align: center;
   width: 100%;
   max-width: 800px;
-  padding: 0 16px 6rem 16px; /* Bottom padding gives space before the editorial section */
-  margin-top: -4rem; /* Gently bridges the gap from the 100vh logo section */
+  /* 3. Balances spacing cleanly before the editorial section starts below */
+  padding: 2rem 16px 6rem 16px; 
+  /* 4. Resets the negative margin bridge to 0 so it stacks neatly naturally */
+  margin-top: 0; 
   z-index: 20;
 }
 
@@ -610,4 +614,63 @@ margin-bottom: 0.5rem;
 
 @keyframes btnShineGlide {
   100% { transform: translateX(100%); }
+}
+/* ==========================================================================
+   GOLD GRADIENT UNDERLINE FOR STACKED OVERLAY TEXT
+   ========================================================================== */
+.video-top-text {
+  position: absolute;
+  top: 7rem; 
+  z-index: 15; 
+  pointer-events: none; 
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem; 
+  
+  /* 1. Generates breathing padding space below the bottom text row line before the line displays */
+  padding-bottom: 0.6rem; 
+}
+
+/* Draws the luxurious gold outline bar under both text containers */
+.video-top-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 1px; /* Immaculate thin premium rule layout profile thickness */
+  
+  /* 2. Colors the underline bar with your signature multi-tone luxury gold gradient */
+  background: linear-gradient(to right, #AF8A3F, #F9E498, #D4AF37, transparent);
+  
+  /* 3. Soft ambient glow framing the edge-of-text elements */
+  filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.5));
+}
+
+/* Specific left underline properties: aligns left and sets its span size */
+.video-top-left {
+  left: 4rem;
+  text-align: left;
+}
+.video-top-left::after {
+  left: 0;
+  width: 80px; /* Adjust this value to make the gold bar shorter or longer under the left block */
+}
+
+/* Specific right underline properties: aligns right and sets its span size */
+.video-top-right {
+  right: 4rem;
+  text-align: right;
+}
+.video-top-right::after {
+  right: 0;
+  width: 120px; /* Adjust this value to make the gold bar shorter or longer under the right block */
+  /* Reverses gradient directions so the fade out tracks out smoothly toward screen margins */
+  background: linear-gradient(to left, #AF8A3F, #F9E498, #D4AF37, transparent);
+}
+
+/* Mobile responsive scaling adaptation frames */
+@media (max-width: 767px) {
+  .video-top-left { left: 1.5rem; }
+  .video-top-right { right: 1.5rem; }
+  .video-top-text::after { width: 50px !important; } /* Keeps underlines tidy on mobile displays */
 }

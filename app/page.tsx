@@ -50,6 +50,16 @@ export default function HomePage() {
         >
           <source src="/video.mp4" type="video/mp4" />
         </video>
+       <div className="video-top-text video-top-left">
+  <span className="video-meta">SAME HOSPITALITY.</span>
+  <span className="video-submeta">BIGGER POSSIBILITIES.</span>
+</div>
+
+<div className="video-top-text video-top-right">
+  <span className="video-meta">BRANDS AREN'T JUST BUILT.</span>
+  <span className="video-submeta">THEY'RE HOSTED.</span>
+</div>
+
 
        <div className="content-wrapper">
   {/* Logo Monolith Section */}
