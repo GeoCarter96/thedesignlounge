@@ -51,13 +51,36 @@ export default function HomePage() {
           <source src="/video.mp4" type="video/mp4" />
         </video>
 
-        <div className="content-wrapper">
-          {/* Logo Monolith Section */}
-          <div className="logo-container">
-            <div className="logo-monolith">
-              <img src="/tlogo.png" alt="Logo" className="logo-img" />
-            </div>
-          </div>
+       <div className="content-wrapper">
+  {/* Logo Monolith Section */}
+  <div className="logo-container">
+    <div className="logo-monolith">
+      <img src="/tlogo.png" alt="Logo" className="logo-img" />
+    </div>
+  </div>
+
+  {/* ==========================================================================
+     NEW: BRAND MONOLITH CALL TO ACTION BLOCK
+     ========================================================================== */}
+  <div className="monolith-cta-block reveal-on-scroll anim-slide-up">
+    {/* Space for Text 1 (Underneath the logo container) */}
+    <p className="monolith-subtext-top">
+      WHERE BRANDS ARE TREATED LIKE GUESTS. ™
+    </p>
+
+    {/* Luxury CTA Button Layer */}
+    <Link href="/contact" className="monolith-cta-btn">
+      <span>CHECK IN </span>
+      <div className="btn-shimmer-ray"></div>
+    </Link>
+
+    {/* Space for Text 2 (Right underneath the button) */}
+    <p className="monolith-subtext-bottom">
+      Scroll To Explore Our Curated Creative Editorial 
+    </p>
+    <p>↓</p>
+  </div>
+
 
         
       </div> {/* /video-background-container */}

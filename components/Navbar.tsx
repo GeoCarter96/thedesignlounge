@@ -1,8 +1,13 @@
+'use client'; // Required to read browser path configurations in Next.js
+
 import Link from "next/link";
 import Image from "next/image"; // Imported for automated image optimization
+import { usePathname } from "next/navigation"; // Reads the current active page route
 import './navbar.css';
 
 export default function Navbar() {
+  const pathname = usePathname(); // Holds the current path string (e.g., "/theloungemenu")
+
   const navLinks = [
     { name: "THE LOBBY", href: "/" },
     { name: "THE LOUNGE MENU", href: "/theloungemenu" },
@@ -27,15 +32,20 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="nav-links-wrapper">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={`nav-link ${link.name === "CHECK IN" ? "nav-cta" : ""}`}
-            >
-              {link.name}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            // Checks if the current path exactly matches the link destination
+            const isActive = pathname === link.href;
+
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={`nav-link ${link.name === "CHECK IN" ? "nav-cta" : ""} ${isActive ? "active" : ""}`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </nav>

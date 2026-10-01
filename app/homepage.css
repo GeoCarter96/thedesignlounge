@@ -525,3 +525,89 @@ margin-bottom: 0.5rem;
 @media (max-width: 991px) {
 .backdrop-text { display: none; }
 }
+/* ==========================================================================
+   MONOLITH CONTENT HERO ACTIONS LAYOUT
+   ========================================================================== */
+
+.monolith-cta-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 16px 6rem 16px; /* Bottom padding gives space before the editorial section */
+  margin-top: -4rem; /* Gently bridges the gap from the 100vh logo section */
+  z-index: 20;
+}
+
+/* Typography styles for the top paragraph space */
+.monolith-subtext-top {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  font-weight: 200;
+  letter-spacing: 0.15em;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2.5rem; /* Generates padding space above the navigation button */
+  text-transform: uppercase;
+}
+
+/* Typography styles for the bottom paragraph space */
+.monolith-subtext-bottom {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  margin-top: 2.5rem; /* Generates padding space below the navigation button */
+}
+
+/* ==========================================================================
+   LUXURY ACTION BUTTON FRAME
+   ========================================================================== */
+.monolith-cta-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  text-decoration: none;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #000000; /* Deep crisp contrast text color inside the bar */
+  
+  padding: 1.25rem 3.5rem;
+  border-radius: 2px;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Solid multi-tone luxury gold bullion gradient wrapper backdrop */
+  background: linear-gradient(180deg, #AF8A3F 0%, #D4AF37 30%, #F9E498 50%, #D4AF37 70%, #AF8A3F 100%);
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.25);
+}
+
+.monolith-cta-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 60px rgba(212, 175, 55, 0.5);
+}
+
+/* Hidden shimmer sweep accent tracking within the gold button box background container */
+.btn-shimmer-ray {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transform: translateX(-100%);
+}
+
+.monolith-cta-btn:hover .btn-shimmer-ray {
+  animation: btnShineGlide 1.2s ease-in-out forwards;
+}
+
+@keyframes btnShineGlide {
+  100% { transform: translateX(100%); }
+}
