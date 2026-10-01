@@ -61,15 +61,30 @@ export default function HomePage() {
             {/* Magazine Layout (The video canvas ends right at the bottom of this div) */}
             <div className="magazine-layout">
               {/* Master Background Image Placeholder (Horizontally edge-to-edge via CSS) */}
-              <div className="master-backdrop-placeholder">
-                <Image 
-                  src="/bk.png" 
-                  alt="Master Backdrop Image"
-                  fill={true}                 
-                  className="layout-image-fit"
-                  priority 
-                />
-              </div>
+           {/* Master Background Image Placeholder (Horizontally edge-to-edge via CSS) */}
+<div className="master-backdrop-placeholder">
+  <Image 
+    src="/bk.png" 
+    alt="Master Backdrop Image"
+    fill={true}                 
+    className="layout-image-fit"
+    priority 
+  />
+
+  {/* ==========================================================================
+     NEW: OVERLAY TEXT ON THE LEFT & RIGHT SIDES
+     ========================================================================== */}
+  <div className="backdrop-text backdrop-text-left">
+    <span className="backdrop-subtitle">EST. 2026</span>
+    <h2 className="backdrop-title">THE LOUNGE</h2>
+  </div>
+
+  <div className="backdrop-text backdrop-text-right">
+    <span className="backdrop-subtitle">CURATED</span>
+    <h2 className="backdrop-title">EXPERIENCE</h2>
+  </div>
+</div>
+
 
               {/* Arches Showcase Wrapper Container */}
               <div className="arches-showcase">

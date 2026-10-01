@@ -425,3 +425,50 @@ body{
     left: 150%;
   }
 }
+/* ==========================================================================
+   LUXURY HOVER/FLOATING ENGINE FOR BACKDROP TEXT
+   ========================================================================== */
+
+.backdrop-text {
+  position: absolute;
+  top: 50%;
+  z-index: 2; 
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none; 
+  
+  /* Adds a smooth 3D luxury breathing/hover animation loop */
+  animation: ambientFloat 5s infinite ease-in-out;
+  /* Drops a deep ambient shadow behind the letters to lift them off the image background */
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.7));
+}
+
+/* Base positions (transform handled via individual keyframes to protect margins) */
+.backdrop-text-left {
+  left: 4rem;
+  text-align: left;
+}
+
+.backdrop-text-right {
+  right: 4rem;
+  text-align: right;
+  /* Staggers the timing slightly so left and right text float offset from each other */
+  animation-delay: -2.5s; 
+}
+
+/* Floating Animation Timeline */
+@keyframes ambientFloat {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    /* Smoothly lifts the text upward by 12px mid-cycle */
+    transform: translateY(calc(-50% - 12px));
+    /* Softens the text shadow as it floats higher to mimic real-world lighting */
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
