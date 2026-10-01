@@ -52,7 +52,9 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Editorial Section - Encompasses the text and the arches grid */}
+        
+      </div> {/* /video-background-container */}
+  {/* Editorial Section - Encompasses the text and the arches grid */}
           <div className="editorial-section">
            
 
@@ -124,8 +126,6 @@ export default function HomePage() {
             </div> {/* /magazine-layout */}
           </div> {/* /editorial-section */}
         </div> {/* /content-wrapper */}
-      </div> {/* /video-background-container */}
-
     
 
       {/* Footer Section */}
