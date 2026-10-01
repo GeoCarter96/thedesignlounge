@@ -262,13 +262,15 @@ body{
   position: relative;
   width: 100%;
   max-width: 1200px;
-  height: 600px; /* Adjust layout framing height as desired */
-  margin: 4rem auto 0 auto;
-  overflow: visible; /* Crucial: Allows the master image background breakout box to bleed out */
+  height: 600px; 
+  margin: 12rem auto 0 auto; /* Extra separation layout breathing buffer */
+  overflow: visible; 
   border-radius: 8px;
 }
 
-/* Master background breaks free to stretch 100% side-to-side across the screen */
+/* ==========================================================================
+   GOLD GRADIENT BORDER AROUND THE MASTER BACKDROP
+   ========================================================================== */
 .master-backdrop-placeholder {
   position: absolute;
   top: 0;
@@ -278,13 +280,23 @@ body{
   margin-left: -50vw;
   margin-right: -50vw;
   height: 100%;
-  background-color: #111111; /* Dark charcoal layout placeholder color */
+  background-color: #111111; 
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
+
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  box-sizing: border-box;
+
+  background: linear-gradient(#111111, #111111) padding-box,
+              linear-gradient(to right, #AF8A3F 0%, #D4AF37 30%, #F9E498 50%, #D4AF37 70%, #AF8A3F 100%) border-box;
+
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
 }
+
 
 /* Ensures Next.js fill layout picture stretches edge-to-edge seamlessly */
 .layout-image-fit {
@@ -294,56 +306,64 @@ body{
   height: 100% !important;
 }
 
-/* Foreground arches layout grid layer stays inside centered container bounds */
+/* ==========================================================================
+   UPDATED UNIFORM BLOCK TRANSLATION (NO STRETCH DISTORTION)
+   ========================================================================== */
 .arches-showcase {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 85%; /* Sits slightly lower than full height to create visual depth */
+  height: 85%; /* Retains absolute layout ratios perfectly true */
   display: flex;
   justify-content: center;
   align-items: flex-end;
   gap: 1.5rem;
   padding: 0 2rem 2rem 2rem;
-  z-index: 2; /* Forces the arches to float directly in front of the backdrop image */
+  z-index: 10; 
+
+  /* Shifts everything up as a crisp unit without stretching elements */
+  transform: translateY(-80px); 
 }
 
-/* Base structural properties for all luxury arches */
+/* Staggers the heights of the arches perfectly for the dynamic breakthrough layout */
+.arch-one, .arch-four {
+  height: 75%;
+}
+.arch-two, .arch-three {
+  height: 90%;
+}
+
+/* ==========================================================================
+   ENHANCED GOLD GRADIENT BORDER FRAMING FOR THE ARCHES
+   ========================================================================== */
 .gold-arch {
   position: relative;
   flex: 1;
   max-width: 220px;
   height: 100%;
-  background: #050505;
+  background: goldenrod;
   box-sizing: border-box;
   overflow: hidden;
   
-  /* Creates the architectural round dome top while keeping bottom flat */
   border-radius: 120px 120px 0 0; 
+  border: 4px solid transparent;
   
-  /* Thick premium gold border wrapper styling using your multi-tone gradient tint */
-  border: 3px solid transparent;
   background-image: linear-gradient(#050505, #050505) padding-box,
-                    linear-gradient(to bottom, #D4AF37, #F9E498, #AF8A3F) border-box;
+                    linear-gradient(to bottom, #D4AF37 0%, #F9E498 50%, #AF8A3F 100%) border-box;
   
-  /* Soft floating depth drop shadow */
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.15);
-  transition: transform 0.5s ease;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 
+              0 0 20px rgba(212, 175, 55, 0.25);
+  
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.5s ease;
 }
 
-/* Staggers the heights of the arches slightly for a high-end designer layout dynamic */
-.arch-one, .arch-four {
-  height: 85%;
-}
-.arch-two, .arch-three {
-  height: 100%;
-}
-
-/* Micro-interaction: Elegant lifting effect on hover */
+/* Micro-interaction: Brightens the glow and lifts the arch symmetrically on hover */
 .gold-arch:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 
+              0 0 30px rgba(212, 175, 55, 0.45);
 }
 
 /* Interior placeholder box inside each arch for separate background graphics */
@@ -352,7 +372,7 @@ body{
   overflow: hidden;
   width: 100%;
   height: 100%;
-  background-color: #1a1a1a; /* Background fallback color for arch graphics */
+  background-color: #1a1a1a; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -369,7 +389,7 @@ body{
 }
 
 /* ==========================================================================
-   LUXURY ARCH IMAGE SHIMMER EFFECT (COMPLETED)
+   LUXURY ARCH IMAGE SHIMMER EFFECT
    ========================================================================== */
 
 /* The Gloss Shimmer Layer over the images */
@@ -377,11 +397,10 @@ body{
   content: '';
   position: absolute;
   top: 0;
-  left: -150%; /* Starts completely hidden out of frame to the left */
+  left: -150%; 
   width: 60%;
   height: 100%;
   
-  /* Bright, elegant white/gold gloss stripe angled at 45 degrees */
   background: linear-gradient(
     90deg, 
     transparent, 
@@ -392,10 +411,9 @@ body{
   );
   transform: skewX(-30deg);
   
-  /* Triggers a continuous sweeping animation loop every 6 seconds */
   animation: archShimmerSweep 6s infinite ease-in-out;
-  pointer-events: none; /* Ensures users can still click or hover past this layer */
-  z-index: 3; /* Places the shine directly over the Next.js images */
+  pointer-events: none; 
+  z-index: 3; 
 }
 
 /* Staggers the shimmer effect across each arch so they don't flash at the exact same time */
@@ -417,7 +435,6 @@ body{
   0% {
     left: -150%;
   }
-  /* Sweeps across quickly between 0% and 25% of the timeline, then rests */
   25% {
     left: 150%;
   }
@@ -425,50 +442,86 @@ body{
     left: 150%;
   }
 }
+
 /* ==========================================================================
-   LUXURY HOVER/FLOATING ENGINE FOR BACKDROP TEXT
-   ========================================================================== */
-
+   INTEGRATED HOVER OVERLAY TEXT LOGIC (SITTING NEXT TO ARCHES)
+========================================================================== */
 .backdrop-text {
-  position: absolute;
-  top: 50%;
-  z-index: 2; 
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  pointer-events: none; 
-  
-  /* Adds a smooth 3D luxury breathing/hover animation loop */
-  animation: ambientFloat 5s infinite ease-in-out;
-  /* Drops a deep ambient shadow behind the letters to lift them off the image background */
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.7));
+position: absolute;
+top: 45%;
+z-index: 15;
+color: goldenrod;
+display: flex;
+flex-direction: column;
+pointer-events: none;
+animation: ambientFloat 5s infinite ease-in-out;
+filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.8));
 }
-
-/* Base positions (transform handled via individual keyframes to protect margins) */
 .backdrop-text-left {
-  left: 4rem;
-  text-align: left;
+left: 4rem;
+text-align: left;
 }
-
 .backdrop-text-right {
-  right: 4rem;
-  text-align: right;
-  /* Staggers the timing slightly so left and right text float offset from each other */
-  animation-delay: -2.5s; 
+right: 4rem;
+text-align: right;
+animation-delay: -2.5s;
+}
+.backdrop-title {
+font-family: ui-sans-serif, system-ui, sans-serif;
+font-size: 15px;
+font-weight: 200;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+margin: 0;
+line-height: 1.2;
+}
+.backdrop-subtitle {
+font-family: ui-sans-serif, system-ui, sans-serif;
+font-size: 12px;
+letter-spacing: 0.5em;
+color: goldenrod;
+text-transform: uppercase;
+margin-bottom: 0.5rem;
+}
+/* ==========================================================================
+   EXCLUSIVE LUXURY SIGNATURE CURSIVE
+   ========================================================================== */
+/* ==========================================================================
+   EXCLUSIVE SYSTEM-RESISTANT LUXURY CURSIVE 
+   ========================================================================== */
+.backdrop-title.backdrop-cursive {
+  /* Forces rendering via CSS variable hooks and true fluid browser engines */
+  font-family: var(--font-script), 'Great Vibes', 'Alex Brush', 'Pinyon Script', cursive !important;
+  font-style: normal !important; 
+  
+  /* Luxury cursive scales beautifully when handled with fine structural stroke lines */
+  font-size: 26px !important; 
+  text-transform: none !important; /* Disables block caps from breaking the script linkages */
+  letter-spacing: 0.02em !important; /* Holds looping handwriting strokes adjacent to each other */
+  font-weight: 400 !important;
+  line-height: 0.9 !important;
+  padding: 0.25rem 0;
+  
+  /* Gold metallic luxury text gradient implementation */
+  background: goldenrod !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important; 
+  
+  /* Creates solid legibility over background layout variations */
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.9)) !important;
 }
 
-/* Floating Animation Timeline */
+
 @keyframes ambientFloat {
-  0% {
-    transform: translateY(-50%);
-  }
-  50% {
-    /* Smoothly lifts the text upward by 12px mid-cycle */
-    transform: translateY(calc(-50% - 12px));
-    /* Softens the text shadow as it floats higher to mimic real-world lighting */
-    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
-  }
-  100% {
-    transform: translateY(-50%);
-  }
+0% { transform: translateY(-50%); }
+50% { transform: translateY(calc(-50% - 10px)); }
+100% { transform: translateY(-50%); }
+}
+@media (max-width: 1200px) {
+.backdrop-text-left { left: 2rem; }
+.backdrop-text-right { right: 2rem; }
+}
+@media (max-width: 991px) {
+.backdrop-text { display: none; }
 }

@@ -3,6 +3,13 @@ import './homepage.css';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import Image from "next/image";
+import { Great_Vibes } from 'next/font/google';
+
+const luxuryScript = Great_Vibes({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-script',
+});
 
 const SOCIAL_LINKS = [
   { name: 'Instagram', href: 'https://instagram.com/theedesignlounge?igsh=MXVvYjlpNWl4bDFngw==' },
@@ -31,7 +38,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="bg-black">
+     <div className={`bg-black ${luxuryScript.variable}`}>
       {/* ==========================================================================
          VIDEO BACKGROUND CONTAINER (Wraps down to the bottom of the master layout)
          ========================================================================== */}
@@ -48,7 +55,7 @@ export default function HomePage() {
           {/* Logo Monolith Section */}
           <div className="logo-container">
             <div className="logo-monolith">
-              <img src="/logo3.png" alt="Logo" className="logo-img" />
+              <img src="/tlogo.png" alt="Logo" className="logo-img" />
             </div>
           </div>
 
@@ -64,7 +71,7 @@ export default function HomePage() {
            {/* Master Background Image Placeholder (Horizontally edge-to-edge via CSS) */}
 <div className="master-backdrop-placeholder">
   <Image 
-    src="/bk.png" 
+    src="/bkk.png" 
     alt="Master Backdrop Image"
     fill={true}                 
     className="layout-image-fit"
@@ -75,13 +82,20 @@ export default function HomePage() {
      NEW: OVERLAY TEXT ON THE LEFT & RIGHT SIDES
      ========================================================================== */}
   <div className="backdrop-text backdrop-text-left">
-    <span className="backdrop-subtitle">EST. 2026</span>
-    <h2 className="backdrop-title">THE LOUNGE</h2>
+    <span className="backdrop-subtitle">FROM MEANINGFUL</span>
+    <h2 className="backdrop-title">FIRST IMPRESSIONS</h2>
   </div>
 
   <div className="backdrop-text backdrop-text-right">
-    <span className="backdrop-subtitle">CURATED</span>
-    <h2 className="backdrop-title">EXPERIENCE</h2>
+    <span className="backdrop-subtitle">TO LASTING</span>
+ <h2 
+  className={`backdrop-title backdrop-cursive ${luxuryScript.className}`}
+  style={{ fontFamily: "var(--font-script), 'Great Vibes', 'Alex Brush', cursive" }}
+>
+  Connections...
+</h2>
+
+
   </div>
 </div>
 
