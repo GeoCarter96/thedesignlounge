@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Montserrat } from "next/font/google";
 import "./globals.css"; 
+import CustomCursor from "@/components/customcursor";
 
 
 import Navbar from "@/components/Navbar";
@@ -43,7 +44,7 @@ export default function RootLayout({
             <Navbar />
           </div>
             
-
+<CustomCursor /> 
         <Sidebar />
         <ConciergeOrb/>
         

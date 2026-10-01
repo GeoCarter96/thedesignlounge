@@ -50,14 +50,14 @@ export default function HomePage() {
         >
           <source src="/video.mp4" type="video/mp4" />
         </video>
-       <div className="video-top-text video-top-left">
+     <div className="video-top-text video-top-left reveal-on-scroll anim-fade-slow">
   <span className="video-meta">SAME HOSPITALITY.</span>
   <span className="video-submeta">BIGGER POSSIBILITIES.</span>
 </div>
 
-<div className="video-top-text video-top-right">
-  <span className="video-meta">BRANDS AREN'T JUST BUILT.</span>
-  <span className="video-submeta">THEY'RE HOSTED.</span>
+<div className="video-top-text video-top-right reveal-on-scroll anim-fade-slow">
+  <span className="video-meta">BRANDS AREN&apos;T JUST BUILT.</span>
+  <span className="video-submeta">THEY&apos;RE HOSTED.</span>
 </div>
 
 

@@ -653,7 +653,7 @@ margin-bottom: 0.5rem;
 }
 .video-top-left::after {
   left: 0;
-  width: 80px; /* Adjust this value to make the gold bar shorter or longer under the left block */
+  width: 150px; /* Adjust this value to make the gold bar shorter or longer under the left block */
 }
 
 /* Specific right underline properties: aligns right and sets its span size */
@@ -663,7 +663,7 @@ margin-bottom: 0.5rem;
 }
 .video-top-right::after {
   right: 0;
-  width: 120px; /* Adjust this value to make the gold bar shorter or longer under the right block */
+  width: 150px; /* Adjust this value to make the gold bar shorter or longer under the right block */
   /* Reverses gradient directions so the fade out tracks out smoothly toward screen margins */
   background: linear-gradient(to left, #AF8A3F, #F9E498, #D4AF37, transparent);
 }

@@ -1,1 +1,72 @@
+/* ==========================================================================
+   THE ULTIMATE CACHING-PROOF LUXURY PEN CURSOR ENGINE
+   ========================================================================== */
 
+/* 1. DEFAULT BASELINE STATE: Forces the pristine gold pen on everything at all times */
+*, *::before, *::after, html, body, html *, body * {
+  cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBmaWxsPSIjRDRBRjM3IiBzdHJva2U9IiNGOUU0OTgiIHN0cm9rZS13aWR0aD0iMC41IiBkPSJNMiAzMGw0LTEyIDgtOCA0IDQtODAgOC0xMiA0em0xMi0yMGwyLTIgNCA0LTItMi00LTR6TTI0IDJsNiA2LTQgNC02LTYgNC00eiIvPjxjaXJjbGUgY3g9IjEwIiBjeT0iMjIiIHI9IjEiIGZpbGw9IiMwMDAiLz48L3N2Zz4=") 0 24, auto !important;
+}
+
+/* 2. ENHANCED HOVER BLITZ: Targets buttons, links, and all their deep nested string children.
+   Notice the fallback is set to 'auto' instead of 'pointer' to completely kill the browser hand pointer */
+a, a *, 
+button, button *, 
+input, select, textarea,
+[role="button"], [role="button"] *, 
+.monolith-cta-btn, .monolith-cta-btn *,
+.btn-shimmer-ray, .btn-shimmer-ray *,
+.nav-link, .nav-link *, 
+.nav-cta, .nav-cta *, 
+.social-link, .social-link * {
+  cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48ZyB0cmFuc2Zvcm09InJvdGF0ZSgxNSAwIDI0KSI+PHBhdGggZmlsbD0iI0Y5RTQ5OCIgc3Ryb2tlPSIjRDRBRjM3IiBzdHJva2Utd2lkdGg9IjAuNSIgZD0iTTIgMzBsNC0xMiA4LTggNCA0LTggOC0xMiA0em0xMi0yMGwyLTIgNCA0LTItMi00LTR6TTI0IDJsNiA2LTQgNC02LTYgNC00eiIvPjwvZz48L3N2Zz4=") 0 24, auto !important;
+}
+
+/* 3. ACTIVE CLICK BLITZ: Locks the golden fluid calligraphic ink drop on mouse press down */
+a:active, a *:active,
+button:active, button *:active, 
+[role="button"]:active, [role="button"] *:active,
+.monolith-cta-btn:active, .monolith-cta-btn *:active,
+.nav-link:active, .nav-link *:active,
+.nav-cta:active, .nav-cta *:active,
+.social-link:active, .social-link *:active {
+  cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48ZyB0cmFuc2Zvcm09InJvdGF0ZSgxNSAwIDI0KSI+PHBhdGggZmlsbD0iI0Y5RTQ5OCIgc3Ryb2tlPSIjRDRBRjM3IiBzdHJva2Utd2lkdGg9IjAuNSIgZD0iTTIgMzBsNC0xMiA4LTggNCA0LTggOC0xMiA0em0xMi0yMGwyLTIgNCA0LTItMi00LTR6TTI0IDJsNiA2LTQgNC02LTYgNC00eiIvPjwvZz48cGF0aCBmaWxsPSIjRjlFNDk4IiBzdHJva2U9IiNENEFGMzciIHN0cm9rZS13aWR0aD0iMC4yNSIgZD0iTTAgMjRjLTEgMC0yIDEtMiAyczEgMiAyIDIgMi0xIDItMi0xLTItMi0yeiIvPjxjaXJjbGUgY3g9IjAiIGN5PSIyNCIgcj0iMyIgZmlsbD0iI0Q0QUYzNyIgb3BhY2l0eT0iMC40Ii8+PC9zdmY+") 0 24, auto !important;
+}
+
+
+/* ==========================================================================
+   FLOATING AMBIENT GLOWING PARTICLE DOT LAYOUT
+   ========================================================================== */
+.cursor-follower {
+  position: fixed;
+  width: 6px;  
+  height: 6px;
+  background-color: #F9E498; 
+  border-radius: 50%;
+  pointer-events: none; 
+  z-index: 999999; 
+  margin-left: -3px;
+  margin-top: -3px;
+  
+  box-shadow: 0 0 10px #D4AF37,
+              0 0 20px #AF8A3F,
+              0 0 30px rgba(212, 175, 55, 0.4);
+  
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), 
+              width 0.4s ease, 
+              height 0.4s ease, 
+              box-shadow 0.4s ease,
+              background-color 0.4s ease;
+}
+
+.cursor-follower.cursor-hover-active {
+  width: 12px; 
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -6px;
+  background-color: #ffffff; 
+  
+  box-shadow: 0 0 15px #F9E498,
+              0 0 30px #D4AF37,
+              0 0 45px rgba(249, 228, 152, 0.6);
+}
