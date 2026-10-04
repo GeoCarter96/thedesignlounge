@@ -133,58 +133,87 @@ export default function HomePage() {
 </div>
 
 
-              {/* Arches Showcase Wrapper Container */}
-              <div className="arches-showcase">
-                
-                {/* Arch 1 */}
-                <div className="gold-arch arch-one">
-                  <div className="arch-bg-placeholder">
-                    <Image 
-                      src="/bk1.png" 
-                      alt="Showcase Arch 1"
-                      fill={true}                  
-                      className="layout-image-fit"
-                    />
-                  </div>
-                </div>
+        {/* Arches Showcase Wrapper Container */}
+<div className="arches-showcase">
+  
+  {/* Arch 1 */}
+  <div className="gold-arch arch-one">
+    <div className="arch-bg-placeholder">
+      <Image 
+        src="/bk1.png" 
+        alt="Showcase Arch 1"
+        fill={true}                  
+        className="layout-image-fit"
+      />
+    </div>
+    {/* Luxury Content Overlay */}
+    <div className="arch-overlay">
+      <span className="arch-number">01</span>
+      <h3 className="arch-title">BRAND IDENTITY</h3>
+      <div className="arch-gold-divider"></div>
+      <p className="arch-subtitle">How your brand is recognized </p>
+    </div>
+  </div>
 
-                {/* Arch 2 */}
-                <div className="gold-arch arch-two">
-                  <div className="arch-bg-placeholder">
-                    <Image 
-                      src="/bk2.png" 
-                      alt="Showcase Arch 2"
-                      fill={true}                  
-                      className="layout-image-fit"
-                    />
-                  </div>
-                </div>
+  {/* Arch 2 */}
+  <div className="gold-arch arch-two">
+    <div className="arch-bg-placeholder">
+      <Image 
+        src="/bk2.png" 
+        alt="Showcase Arch 2"
+        fill={true}                  
+        className="layout-image-fit"
+      />
+    </div>
+    {/* Luxury Content Overlay */}
+    <div className="arch-overlay">
+      <span className="arch-number">02</span>
+      <h3 className="arch-title">BRAND VISIBILITY</h3>
+      <div className="arch-gold-divider"></div>
+      <p className="arch-subtitle">How your brand is seen </p>
+    </div>
+  </div>
 
-                {/* Arch 3 */}
-                <div className="gold-arch arch-three">
-                  <div className="arch-bg-placeholder">
-                    <Image 
-                      src="/bk3.png" 
-                      alt="Showcase Arch 3"
-                      fill={true}                  
-                      className="layout-image-fit"
-                    />
-                  </div>
-                </div>
+  {/* Arch 3 */}
+  <div className="gold-arch arch-three">
+    <div className="arch-bg-placeholder">
+      <Image 
+        src="/bk3.png" 
+        alt="Showcase Arch 3"
+        fill={true}                  
+        className="layout-image-fit"
+      />
+    </div>
+    {/* Luxury Content Overlay */}
+    <div className="arch-overlay">
+      <span className="arch-number">03</span>
+      <h3 className="arch-title">BRAND EXPERIENCE</h3>
+      <div className="arch-gold-divider"></div>
+      <p className="arch-subtitle">How your brand makes people feel </p>
+    </div>
+  </div>
 
-                {/* Arch 4 */}
-                <div className="gold-arch arch-four">
-                  <div className="arch-bg-placeholder">
-                    <Image 
-                      src="/bk4.png" 
-                      alt="Showcase Arch 4"
-                      fill={true}                  
-                      className="layout-image-fit"
-                    />
-                  </div>
-                </div>
+  {/* Arch 4 */}
+  <div className="gold-arch arch-four">
+    <div className="arch-bg-placeholder">
+      <Image 
+        src="/bk4.png" 
+        alt="Showcase Arch 4"
+        fill={true}                  
+        className="layout-image-fit"
+      />
+    </div>
+    {/* Luxury Content Overlay */}
+    <div className="arch-overlay">
+      <span className="arch-number">04</span>
+      <h3 className="arch-title">BUSINESS ESSENTIALS</h3>
+      <div className="arch-gold-divider"></div>
+      <p className="arch-subtitle">The details that compliment your brand</p>
+    </div>
+  </div>
 
-              </div> {/* /arches-showcase */}
+</div> {/* /arches-showcase */}
+
             </div> {/* /magazine-layout */}
           </div> {/* /editorial-section */}
         </div> {/* /content-wrapper */}
