@@ -12,9 +12,9 @@ const luxuryScript = Great_Vibes({
 });
 
 const SOCIAL_LINKS = [
-  { name: 'Instagram', href: 'https://instagram.com/theedesignlounge?igsh=MXVvYjlpNWl4bDFngw==' },
-  { name: 'TikTok', href: 'https://tiktok.com/@maaiirr1?r=1&_t=ZP-93NpubeBvoM' },
-  { name: 'Youtube', href: 'https://youtube.com/@shesmair?si=O_Kvq7fTNno26vF6' },
+  { name: 'Instagram', href: 'https://instagram.com' },
+  { name: 'TikTok', href: 'https://tiktok.com' },
+  { name: 'Youtube', href: 'https://youtube.com' },
 ];
 
 export default function HomePage() {
@@ -37,10 +37,19 @@ export default function HomePage() {
     return () => observer.disconnect();
   }, []);
 
+  const playBellSound = () => {
+    const audio = new Audio('/bell.mp3'); 
+    audio.volume = 0.5;
+    
+    audio.play().catch((err) => {
+      console.log("Audio playback blocked until user interacts with the page:", err);
+    });
+  };
+
   return (
-     <div className={`bg-black ${luxuryScript.variable}`}>
+    <div className={`bg-black ${luxuryScript.variable}`}>
       {/* ==========================================================================
-         VIDEO BACKGROUND CONTAINER (Wraps down to the bottom of the master layout)
+         VIDEO BACKGROUND CONTAINER (Wraps the entire page layout flow)
          ========================================================================== */}
       <div className="video-background-container">
         <video 
@@ -50,174 +59,161 @@ export default function HomePage() {
         >
           <source src="/video.mp4" type="video/mp4" />
         </video>
-     <div className="video-top-text video-top-left reveal-on-scroll anim-fade-slow">
-  <span className="video-meta">SAME HOSPITALITY.</span>
-  <span className="video-submeta">BIGGER POSSIBILITIES.</span>
-</div>
-
-<div className="video-top-text video-top-right reveal-on-scroll anim-fade-slow">
-  <span className="video-meta">BRANDS AREN&apos;T JUST BUILT.</span>
-  <span className="video-submeta">THEY&apos;RE HOSTED.</span>
-</div>
-
-
-       <div className="content-wrapper">
-  {/* Logo Monolith Section */}
-  <div className="logo-container">
-    <div className="logo-monolith">
-      <img src="/tlogo.png" alt="Logo" className="logo-img" />
-    </div>
-  </div>
-
-  {/* ==========================================================================
-     NEW: BRAND MONOLITH CALL TO ACTION BLOCK
-     ========================================================================== */}
-  <div className="monolith-cta-block reveal-on-scroll anim-slide-up">
-    {/* Space for Text 1 (Underneath the logo container) */}
-    <p className="monolith-subtext-top">
-      WHERE BRANDS ARE TREATED LIKE GUESTS. ™
-    </p>
-
-    {/* Luxury CTA Button Layer */}
-    <Link href="/contact" className="monolith-cta-btn">
-      <span>CHECK IN </span>
-      <div className="btn-shimmer-ray"></div>
-    </Link>
-
-    {/* Space for Text 2 (Right underneath the button) */}
-    <p className="monolith-subtext-bottom">
-      Scroll To Explore Our Curated Creative Editorial 
-    </p>
-    <p>↓</p>
-  </div>
-
-
         
-      </div> {/* /video-background-container */}
-  {/* Editorial Section - Encompasses the text and the arches grid */}
-          <div className="editorial-section">
-           
+        <div className="video-top-text video-top-left reveal-on-scroll anim-fade-slow">
+          <span className="video-meta">SAME HOSPITALITY.</span>
+          <span className="video-submeta">BIGGER POSSIBILITIES.</span>
+        </div>
 
-            {/* Magazine Layout (The video canvas ends right at the bottom of this div) */}
-            <div className="magazine-layout">
-              {/* Master Background Image Placeholder (Horizontally edge-to-edge via CSS) */}
-           {/* Master Background Image Placeholder (Horizontally edge-to-edge via CSS) */}
-<div className="master-backdrop-placeholder">
-  <Image 
-    src="/bkk.png" 
-    alt="Master Backdrop Image"
-    fill={true}                 
-    className="layout-image-fit"
-    priority 
-  />
+        <div className="video-top-text video-top-right reveal-on-scroll anim-fade-slow">
+          <span className="video-meta">BRANDS AREN&apos;T JUST BUILT.</span>
+          <span className="video-submeta">THEY&apos;RE HOSTED.</span>
+        </div>
 
-  {/* ==========================================================================
-     NEW: OVERLAY TEXT ON THE LEFT & RIGHT SIDES
-     ========================================================================== */}
-  <div className="backdrop-text backdrop-text-left">
-    <span className="backdrop-subtitle">FROM MEANINGFUL</span>
-    <h2 className="backdrop-title">FIRST IMPRESSIONS</h2>
-  </div>
+        <div className="content-wrapper">
+          {/* Logo Monolith Section */}
+          <div className="logo-container">
+            <div className="logo-monolith">
+              <img src="/tlogo.png" alt="Logo" className="logo-img" />
+            </div>
+          </div>
 
-  <div className="backdrop-text backdrop-text-right">
-    <span className="backdrop-subtitle">TO LASTING</span>
- <h2 
-  className={`backdrop-title backdrop-cursive ${luxuryScript.className}`}
-  style={{ fontFamily: "var(--font-script), 'Great Vibes', 'Alex Brush', cursive" }}
->
-  Connections...
-</h2>
+          {/* ==========================================================================
+             BRAND MONOLITH CALL TO ACTION BLOCK
+             ========================================================================== */}
+          <div className="monolith-cta-block reveal-on-scroll anim-slide-up">
+            <p className="monolith-subtext-top">
+              WHERE BRANDS ARE TREATED LIKE GUESTS. ™
+            </p>
 
+            <Link 
+              href="/contact" 
+              className="monolith-cta-btn"
+              onMouseEnter={playBellSound}
+            >
+              <span>CHECK IN </span>
+              <div className="btn-shimmer-ray"></div>
+            </Link>
 
-  </div>
-</div>
-
-
-        {/* Arches Showcase Wrapper Container */}
-<div className="arches-showcase">
-  
-  {/* Arch 1 */}
-  <div className="gold-arch arch-one">
-    <div className="arch-bg-placeholder">
-      <Image 
-        src="/bk1.png" 
-        alt="Showcase Arch 1"
-        fill={true}                  
-        className="layout-image-fit"
-      />
-    </div>
-    {/* Luxury Content Overlay */}
-    <div className="arch-overlay">
-      <span className="arch-number">01</span>
-      <h3 className="arch-title">BRAND IDENTITY</h3>
-      <div className="arch-gold-divider"></div>
-      <p className="arch-subtitle">How your brand is recognized </p>
-    </div>
-  </div>
-
-  {/* Arch 2 */}
-  <div className="gold-arch arch-two">
-    <div className="arch-bg-placeholder">
-      <Image 
-        src="/bk2.png" 
-        alt="Showcase Arch 2"
-        fill={true}                  
-        className="layout-image-fit"
-      />
-    </div>
-    {/* Luxury Content Overlay */}
-    <div className="arch-overlay">
-      <span className="arch-number">02</span>
-      <h3 className="arch-title">BRAND VISIBILITY</h3>
-      <div className="arch-gold-divider"></div>
-      <p className="arch-subtitle">How your brand is seen </p>
-    </div>
-  </div>
-
-  {/* Arch 3 */}
-  <div className="gold-arch arch-three">
-    <div className="arch-bg-placeholder">
-      <Image 
-        src="/bk3.png" 
-        alt="Showcase Arch 3"
-        fill={true}                  
-        className="layout-image-fit"
-      />
-    </div>
-    {/* Luxury Content Overlay */}
-    <div className="arch-overlay">
-      <span className="arch-number">03</span>
-      <h3 className="arch-title">BRAND EXPERIENCE</h3>
-      <div className="arch-gold-divider"></div>
-      <p className="arch-subtitle">How your brand makes people feel </p>
-    </div>
-  </div>
-
-  {/* Arch 4 */}
-  <div className="gold-arch arch-four">
-    <div className="arch-bg-placeholder">
-      <Image 
-        src="/bk4.png" 
-        alt="Showcase Arch 4"
-        fill={true}                  
-        className="layout-image-fit"
-      />
-    </div>
-    {/* Luxury Content Overlay */}
-    <div className="arch-overlay">
-      <span className="arch-number">04</span>
-      <h3 className="arch-title">BUSINESS ESSENTIALS</h3>
-      <div className="arch-gold-divider"></div>
-      <p className="arch-subtitle">The details that compliment your brand</p>
-    </div>
-  </div>
-
-</div> {/* /arches-showcase */}
-
-            </div> {/* /magazine-layout */}
-          </div> {/* /editorial-section */}
+            <p className="monolith-subtext-bottom">
+              Scroll To Explore Our Curated Creative Editorial 
+            </p>
+            <p>↓</p>
+          </div>
         </div> {/* /content-wrapper */}
-    
+
+        {/* ==========================================================================
+           EDITORIAL SECTION (Background image stretches behind everything inside here)
+           ========================================================================== */}
+        <div className="editorial-section">
+          
+          {/* Structural Master Background Wrapper that sits behind all arches */}
+          <div className="master-backdrop-wrapper">
+            <Image 
+              src="/bkk.png" 
+              alt="Master Backdrop Image"
+              fill={true}                 
+              className="layout-image-fit master-bg-image"
+              priority 
+            />
+
+            {/* Magazine Layout Header Content */}
+            <div className="magazine-layout-header">
+              {/* OVERLAY TEXT ON THE LEFT & RIGHT SIDES */}
+              <div className="backdrop-text backdrop-text-left">
+                <span className="backdrop-subtitle">FROM MEANINGFUL</span>
+                <h2 className="backdrop-title">FIRST IMPRESSIONS</h2>
+              </div>
+
+              <div className="backdrop-text backdrop-text-right">
+                <span className="backdrop-subtitle">TO LASTING</span>
+                <h2 
+                  className={`backdrop-title backdrop-cursive ${luxuryScript.className}`}
+                  style={{ fontFamily: "var(--font-script), 'Great Vibes', 'Alex Brush', cursive" }}
+                >
+                  Connections...
+                </h2>
+              </div>
+            </div>
+
+            {/* Arches Showcase Wrapper Container (Auto-adapts to fit all words) */}
+            <div className="arches-showcase">
+              {/* Arch 1 */}
+              <div className="gold-arch arch-one">
+                <div className="arch-bg-placeholder">
+                  <Image 
+                    src="/bk1.png" 
+                    alt="Showcase Arch 1"
+                    fill={true}                  
+                    className="layout-image-fit"
+                  />
+                </div>
+                <div className="arch-overlay">
+                  <span className="arch-number">01</span>
+                  <h3 className="arch-title">BRAND IDENTITY</h3>
+                  <div className="arch-gold-divider"></div>
+                  <p className="arch-subtitle">How your brand is recognized </p>
+                </div>
+              </div>
+
+              {/* Arch 2 */}
+              <div className="gold-arch arch-two">
+                <div className="arch-bg-placeholder">
+                  <Image 
+                    src="/bk2.png" 
+                    alt="Showcase Arch 2"
+                    fill={true}                  
+                    className="layout-image-fit"
+                  />
+                </div>
+                <div className="arch-overlay">
+                  <span className="arch-number">02</span>
+                  <h3 className="arch-title">BRAND VISIBILITY</h3>
+                  <div className="arch-gold-divider"></div>
+                  <p className="arch-subtitle">How your brand is seen </p>
+                </div>
+              </div>
+
+              {/* Arch 3 */}
+              <div className="gold-arch arch-three">
+                <div className="arch-bg-placeholder">
+                  <Image 
+                    src="/bk3.png" 
+                    alt="Showcase Arch 3"
+                    fill={true}                  
+                    className="layout-image-fit"
+                  />
+                </div>
+                <div className="arch-overlay">
+                  <span className="arch-number">03</span>
+                  <h3 className="arch-title">BRAND EXPERIENCE</h3>
+                  <div className="arch-gold-divider"></div>
+                  <p className="arch-subtitle">How your brand makes people feel </p>
+                </div>
+              </div>
+
+              {/* Arch 4 */}
+              <div className="gold-arch arch-four">
+                <div className="arch-bg-placeholder">
+                  <Image 
+                    src="/bk4.png" 
+                    alt="Showcase Arch 4"
+                    fill={true}                  
+                    className="layout-image-fit"
+                  />
+                </div>
+                <div className="arch-overlay">
+                  <span className="arch-number">04</span>
+                  <h3 className="arch-title">BUSINESS ESSENTIALS</h3>
+                  <div className="arch-gold-divider"></div>
+                  <p className="arch-subtitle">The details that compliment your brand</p>
+                </div>
+              </div>
+
+            </div> {/* /arches-showcase */}
+          </div> {/* /master-backdrop-wrapper */}
+        </div> {/* /editorial-section */}
+      </div> {/* /video-background-container */}
 
       {/* Footer Section */}
       <footer>
