@@ -347,7 +347,7 @@ body{
   background: goldenrod;
   box-sizing: border-box;
   overflow: hidden;
-  
+  will-change: transform; 
   border-radius: 120px 120px 0 0; 
   border: 4px solid transparent;
   
@@ -363,9 +363,10 @@ body{
 
 /* Micro-interaction: Brightens the glow and lifts the arch symmetrically on hover */
 .gold-arch:hover {
-  transform: translateY(-10px);
+  transform: scale(1.03);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 
               0 0 30px rgba(212, 175, 55, 0.45);
+               z-index: 10; 
 }
 
 /* Interior placeholder box inside each arch for separate background graphics */
@@ -378,6 +379,13 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.layout-image-fit {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* 🌟 Premium, smooth ease-out curve */
+}
+.gold-arch:hover .layout-image-fit {
+  transform: scale(1.08); /* 🌟 Adjust this number (e.g., 1.05 to 1.1) to control zoom depth */
 }
 
 /* Universal Typography styling helper tags for your image layout text tags */
@@ -684,6 +692,16 @@ margin-bottom: 0.5rem;
 }
 
 /* Centers the content directly over the arch background */
+/* Crucial wrapper to make the link fill the layout boundary */
+.arch-clickable-wrapper {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none; /* Removes any default underline links get */
+  color: inherit;        /* Keeps your text color rules working perfectly */
+}
+
+/* Updated overlay to show the pointer cursor */
 .arch-overlay {
   position: absolute;
   top: 0;
@@ -692,14 +710,17 @@ margin-bottom: 0.5rem;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Pushes content to the bottom */
+  justify-content: flex-end;
   align-items: center;
   text-align: center;
-  padding: 40px 20px;        /* Increased bottom padding for premium spacing */
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%); /* Darker gradient at the bottom for readability */
+  padding: 40px 20px;       
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%); 
   z-index: 2;
   box-sizing: border-box;
+  
+  cursor: pointer; /* Displays the pointing hand cursor on hover */
 }
+
 
 /* Ensure you have a premium serif font imported in your CSS or project layout */
 @import url('https://googleapis.com');
