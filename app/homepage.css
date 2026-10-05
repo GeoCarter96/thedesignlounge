@@ -347,7 +347,7 @@ body{
   background: goldenrod;
   box-sizing: border-box;
   overflow: hidden;
-  will-change: transform; 
+  
   border-radius: 120px 120px 0 0; 
   border: 4px solid transparent;
   
@@ -363,10 +363,9 @@ body{
 
 /* Micro-interaction: Brightens the glow and lifts the arch symmetrically on hover */
 .gold-arch:hover {
-  transform: scale(1.03);
+  transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 
               0 0 30px rgba(212, 175, 55, 0.45);
-               z-index: 10; 
 }
 
 /* Interior placeholder box inside each arch for separate background graphics */
@@ -797,3 +796,4 @@ margin-bottom: 0.5rem;
                
   opacity: 1 !important;    /* Forces full brightness in case a parent style is dimming it */
 }
+
