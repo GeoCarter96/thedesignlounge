@@ -61,13 +61,13 @@ export default function HomePage() {
         </video>
         
         <div className="video-top-text video-top-left reveal-on-scroll anim-fade-slow">
-          <span className="video-meta">SAME HOSPITALITY.</span>
-          <span className="video-submeta">BIGGER POSSIBILITIES.</span>
+          <span className="video-meta">FROM MEANINGFUL</span>
+          <span className="video-submeta">FIRST IMPRESSIONS.</span>
         </div>
 
         <div className="video-top-text video-top-right reveal-on-scroll anim-fade-slow">
-          <span className="video-meta">BRANDS AREN&apos;T JUST BUILT.</span>
-          <span className="video-submeta">THEY&apos;RE HOSTED.</span>
+          <span className="video-meta">TO LASTING</span>
+          <span className="video-submeta">CONNECTIONS.</span>
         </div>
 
         <div className="content-wrapper">
@@ -117,24 +117,7 @@ export default function HomePage() {
               priority 
             />
 
-            {/* Magazine Layout Header Content */}
-            <div className="magazine-layout-header">
-              {/* OVERLAY TEXT ON THE LEFT & RIGHT SIDES */}
-              <div className="backdrop-text backdrop-text-left">
-                <span className="backdrop-subtitle">FROM MEANINGFUL</span>
-                <h2 className="backdrop-title">FIRST IMPRESSIONS</h2>
-              </div>
-
-              <div className="backdrop-text backdrop-text-right">
-                <span className="backdrop-subtitle">TO LASTING</span>
-                <h2 
-                  className={`backdrop-title backdrop-cursive ${luxuryScript.className}`}
-                  style={{ fontFamily: "var(--font-script), 'Great Vibes', 'Alex Brush', cursive" }}
-                >
-                  Connections...
-                </h2>
-              </div>
-            </div>
+           
 
             {/* Arches Showcase Wrapper Container (Auto-adapts to fit all words) */}
             <div className="arches-showcase">
@@ -142,18 +125,13 @@ export default function HomePage() {
               <div className="gold-arch arch-one">
                 <div className="arch-bg-placeholder">
                   <Image 
-                    src="/bk1.png" 
+                    src="/brand1.png" 
                     alt="Showcase Arch 1"
                     fill={true}                  
                     className="layout-image-fit"
                   />
                 </div>
-                <div className="arch-overlay">
-                  <span className="arch-number">01</span>
-                  <h3 className="arch-title">BRAND IDENTITY</h3>
-                  <div className="arch-gold-divider"></div>
-                  <p className="arch-subtitle">How your brand is recognized </p>
-                </div>
+               
               </div>
 
               {/* Arch 2 */}
@@ -166,12 +144,7 @@ export default function HomePage() {
                     className="layout-image-fit"
                   />
                 </div>
-                <div className="arch-overlay">
-                  <span className="arch-number">02</span>
-                  <h3 className="arch-title">BRAND VISIBILITY</h3>
-                  <div className="arch-gold-divider"></div>
-                  <p className="arch-subtitle">How your brand is seen </p>
-                </div>
+               
               </div>
 
               {/* Arch 3 */}
@@ -184,12 +157,7 @@ export default function HomePage() {
                     className="layout-image-fit"
                   />
                 </div>
-                <div className="arch-overlay">
-                  <span className="arch-number">03</span>
-                  <h3 className="arch-title">BRAND EXPERIENCE</h3>
-                  <div className="arch-gold-divider"></div>
-                  <p className="arch-subtitle">How your brand makes people feel </p>
-                </div>
+              
               </div>
 
               {/* Arch 4 */}
@@ -202,12 +170,7 @@ export default function HomePage() {
                     className="layout-image-fit"
                   />
                 </div>
-                <div className="arch-overlay">
-                  <span className="arch-number">04</span>
-                  <h3 className="arch-title">BUSINESS ESSENTIALS</h3>
-                  <div className="arch-gold-divider"></div>
-                  <p className="arch-subtitle">The details that compliment your brand</p>
-                </div>
+               
               </div>
 
             </div> {/* /arches-showcase */}
