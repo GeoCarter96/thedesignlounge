@@ -138,7 +138,7 @@ export default function HomePage() {
               <div className="gold-arch arch-two">
                 <div className="arch-bg-placeholder">
                   <Image 
-                    src="/bk2.png" 
+                    src="/brand2.png" 
                     alt="Showcase Arch 2"
                     fill={true}                  
                     className="layout-image-fit"
@@ -151,7 +151,7 @@ export default function HomePage() {
               <div className="gold-arch arch-three">
                 <div className="arch-bg-placeholder">
                   <Image 
-                    src="/bk3.png" 
+                    src="/brand3.png" 
                     alt="Showcase Arch 3"
                     fill={true}                  
                     className="layout-image-fit"
@@ -164,7 +164,7 @@ export default function HomePage() {
               <div className="gold-arch arch-four">
                 <div className="arch-bg-placeholder">
                   <Image 
-                    src="/bk4.png" 
+                    src="/brand4.png" 
                     alt="Showcase Arch 4"
                     fill={true}                  
                     className="layout-image-fit"
