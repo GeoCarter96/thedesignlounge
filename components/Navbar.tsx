@@ -13,7 +13,7 @@ export default function Navbar() {
     { name: "THE LOUNGE MENU", href: "/theloungemenu" },
     { name: "THE GUEST BOOK", href: "/testimonials" },
     { name: "FROM THE FOUNDER", href: "/owner" },
-    { name: "THE CUSTOM SUITE", href: "/customwork" },
+   
     { name: "CHECK IN", href: "/contact" },
   ];
 
