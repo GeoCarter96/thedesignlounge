@@ -39,10 +39,11 @@ export default function Contact() {
   return (
     <div className="contact-page">
       
-           {/* 1. TOP SECTION */}
-      <section className="max-w-7xl top-section-split">
+            {/* 1. TOP SECTION */}
+      <section className="top-section-split full-viewport-width">
         
-        <div className="top-section-hero-image flush-to-edges">
+        {/* Left Side: Background Image Area forced to top-left corners */}
+        <div className="fullscreen-hero-bg">
           <img 
             src="/checkin.png" 
             alt="The Design Lounge Atelier" 
@@ -50,9 +51,10 @@ export default function Contact() {
           />
         </div>
 
-        
+     
 
       </section>
+
 
       {/* 2. MIDDLE SECTION (3 Arches with Spaces) */}
       <section className="max-w-7xl middle-section">
