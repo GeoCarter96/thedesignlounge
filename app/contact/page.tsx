@@ -126,7 +126,7 @@ export default function Contact() {
           </div>
 
           {/* Right Arch: Directory / Social Atelier */}
-          <div className="reveal anim-fade-in arch-item item-right" style={{ transitionDelay: '0.2s' }}>
+          <div className="reveal anim-fade-in arch-item item-right" style={{ transitionDelay: '0.1s' }}>
             <div className="details-column">
               <div style={{ marginBottom: '40px' }}>
                 <h3 className="label-text" style={{ marginBottom: '32px', color: '#666' }}>Social Atelier</h3>

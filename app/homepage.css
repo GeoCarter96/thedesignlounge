@@ -329,7 +329,7 @@ body{
   gap: 1rem; 
   padding: 0 2rem 2rem 2rem;
   z-index: 10; 
-
+margin-left: -3%;
   /* OVERRIDE: Shifted the translate value to pull the arches up significantly higher */
   transform: translateY(-160px); 
 }
