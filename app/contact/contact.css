@@ -1,16 +1,20 @@
-
+/* ==========================================
+   1. GLOBAL PAGE LAYOUT & TYPOGRAPHY
+   ========================================== */
 .contact-page {
   min-height: 100vh;
   background-color: #000000;
   color: #ffffff;
   padding: 160px 24px 96px; 
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  width: 100%;
 }
 
 .max-w-7xl {
   max-width: 1280px;
   margin: 0 auto;
 }
-
 
 .font-serif { font-family: serif; }
 .italic { font-style: italic; }
@@ -26,7 +30,219 @@
   padding-bottom: 64px;
 }
 
+/* ==========================================
+   2. HERO TOP SECTION BREAKOUT
+   ========================================== */
+.top-section-split.full-viewport-width {
+  display: flex;
+  justify-content: flex-end; /* Pushes text column smoothly to the right side */
+  align-items: center;
+  min-height: 100vh; /* Fills screen space down from navbar view */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 
+.fullscreen-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Covers exactly the left half of the display workspace */
+  height: 100%; /* Matches total section height dynamically */
+  overflow: hidden;
+  z-index: 1; /* Keeps image resting underneath text overlays securely */
+}
+
+.hero-img-fill {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Pinches layout graphics tight to prevent cropping bars */
+  object-position: center left; /* Favors alignment anchor points on the screen fold */
+  display: block;
+}
+
+.top-section-content-right {
+  z-index: 2;
+  width: 50vw; /* Keeps text completely isolated on the right display panel */
+  box-sizing: border-box;
+}
+
+.full-width-arches-section {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -52vw;
+  margin-right: -45vw;
+  box-sizing: border-box;
+  isolation: isolate; 
+  
+  padding-top: 140px; 
+  padding-bottom: 80px;
+  
+  /* 🌟 Added: Keeps the gold outer edge clipping neatly if there's any section overflow */
+  overflow: hidden; 
+}
+
+/* 🌟 OUTER GOLD METALLIC SHINY BORDER FRAME */
+.full-width-arches-section::before {
+  content: "";
+  position: absolute;
+  /* Positions the line precisely flush along the outer boundary lines */
+  inset: 0; 
+  
+  /* Matches your identical premium multi-stop gold metallic gradient */
+  background: linear-gradient(
+    135deg, 
+    #BF953F 0%, 
+    #FCF6BA 30%, 
+    #B38728 50%, 
+    #FBF5B7 70%, 
+    #AA771C 100%
+  );
+  
+  /* Advanced mask trick to paint a perfect border line without shrinking inner dimensions */
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  
+  padding: 2px; /* 🌟 Stroke Thickness: Change to 1px or 3px to adjust how fine the line is */
+  z-index: 10;  /* Places the frame cleanly over the image background and inner borders */
+  pointer-events: none; /* Keeps all form items and buttons clickable underneath */
+}
+
+
+/* 🌟 New Title Layer Typography Configurations */
+.arches-section-header {
+  text-align: center;
+  margin-bottom: 80px; /* Space between the new title and the arches below */
+  padding: 0 24px;
+}
+
+.arches-section-header .header-subtitle {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  color: #D4AF37; /* Gold Accent */
+  margin-bottom: 16px;
+}
+
+.arches-section-header .header-title {
+  font-family: serif; /* Elegant matching serif aesthetic */
+  font-style: italic;
+  font-weight: 200;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.2;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+
+.arches-bg-placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+  pointer-events: none; 
+  
+  /* 🌟 REPLACE THIS URL PATH WITH YOUR LOCAL ASSET OR ONLINE LINK */
+background-image: url('/backimage.png');
+
+  
+  /* 🖼️ HIGH-END GRAPHIC PRESENTATION RULES */
+  background-size: cover;       /* Automatically scales your image to fill the whole screen space */
+  background-position: center;  /* Pins the middle of your image straight to the viewport center */
+  background-repeat: no-repeat; /* Prevents image from repeating or tiling ugly block seams */
+  
+  /* 🌗 SOFT TRANSPARENCY BLENDING PANEL */
+  opacity: 0.35; /* Dims the image slightly so your gold lines and form text pop crisp and clean */
+}
+
+
+.arches-container.full-fluid-grid {
+  display: flex;
+  width: 100%;
+  gap: 40px; /* Customizable workspace margin spaces between each arch */
+  padding: 0 30px; /* Optional slight breathing room on outer glass corners */
+  box-sizing: border-box;
+}
+
+.arch-item {
+  flex: 1; 
+  min-width: 0; /* Prevents text overflow breaking layout geometry */
+  position: relative; /* 🌟 Crucial to anchor the absolute gold border layer */
+  
+  /* PREMIUM FROSTED GLASS TRANSLUCENCY */
+  background: rgba(15, 15, 15, 0.65); 
+  backdrop-filter: blur(20px); 
+  -webkit-backdrop-filter: blur(20px); 
+  
+  /* Modern sleek arch styling configuration */
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+  
+  padding: 80px 40px 40px 40px; /* Breathing room inside the curves */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background 0.4s ease;
+}
+
+/* 🌟 METALLIC GOLD SHINY OUTLINE */
+.arch-item::before {
+  content: "";
+  position: absolute;
+  /* Adjusting coordinates outward acts exactly like a 1.5px thick border stroke */
+  inset: -1.5px; 
+  
+  /* Luxury multi-stop gold gradient recreating raw satin metallic shimmer */
+  background: linear-gradient(
+    45deg, 
+    #b38728 0%, 
+    #fbf5b7 25%, 
+    #da1b60 50%, /* Optional warm gold midtone */
+    #fbf5b7 75%, 
+    #aa771c 100%
+  );
+  /* Simplified clean gold option alternative if you prefer less shift: 
+     linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) */
+  background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 30%, #B38728 50%, #FBF5B7 70%, #AA771C 100%);
+  
+  /* Matching curved boundaries flawlessly */
+  border-top-left-radius: 201px;
+  border-top-right-radius: 201px;
+  
+  /* Hides the bottom edge so the frame blends right down into your layout baseline */
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  
+  padding: 1.5px; /* Adjust this value to make the outline thinner or thicker */
+  z-index: -1; /* Keeps the stroke frame safely tucked below foreground content layers */
+  pointer-events: none;
+}
+
+
+
+.arch-center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 350px;
+}
+
+/* ==========================================
+   4. FORM ELEMENTS & TYPOGRAPHY UTILITIES
+   ========================================== */
 .grid-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -80,7 +296,9 @@
 
 .custom-input::placeholder { color: #666; }
 
-
+/* ==========================================
+   5. INTERACTIVE BUTTON STYLES
+   ========================================== */
 .submit-btn {
   align-self: flex-start;
   position: relative;
@@ -119,7 +337,9 @@
   transform: translateY(0);
 }
 
-
+/* ==========================================
+   6. ANIMATION & ELEMENT STATES
+   ========================================== */
 .reveal {
   opacity: 0;
   transition: all 1.2s ease;
@@ -132,7 +352,6 @@
   opacity: 1;
   transform: translateY(0);
 }
-
 
 .details-column {
   display: flex;
@@ -153,101 +372,3 @@
 }
 
 .social-link:hover { color: #D4AF37; }
-/* Ensure the page itself does not push content down away from the navbar */
-.contact-page {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-  
-  width: 100%;
-}
-
-/* Parent layout holding your hero elements split across the viewport screen */
-.top-section-split.full-viewport-width {
-  
-  display: flex;
-  justify-content: flex-end; /* Pushes text column smoothly to the right side */
-  align-items: center;
-  min-height: 100vh; /* Fills screen space down from navbar view */
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* Absolute lock: Anchors the image container strictly to the absolute top and left edges */
-.fullscreen-hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw; /* Covers exactly the left half of the display workspace */
-  height: 100%; /* Matches total section height dynamically */
-
-
-  overflow: hidden;
-  z-index: 1; /* Keeps image resting underneath text overlays securely */
-}
-
-/* Direct image presentation rendering bounds */
-.hero-img-fill {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Pinches layout graphics tight to prevent cropping bars */
-  object-position: center left; /* Favors alignment anchor points on the screen fold */
-  display: block;
-}
-
-/* Right Content layout structure */
-.top-section-content-right {
-  
-  z-index: 2;
-  width: 50vw; /* Keeps text completely isolated on the right display panel */
-  
-  box-sizing: border-box;
-}
-
-/* Removes max-width caps from the middle row */
-.full-width-arches-section {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -52vw;
-  margin-right: -45vw;
-  box-sizing: border-box;
-}
-
-
-/* Flexbox layout spreading elements flush across the whole screen span */
-.arches-container.full-fluid-grid {
-  display: flex;
-  width: 100%;
-  gap: 40px; /* Customizable workspace margin spaces between each arch */
-  padding: 0 30px; /* Optional slight breathing room on outer glass corners */
-  box-sizing: border-box;
-}
-
-/* Forces each arch component to grow identically and share row real estate */
-.arch-item {
-  flex: 1; 
-  min-width: 0; /* Prevents text overflow breaking layout geometry */
-  background: #111; /* Example background token or transparent layer */
-  
-  /* Modern sleek arch styling configuration */
-  border-top-left-radius: 200px;
-  border-top-right-radius: 200px;
-  
-  padding: 80px 40px 40px 40px; /* Breathing room inside the curves */
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Visual alignment handling for the center decorative text node */
-.arch-center-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  min-height: 350px;
-}
-

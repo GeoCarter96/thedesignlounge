@@ -59,6 +59,12 @@ export default function Contact() {
       {/* 2. MIDDLE SECTION (3 Arches with Spaces) */}
            {/* 2. MIDDLE SECTION (3 Arches Filling the Section Left to Right) */}
       <section className="full-width-arches-section">
+         <div className="arches-bg-placeholder" />
+           {/* 🌟 New Headline Overlay Area */}
+  <div className="arches-section-header reveal anim-slide-up">
+    <span className="header-subtitle">Exquisite Spaces</span>
+    <h2 className="header-title">The Lounge Experience</h2>
+  </div>
         <div className="arches-container full-fluid-grid">
           
           {/* Left Arch: Form */}
