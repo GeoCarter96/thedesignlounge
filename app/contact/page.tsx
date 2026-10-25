@@ -57,8 +57,9 @@ export default function Contact() {
 
 
       {/* 2. MIDDLE SECTION (3 Arches with Spaces) */}
-      <section className="max-w-7xl middle-section">
-        <div className="arches-container">
+           {/* 2. MIDDLE SECTION (3 Arches Filling the Section Left to Right) */}
+      <section className="full-width-arches-section">
+        <div className="arches-container full-fluid-grid">
           
           {/* Left Arch: Form */}
           <div className="reveal anim-fade-in arch-item item-left">
@@ -66,7 +67,6 @@ export default function Contact() {
               Whether It&apos;s A Question Or Feedback, The Lounge Is Always Open
             </p>
 
-            
             <form className="form-column" onSubmit={(e) => e.preventDefault()}>
               <div className="input-group">
                 <label className="label-text">Full Name</label>
@@ -155,6 +155,7 @@ export default function Contact() {
 
         </div>
       </section>
+
 
       {/* 3. FOOTER SECTION (Full-Width Image Cover Placeholder) */}
       <footer className="footer-section reveal anim-fade-in">

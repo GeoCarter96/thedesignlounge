@@ -157,13 +157,13 @@
 .contact-page {
   margin-top: 0 !important;
   padding-top: 0 !important;
-  position: relative;
+  
   width: 100%;
 }
 
 /* Parent layout holding your hero elements split across the viewport screen */
 .top-section-split.full-viewport-width {
-  position: relative;
+  
   display: flex;
   justify-content: flex-end; /* Pushes text column smoothly to the right side */
   align-items: center;
@@ -197,11 +197,54 @@
 
 /* Right Content layout structure */
 .top-section-content-right {
-  position: relative;
+  
   z-index: 2;
   width: 50vw; /* Keeps text completely isolated on the right display panel */
-  padding: 80px 60px;
+  
   box-sizing: border-box;
 }
 
+/* Removes max-width caps from the middle row */
+.full-width-arches-section {
+  width: 100vw;
+  max-width: 100% !important;
+  padding: 80px 0; /* Space out the top and bottom of the arch block */
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Flexbox layout spreading elements flush across the whole screen span */
+.arches-container.full-fluid-grid {
+  display: flex;
+  width: 100%;
+  gap: 40px; /* Customizable workspace margin spaces between each arch */
+  padding: 0 30px; /* Optional slight breathing room on outer glass corners */
+  box-sizing: border-box;
+}
+
+/* Forces each arch component to grow identically and share row real estate */
+.arch-item {
+  flex: 1; 
+  min-width: 0; /* Prevents text overflow breaking layout geometry */
+  background: #111; /* Example background token or transparent layer */
+  
+  /* Modern sleek arch styling configuration */
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+  
+  padding: 80px 40px 40px 40px; /* Breathing room inside the curves */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Visual alignment handling for the center decorative text node */
+.arch-center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 350px;
+}
 
