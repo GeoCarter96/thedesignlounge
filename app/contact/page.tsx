@@ -55,11 +55,18 @@ export default function Contact() {
   {/* Right Content Layout Area */}
   <div className="top-section-content-right reveal anim-slide-up">
     <div className="hero-right-text-wrapper">
-      <span className="hero-subtitle text-gold">The Atelier</span>
-      <h1 className="hero-title font-serif">Curated Design Studio</h1>
-      <p className="hero-summary">
-        A private architectural sanctuary built for digital craftsmanship, visionary concepts, and tactile brand development. Step inside the workspace where imagination transforms into structured reality.
-      </p>
+     
+     <h1 className="hero-title font-serif">Ready To Check In?</h1>
+
+{/* 🌟 New Intermediate Context Sentence */}
+<p className="hero-tagline text-gold">
+  Your brand's next chapter starts here
+</p>
+
+<p className="hero-summary">
+  Whether you know exactly what you need or could use a little guidance, your stay starts with helping us understand where your brand is where you'd like to go.
+</p>
+
     </div>
   </div>
 
