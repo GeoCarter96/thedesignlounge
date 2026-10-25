@@ -60,7 +60,7 @@ export default function Contact() {
 
 {/* 🌟 New Intermediate Context Sentence */}
 <p className="hero-tagline text-gold">
-  Your brand's next chapter starts here
+  Your brand's next chapter starts here. 
 </p>
 
 <p className="hero-summary">
