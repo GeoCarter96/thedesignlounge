@@ -56,111 +56,48 @@ export default function Contact() {
       </section>
 
 
-      {/* 2. MIDDLE SECTION (3 Arches with Spaces) */}
-           {/* 2. MIDDLE SECTION (3 Arches Filling the Section Left to Right) */}
-      <section className="full-width-arches-section">
-         <div className="arches-bg-placeholder" />
-           {/* 🌟 New Headline Overlay Area */}
+     {/* 2. MIDDLE SECTION (3 Arches Filling the Section Left to Right) */}
+<section className="full-width-arches-section">
+  <div className="arches-bg-placeholder" />
+  
+  {/* New Headline Overlay Area */}
   <div className="arches-section-header reveal anim-slide-up">
     <span className="header-subtitle">Exquisite Spaces</span>
     <h2 className="header-title">The Lounge Experience</h2>
   </div>
-        <div className="arches-container full-fluid-grid">
-          
-          {/* Left Arch: Form */}
-          <div className="reveal anim-fade-in arch-item item-left">
-            <p className="label-text" style={{ letterSpacing: '0.4em', marginBottom: '24px' }}>
-              Whether It&apos;s A Question Or Feedback, The Lounge Is Always Open
-            </p>
+  
+  <div className="arches-container full-fluid-grid">
+    
+    {/* Left Arch: Form */}
+    <div className="reveal anim-fade-in arch-item item-left">
+      {/* 🌟 New Inner Image Placeholder for Left Arch */}
+   <div 
+  className="arch-inner-bg-placeholder" 
+  style={{ backgroundImage: `url('/bkwine.png')` }} 
+/>
+      
+      {/* Form Foreground Content Stays Completely Safe Below */}
+      
+    </div>
 
-            <form className="form-column" onSubmit={(e) => e.preventDefault()}>
-              <div className="input-group">
-                <label className="label-text">Full Name</label>
-                <input 
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  type="text" 
-                  placeholder="Your Name" 
-                  className="custom-input" 
-                />
-              </div>
-              
-              <div className="input-group">
-                <label className="label-text">Electronic Mail</label>
-                <input 
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  type="email" 
-                  placeholder="email@address.com" 
-                  className="custom-input" 
-                />
-              </div>
+    {/* Center Arch: Branding Spacing Element */}
+    <div className="reveal anim-fade-in arch-item item-center" style={{ transitionDelay: '0.1s' }}>
+      {/* 🌟 New Inner Image Placeholder for Center Arch */}
+      <div className="arch-inner-bg-placeholder" style={{ backgroundImage: "url('/bktag.png')" }} />
+      
+      
+    </div>
 
-              <div className="input-group">
-                <label className="label-text">Your Vision</label>
-                <textarea 
-                  name="vision"
-                  value={formData.vision}
-                  onChange={handleChange}
-                  rows={2} 
-                  placeholder="Tell us about your project" 
-                  className="custom-input" 
-                  style={{ resize: 'none' }}
-                />
-              </div>
+    {/* Right Arch: Directory / Social Atelier */}
+    <div className="reveal anim-fade-in arch-item item-right" style={{ transitionDelay: '0.1s' }}>
+      {/* 🌟 New Inner Image Placeholder for Right Arch */}
+      <div className="arch-inner-bg-placeholder" style={{ backgroundImage: "url('/bkbag.png')" }} />
+      
+    
+    </div>
 
-              <button 
-                disabled={!isFormValid}
-                type="submit" 
-                className={`submit-btn ${isFormValid ? 'valid' : ''}`}
-              >
-                <span style={{ position: 'relative', zIndex: 10 }}>Send Invitation</span>
-                <div className="btn-fill" />
-              </button>
-            </form>
-          </div>
-
-          {/* Center Arch: Branding Spacing Element */}
-          <div className="reveal anim-fade-in arch-item item-center" style={{ transitionDelay: '0.1s' }}>
-            <div className="arch-center-content">
-              <span className="text-gold" style={{ letterSpacing: '0.6em', textTransform: 'uppercase' }}>
-                The Lounge
-              </span>
-            </div>
-          </div>
-
-          {/* Right Arch: Directory / Social Atelier */}
-          <div className="reveal anim-fade-in arch-item item-right" style={{ transitionDelay: '0.1s' }}>
-            <div className="details-column">
-              <div style={{ marginBottom: '40px' }}>
-                <h3 className="label-text" style={{ marginBottom: '32px', color: '#666' }}>Social Atelier</h3>
-                {socials.map((social) => (
-                  <a 
-                    key={social.name} 
-                    href={social.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="social-link"
-                    style={{ display: 'block', marginBottom: '12px' }}
-                  >
-                    {social.name}
-                  </a>
-                ))}
-              </div>
-
-              <div>
-                <h3 className="label-text" style={{ marginBottom: '32px', color: '#666' }}>Direct Contact</h3>
-                <p className="social-link" style={{ pointerEvents: 'none', opacity: 0.8 }}>
-                  concierge@yourstudio.com
-                </p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
+  </div>
+</section>
 
 
       {/* 3. FOOTER SECTION (Full-Width Image Cover Placeholder) */}
