@@ -39,21 +39,32 @@ export default function Contact() {
   return (
     <div className="contact-page">
       
-            {/* 1. TOP SECTION */}
-      <section className="top-section-split full-viewport-width">
-        
-        {/* Left Side: Background Image Area forced to top-left corners */}
-        <div className="fullscreen-hero-bg">
-          <img 
-            src="/checkin.png" 
-            alt="The Design Lounge Atelier" 
-            className="hero-img-fill"
-          />
-        </div>
+        {/* 1. TOP SECTION */}
+{/* 1. TOP SECTION */}
+<section className="top-section-split full-viewport-width">
+  
+  {/* Left Side: Background Image Area forced to top-left corners */}
+  <div className="fullscreen-hero-bg">
+    <img 
+      src="/checkin.png" 
+      alt="The Design Lounge Atelier" 
+      className="hero-img-fill"
+    />
+  </div>
 
-     
+  {/* Right Content Layout Area */}
+  <div className="top-section-content-right reveal anim-slide-up">
+    <div className="hero-right-text-wrapper">
+      <span className="hero-subtitle text-gold">The Atelier</span>
+      <h1 className="hero-title font-serif">Curated Design Studio</h1>
+      <p className="hero-summary">
+        A private architectural sanctuary built for digital craftsmanship, visionary concepts, and tactile brand development. Step inside the workspace where imagination transforms into structured reality.
+      </p>
+    </div>
+  </div>
 
-      </section>
+</section>
+
 
 
      {/* 2. MIDDLE SECTION (3 Arches Filling the Section Left to Right) */}

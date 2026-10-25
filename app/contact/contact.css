@@ -398,3 +398,59 @@ background-image: url('/backimage.png');
 }
 
 .social-link:hover { color: #D4AF37; }
+/* 🌟 BACKGROUND IMAGE GRID (Now fills the full screen canvas layer) */
+.fullscreen-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Changed from 50vw to 100vw to cover the full width behind everything */
+  height: 100%; 
+  overflow: hidden;
+  z-index: 1; /* Keeps image resting underneath text overlays securely */
+}
+
+/* Direct image presentation rendering bounds */
+.hero-img-fill {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: center right; /* 🌟 Focuses the photographic lens anchor points on the right screen zone */
+  display: block;
+}
+
+/* 🌟 RIGHT CONTENT LAYOUT OVERLAY FRAME */
+.top-section-content-right {
+  z-index: 2; /* Forces text to float beautifully over the background graphic */
+  width: 50vw; /* Keeps text completely isolated on the right display panel area */
+  padding-left: 64px; 
+  padding-right: 96px; 
+  box-sizing: border-box;
+}
+
+/* Typography styles matching the luxury aesthetic */
+.hero-right-text-wrapper .hero-subtitle {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  margin-bottom: 24px;
+}
+
+.hero-right-text-wrapper .hero-title {
+  font-size: clamp(2.5rem, 4.5vw, 5rem);
+  font-weight: 200;
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0 0 32px 0;
+  letter-spacing: -0.02em;
+}
+
+.hero-right-text-wrapper .hero-summary {
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7); 
+  max-width: 480px; 
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
