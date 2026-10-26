@@ -60,7 +60,7 @@ export default function Contact() {
 
 {/* 🌟 New Intermediate Context Sentence */}
 <p className="label-text" style={{ letterSpacing: '0.4em', marginBottom: '24px' }}>
-  Whether It&apos;s A Question Or Feedback, The Lounge Is Always Open
+Your Brand&apos;s Next Chapter Starts Here
 </p>
 
 <p className="hero-summary">
