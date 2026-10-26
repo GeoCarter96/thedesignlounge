@@ -59,12 +59,12 @@ export default function Contact() {
      <h1 className="hero-title font-serif">Ready To Check In?</h1>
 
 {/* 🌟 New Intermediate Context Sentence */}
-<p className="hero-tagline text-gold">
-  Your brand's next chapter starts here. 
+<p className="label-text" style={{ letterSpacing: '0.4em', marginBottom: '24px' }}>
+  Whether It&apos;s A Question Or Feedback, The Lounge Is Always Open
 </p>
 
 <p className="hero-summary">
-  Whether you know exactly what you need or could use a little guidance, your stay starts with helping us understand where your brand is where you'd like to go.
+  Whether you know exactly what you need or could use a little guidance, your stay starts with helping us understand where your brand is and where you&apos;d like to go.
 </p>
 
     </div>
