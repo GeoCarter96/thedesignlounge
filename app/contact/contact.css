@@ -1,11 +1,19 @@
 /* ==========================================
    1. GLOBAL PAGE LAYOUT & TYPOGRAPHY
    ========================================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .contact-page {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   background-color: #000000;
   color: #ffffff;
-  padding: 160px 24px 96px; 
+  padding: 0 24px 0px; /* 👈 Removed bottom padding to prevent dark background trailing leakage */
   margin-top: 0 !important;
   padding-top: 0 !important;
   width: 100%;
@@ -67,6 +75,9 @@
   box-sizing: border-box;
 }
 
+/* ==========================================
+   3. ARCHES EXPERIENCE SECTION
+   ========================================== */
 .full-width-arches-section {
   width: 100vw;
   position: relative;
@@ -80,11 +91,11 @@
   padding-top: 140px; 
   padding-bottom: 80px;
   
-  /* 🌟 Added: Keeps the gold outer edge clipping neatly if there's any section overflow */
+  /* Keeps the gold outer edge clipping neatly if there's any section overflow */
   overflow: hidden; 
 }
 
-/* 🌟 OUTER GOLD METALLIC SHINY BORDER FRAME */
+/* OUTER GOLD METALLIC SHINY BORDER FRAME */
 .full-width-arches-section::before {
   content: "";
   position: absolute;
@@ -108,13 +119,12 @@
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   
-  padding: 2px; /* 🌟 Stroke Thickness: Change to 1px or 3px to adjust how fine the line is */
+  padding: 2px; /* Stroke Thickness: Change to 1px or 3px to adjust how fine the line is */
   z-index: 10;  /* Places the frame cleanly over the image background and inner borders */
   pointer-events: none; /* Keeps all form items and buttons clickable underneath */
 }
 
-
-/* 🌟 New Title Layer Typography Configurations */
+/* Title Layer Typography Configurations */
 .arches-section-header {
   text-align: center;
   margin-bottom: 80px; /* Space between the new title and the arches below */
@@ -141,7 +151,6 @@
   letter-spacing: -0.02em;
 }
 
-
 .arches-bg-placeholder {
   position: absolute;
   inset: 0;
@@ -150,19 +159,16 @@
   z-index: -1; 
   pointer-events: none; 
   
-  /* 🌟 REPLACE THIS URL PATH WITH YOUR LOCAL ASSET OR ONLINE LINK */
-background-image: url('/backimage.png');
-
+  background-image: url('/backimage.png');
   
-  /* 🖼️ HIGH-END GRAPHIC PRESENTATION RULES */
+  /* HIGH-END GRAPHIC PRESENTATION RULES */
   background-size: cover;       /* Automatically scales your image to fill the whole screen space */
   background-position: center;  /* Pins the middle of your image straight to the viewport center */
   background-repeat: no-repeat; /* Prevents image from repeating or tiling ugly block seams */
   
-  /* 🌗 SOFT TRANSPARENCY BLENDING PANEL */
+  /* SOFT TRANSPARENCY BLENDING PANEL */
   opacity: 0.35; /* Dims the image slightly so your gold lines and form text pop crisp and clean */
 }
-
 
 /* Flexbox layout wrapper holding the rows */
 .arches-container.full-fluid-grid {
@@ -172,15 +178,15 @@ background-image: url('/backimage.png');
   padding: 0 30px; 
   box-sizing: border-box;
   
-  /* 🌟 Force a tall structural baseline height */
+  /* Force a tall structural baseline height */
   min-height: 85vh; /* Pushes the arches to take up 85% of the viewport height */
 }
 
 .arch-item {
   flex: 1; 
   min-width: 0; 
-  position: relative; /* 🌟 Crucial to anchor the inner local image position */
-  overflow: hidden; /* 🌟 Cuts the local image into a smooth arch shape */
+  position: relative; /* Crucial to anchor the inner local image position */
+  overflow: hidden; /* Cuts the local image into a smooth arch shape */
   
   /* TALL EXTENDED ARCH CURVES */
   border-top-left-radius: 999px;
@@ -205,7 +211,7 @@ background-image: url('/backimage.png');
   animation: luxuryGoldPulse 4s ease-in-out infinite;
 }
 
-/* 🌟 NEW: Local Image Formatting Layer */
+/* Local Image Formatting Layer */
 .arch-inner-bg-placeholder {
   position: absolute;
   inset: 0;
@@ -218,14 +224,12 @@ background-image: url('/backimage.png');
   background-position: center;
   background-repeat: no-repeat;
   
-  /* Optional: Soft translucent glass mask over your local photo */
-  /* This ensures dark mode text remains highly readable over bright images */
+  /* Soft translucent glass mask over your local photo */
   background-blend-mode: overlay;
   background-color: rgba(15, 15, 15, 0.4); 
 }
 
-
-/* 🌟 GOLD SHIMMER & BREATHING GLOW ANIMATION */
+/* GOLD SHIMMER & BREATHING GLOW ANIMATION */
 @keyframes luxuryGoldPulse {
   0% {
     box-shadow: 0 -5px 20px rgba(212, 175, 55, 0.05);
@@ -233,11 +237,8 @@ background-image: url('/backimage.png');
     opacity: 1;
   }
   50% {
-    /* At peak pulse, the ambient golden back-glow expands softly */
     box-shadow: 0 -8px 40px rgba(212, 175, 55, 0.25);
-    opacity: 2; /* Maintained your maximum presence values */
-    
-    /* Slightly shifts ambient color balance dynamically */
+    opacity: 2; 
     filter: brightness(2); 
   }
   100% {
@@ -246,17 +247,6 @@ background-image: url('/backimage.png');
     opacity: 2;
   }
 }
-
-
-
-
-
-
-
-/* 🌟 METALLIC GOLD SHINY OUTLINE */
-
-
-
 
 .arch-center-content {
   display: flex;
@@ -316,180 +306,40 @@ background-image: url('/backimage.png');
   font-weight: 200;
   margin-top: 8px;
   color: #ffffff;
-  outline: none;
-  font-family: ui-sans-serif, system-ui, sans-serif;
-}
-
-.custom-input::placeholder { color: #666; }
-
-/* ==========================================
-   5. INTERACTIVE BUTTON STYLES
-   ========================================== */
-.submit-btn {
-  align-self: flex-start;
-  position: relative;
-  overflow: hidden;
-  padding: 20px 40px;
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background: transparent;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.4em;
-  font-size: 10px;
-  cursor: not-allowed;
-  transition: all 0.5s ease;
-}
-
-.submit-btn.valid {
-  border-color: #D4AF37;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.submit-btn.valid:hover { color: #000000; }
-
-.btn-fill {
-  position: absolute;
-  inset: 0;
-  background-color: #D4AF37;
-  transform: translateY(100%);
-  transition: transform 0.5s ease-out;
-  z-index: -1;
-}
-
-.submit-btn.valid:hover .btn-fill {
-  transform: translateY(0);
 }
 
 /* ==========================================
-   6. ANIMATION & ELEMENT STATES
+   5. COMPACT FOOTER DESIGN BLOCK & FIXES
    ========================================== */
-.reveal {
-  opacity: 0;
-  transition: all 1.2s ease;
-}
-
-.anim-slide-up { transform: translateY(32px); }
-.anim-fade-in { transform: none; }
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.details-column {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-}
-
-.social-link {
-  display: block;
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  margin-bottom: 16px;
-  width: fit-content;
-  transition: color 0.3s;
-}
-
-.social-link:hover { color: #D4AF37; }
-/* 🌟 BACKGROUND IMAGE GRID (Now fills the full screen canvas layer) */
-.fullscreen-hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw; /* Changed from 50vw to 100vw to cover the full width behind everything */
-  height: 100%; 
-  overflow: hidden;
-  z-index: 1; /* Keeps image resting underneath text overlays securely */
-}
-
-/* Direct image presentation rendering bounds */
-.hero-img-fill {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; 
-  object-position: center right; /* 🌟 Focuses the photographic lens anchor points on the right screen zone */
-  display: block;
-}
-
-/* 🌟 RIGHT CONTENT LAYOUT OVERLAY FRAME */
-.top-section-content-right {
-  z-index: 2; /* Forces text to float beautifully over the background graphic */
-  width: 50vw; /* Keeps text completely isolated on the right display panel area */
-  padding-left: 64px; 
-  padding-right: 96px; 
-  box-sizing: border-box;
-}
-
-/* Typography styles matching the luxury aesthetic */
-.hero-right-text-wrapper .hero-subtitle {
-  display: block;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.5em;
-  margin-bottom: 24px;
-}
-
-.hero-right-text-wrapper .hero-title {
-  font-size: clamp(2.5rem, 4.5vw, 5rem);
-  font-weight: 200;
-  line-height: 1.1;
-  color: #ffffff;
-  margin: 0 0 32px 0;
-  letter-spacing: -0.02em;
-}
-
-.hero-right-text-wrapper .hero-summary {
-  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
-  font-weight: 300;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.7); 
-  max-width: 480px; 
-  margin: 0;
-  font-family: ui-sans-serif, system-ui, sans-serif;
-}
-.hero-right-text-wrapper .hero-tagline {
-  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
-  font-weight: 300;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin: -16px 0 24px 0; /* Pulls slightly closer to title while leaving room for summary */
-  font-family: ui-sans-serif, system-ui, sans-serif;
-}
-/* 1. Ensure the main footer container has no padding or margins spilling out */
+/* ==========================================
+   5. COMPACT FOOTER DESIGN BLOCK & FIXES
+   ========================================== */
 .footer-section {
-  width: 96%; 
+  width: 100%;               /* 👈 Keeps your preferred compact alignment boundary */
+  height: 250px;            /* 👈 Set an explicit height so the image can fill the box equally */
   margin-top: 0;
-  margin-bottom: 0;
-  margin-left: 0;      
-  margin-right: auto;  
-  padding: 0;
-  line-height: 0; 
+  margin-bottom: 0 !important; 
+  margin-left: 0;           /* 👈 Flushes component cleanly to the left wall */
+  margin-right: auto;       
+  padding: 0 !important;    
   
+  display: block;           
+  overflow: hidden;         /* 👈 Ensures no background leaks out of the container boundaries */
 }
 
 .footer-image-placeholder {
   width: 100%;
-  height: auto; 
+  height: 100%;            /* 👈 Forces the placeholder to take up the full container height */
+  padding: 0;
+  margin: 0;
 }
 
 .footer-image {
-  width: 105%; /* 👈 Make it slightly wider than 100% so it has extra room to shift */
-  height: auto; 
-  display: block;
-  object-fit: cover; 
-  margin-left: -20px; /* 👈 Adjust this pixel number up or down until the black space disappears */
+  width: 100%; 
+  height: 100%;            /* 👈 Forces the image height to match the placeholder */
+  display: block;           
+  object-fit: fill;        /* 👈 Stretches the image evenly to fill all 4 edges with zero margins */
+  margin: 0;
+  padding: 0;
 }
-
-
-
-
-
-
 
