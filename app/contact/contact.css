@@ -462,3 +462,30 @@ background-image: url('/backimage.png');
   margin: -16px 0 24px 0; /* Pulls slightly closer to title while leaving room for summary */
   font-family: ui-sans-serif, system-ui, sans-serif;
 }
+/* 1. Ensure the main footer container has no padding or margins spilling out */
+.footer-section {
+  width: 100vw; /* 👈 Forces the footer to be the exact width of the screen */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -51vw;
+ 
+  line-height: 0;
+}
+
+.footer-image-placeholder {
+  width: 100%;
+  height: auto; /* Allows the wrapper to grow with the image */
+}
+
+.footer-image {
+  width: 100%;
+  height: auto; 
+  object-fit: contain; 
+  object-position: left center; /* 👈 Shifts the image to the far right end */
+}
+
+
+
+
+

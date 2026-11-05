@@ -119,11 +119,15 @@ Your Brand&apos;s Next Chapter Starts Here.
 
 
       {/* 3. FOOTER SECTION (Full-Width Image Cover Placeholder) */}
-      <footer className="footer-section reveal anim-fade-in">
-        <div className="footer-image-placeholder">
-          <span className="placeholder-text">Footer Cover Image Placeholder</span>
-        </div>
-      </footer>
+   <footer className="footer-section reveal anim-fade-in">
+  <div className="footer-image-placeholder">
+    <img 
+      src="/banner.png" 
+      alt="Footer Cover" 
+      className="footer-image" 
+    />
+  </div>
+</footer>
 
     </div>
   );
