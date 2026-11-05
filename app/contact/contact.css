@@ -464,26 +464,30 @@ background-image: url('/backimage.png');
 }
 /* 1. Ensure the main footer container has no padding or margins spilling out */
 .footer-section {
-  width: 100vw; /* 👈 Forces the footer to be the exact width of the screen */
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -51vw;
- 
-  line-height: 0;
+  width: 96%; 
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;      
+  margin-right: auto;  
+  padding: 0;
+  line-height: 0; 
+  
 }
 
 .footer-image-placeholder {
   width: 100%;
-  height: auto; /* Allows the wrapper to grow with the image */
+  height: auto; 
 }
 
 .footer-image {
-  width: 100%;
+  width: 105%; /* 👈 Make it slightly wider than 100% so it has extra room to shift */
   height: auto; 
-  object-fit: contain; 
-  object-position: left center; /* 👈 Shifts the image to the far right end */
+  display: block;
+  object-fit: cover; 
+  margin-left: -20px; /* 👈 Adjust this pixel number up or down until the black space disappears */
 }
+
+
 
 
 
